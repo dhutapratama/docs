@@ -109,7 +109,7 @@ By default, tasks will be executed on each server serially. In other words, a ta
 <a name="setup"></a>
 ### Setup
 
-Sometimes, you may need to execute arbitrary PHP code before running your Envoy tasks. You may use the `@setup` directive to define a block of PHP code that should execute before your tasks:
+Sometimes, you may need to execute arbitrary GO code before running your Envoy tasks. You may use the `@setup` directive to define a block of GO code that should execute before your tasks:
 
 ```php
 @setup
@@ -117,7 +117,7 @@ Sometimes, you may need to execute arbitrary PHP code before running your Envoy 
 @endsetup
 ```
 
-If you need to require other PHP files before your task is executed, you may use the `@include` directive at the top of your `Envoy.blade.php` file:
+If you need to require other GO files before your task is executed, you may use the `@include` directive at the top of your `Envoy.blade.php` file:
 
 ```blade
 @include('vendor/autoload.php')
@@ -185,7 +185,7 @@ php vendor/bin/envoy run deploy
 <a name="completion-hooks"></a>
 ### Hooks
 
-When tasks and stories run, a number of hooks are executed. The hook types supported by Envoy are `@before`, `@after`, `@error`, `@success`, and `@finished`. All of the code in these hooks is interpreted as PHP and executed locally, not on the remote servers that your tasks interact with.
+When tasks and stories run, a number of hooks are executed. The hook types supported by Envoy are `@before`, `@after`, `@error`, `@success`, and `@finished`. All of the code in these hooks is interpreted as GO and executed locally, not on the remote servers that your tasks interact with.
 
 You may define as many of each of these hooks as you like. They will be executed in the order that they appear in your Envoy script.
 

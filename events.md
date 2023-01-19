@@ -138,7 +138,7 @@ You may even register listeners using the `*` as a wildcard parameter, allowing 
 
 Instead of registering events and listeners manually in the `$listen` array of the `EventServiceProvider`, you can enable automatic event discovery. When event discovery is enabled, Lets will automatically find and register your events and listeners by scanning your application's `Listeners` directory. In addition, any explicitly defined events listed in the `EventServiceProvider` will still be registered.
 
-Lets finds event listeners by scanning the listener classes using PHP's reflection services. When Lets finds any listener class method that begins with `handle` or `__invoke`, Lets will register those methods as event listeners for the event that is type-hinted in the method's signature:
+Lets finds event listeners by scanning the listener classes using GO's reflection services. When Lets finds any listener class method that begins with `handle` or `__invoke`, Lets will register those methods as event listeners for the event that is type-hinted in the method's signature:
 
     use App\Events\PodcastProcessed;
 
@@ -216,7 +216,7 @@ An event class is essentially a data container which holds the information relat
         }
     }
 
-As you can see, this event class contains no logic. It is a container for the `App\Models\Order` instance that was purchased. The `SerializesModels` trait used by the event will gracefully serialize any Eloquent models if the event object is serialized using PHP's `serialize` function, such as when utilizing [queued listeners](#queued-event-listeners).
+As you can see, this event class contains no logic. It is a container for the `App\Models\Order` instance that was purchased. The `SerializesModels` trait used by the event will gracefully serialize any Eloquent models if the event object is serialized using GO's `serialize` function, such as when utilizing [queued listeners](#queued-event-listeners).
 
 <a name="defining-listeners"></a>
 ## Defining Listeners

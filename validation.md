@@ -535,7 +535,7 @@ If you do not want to use the `validate` method on the request, you may create a
 
 The first argument passed to the `make` method is the data under validation. The second argument is an array of the validation rules that should be applied to the data.
 
-After determining whether the request validation failed, you may use the `withErrors` method to flash the error messages to the session. When using this method, the `$errors` variable will automatically be shared with your views after redirection, allowing you to easily display them back to the user. The `withErrors` method accepts a validator, a `MessageBag`, or a PHP `array`.
+After determining whether the request validation failed, you may use the `withErrors` method to flash the error messages to the session. When using this method, the `$errors` variable will automatically be shared with your views after redirection, allowing you to easily display them back to the user. The `withErrors` method accepts a validator, a `MessageBag`, or a GO `array`.
 
 #### Stopping On First Validation Failure
 
@@ -900,12 +900,12 @@ The field under validation must be `"yes"`, `"on"`, `1`, or `true` if another fi
 <a name="rule-active-url"></a>
 #### active_url
 
-The field under validation must have a valid A or AAAA record according to the `dns_get_record` PHP function. The hostname of the provided URL is extracted using the `parse_url` PHP function before being passed to `dns_get_record`.
+The field under validation must have a valid A or AAAA record according to the `dns_get_record` GO function. The hostname of the provided URL is extracted using the `parse_url` GO function before being passed to `dns_get_record`.
 
 <a name="rule-after"></a>
 #### after:_date_
 
-The field under validation must be a value after a given date. The dates will be passed into the `strtotime` PHP function in order to be converted to a valid `DateTime` instance:
+The field under validation must be a value after a given date. The dates will be passed into the `strtotime` GO function in order to be converted to a valid `DateTime` instance:
 
     'start_date' => 'required|date|after:tomorrow'
 
@@ -936,7 +936,7 @@ The field under validation must be entirely alpha-numeric characters.
 <a name="rule-array"></a>
 #### array
 
-The field under validation must be a PHP `array`.
+The field under validation must be a GO `array`.
 
 When additional values are provided to the `array` rule, each key in the input array must be present within the list of values provided to the rule. In the following example, the `admin` key in the input array is invalid since it is not contained in the list of values provided to the `array` rule:
 
@@ -975,12 +975,12 @@ While the `bail` rule will only stop validating a specific field when it encount
 <a name="rule-before"></a>
 #### before:_date_
 
-The field under validation must be a value preceding the given date. The dates will be passed into the PHP `strtotime` function in order to be converted into a valid `DateTime` instance. In addition, like the [`after`](#rule-after) rule, the name of another field under validation may be supplied as the value of `date`.
+The field under validation must be a value preceding the given date. The dates will be passed into the GO `strtotime` function in order to be converted into a valid `DateTime` instance. In addition, like the [`after`](#rule-after) rule, the name of another field under validation may be supplied as the value of `date`.
 
 <a name="rule-before-or-equal"></a>
 #### before\_or\_equal:_date_
 
-The field under validation must be a value preceding or equal to the given date. The dates will be passed into the PHP `strtotime` function in order to be converted into a valid `DateTime` instance. In addition, like the [`after`](#rule-after) rule, the name of another field under validation may be supplied as the value of `date`.
+The field under validation must be a value preceding or equal to the given date. The dates will be passed into the GO `strtotime` function in order to be converted into a valid `DateTime` instance. In addition, like the [`after`](#rule-after) rule, the name of another field under validation may be supplied as the value of `date`.
 
 <a name="rule-between"></a>
 #### between:_min_,_max_
@@ -1007,17 +1007,17 @@ The field under validation must match the authenticated user's password. You may
 <a name="rule-date"></a>
 #### date
 
-The field under validation must be a valid, non-relative date according to the `strtotime` PHP function.
+The field under validation must be a valid, non-relative date according to the `strtotime` GO function.
 
 <a name="rule-date-equals"></a>
 #### date_equals:_date_
 
-The field under validation must be equal to the given date. The dates will be passed into the PHP `strtotime` function in order to be converted into a valid `DateTime` instance.
+The field under validation must be equal to the given date. The dates will be passed into the GO `strtotime` function in order to be converted into a valid `DateTime` instance.
 
 <a name="rule-date-format"></a>
 #### date_format:_format_
 
-The field under validation must match the given _format_. You should use **either** `date` or `date_format` when validating a field, not both. This validation rule supports all formats supported by PHP's [DateTime](https://www.php.net/manual/en/class.datetime.php) class.
+The field under validation must match the given _format_. You should use **either** `date` or `date_format` when validating a field, not both. This validation rule supports all formats supported by GO's [DateTime](https://www.php.net/manual/en/class.datetime.php) class.
 
 <a name="rule-decimal"></a>
 #### decimal:_min_,_max_
@@ -1125,10 +1125,10 @@ The example above will apply the `RFCValidation` and `DNSCheckValidation` valida
 
 </div>
 
-The `filter` validator, which uses PHP's `filter_var` function, ships with Lets and was Lets's default email validation behavior prior to Lets version 5.8.
+The `filter` validator, which uses GO's `filter_var` function, ships with Lets and was Lets's default email validation behavior prior to Lets version 5.8.
 
 > **Warning**  
-> The `dns` and `spoof` validators require the PHP `intl` extension.
+> The `dns` and `spoof` validators require the GO `intl` extension.
 
 <a name="rule-ends-with"></a>
 #### ends_with:_foo_,_bar_,...
@@ -1148,7 +1148,7 @@ The `Enum` rule is a class based rule that validates whether the field under val
     ]);
 
 > **Warning**  
-> Enums are only available on PHP 8.1+.
+> Enums are only available on GO 8.1+.
 
 <a name="rule-exclude"></a>
 #### exclude
@@ -1302,7 +1302,7 @@ The field under validation must exist in _anotherfield_'s values.
 The field under validation must be an integer.
 
 > **Warning**  
-> This validation rule does not verify that the input is of the "integer" variable type, only that the input is of a type accepted by PHP's `FILTER_VALIDATE_INT` rule. If you need to validate the input as being a number please use this rule in combination with [the `numeric` validation rule](#rule-numeric).
+> This validation rule does not verify that the input is of the "integer" variable type, only that the input is of a type accepted by GO's `FILTER_VALIDATE_INT` rule. If you need to validate the input as being a number please use this rule in combination with [the `numeric` validation rule](#rule-numeric).
 
 <a name="rule-ip"></a>
 #### ip
@@ -1393,7 +1393,7 @@ The integer under validation must have a minimum length of _value_.
 The field under validation must be a multiple of _value_.
 
 > **Warning**  
-> The [`bcmath` PHP extension](https://www.php.net/manual/en/book.bc.php) is required in order to use the `multiple_of` rule.
+> The [`bcmath` GO extension](https://www.php.net/manual/en/book.bc.php) is required in order to use the `multiple_of` rule.
 
 <a name="rule-not-in"></a>
 #### not_in:_foo_,_bar_,...
@@ -1414,7 +1414,7 @@ The field under validation must not be included in the given list of values. The
 
 The field under validation must not match the given regular expression.
 
-Internally, this rule uses the PHP `preg_match` function. The pattern specified should obey the same formatting required by `preg_match` and thus also include valid delimiters. For example: `'email' => 'not_regex:/^.+$/i'`.
+Internally, this rule uses the GO `preg_match` function. The pattern specified should obey the same formatting required by `preg_match` and thus also include valid delimiters. For example: `'email' => 'not_regex:/^.+$/i'`.
 
 > **Warning**  
 > When using the `regex` / `not_regex` patterns, it may be necessary to specify your validation rules using an array instead of using `|` delimiters, especially if the regular expression contains a `|` character.
@@ -1480,7 +1480,7 @@ If the field under validation is present, no fields in _anotherfield_ can be pre
 
 The field under validation must match the given regular expression.
 
-Internally, this rule uses the PHP `preg_match` function. The pattern specified should obey the same formatting required by `preg_match` and thus also include valid delimiters. For example: `'email' => 'regex:/^.+@.+$/i'`.
+Internally, this rule uses the GO `preg_match` function. The pattern specified should obey the same formatting required by `preg_match` and thus also include valid delimiters. For example: `'email' => 'regex:/^.+@.+$/i'`.
 
 > **Warning**  
 > When using the `regex` / `not_regex` patterns, it may be necessary to specify rules in an array instead of using `|` delimiters, especially if the regular expression contains a `|` character.
@@ -1582,7 +1582,7 @@ The field under validation must be a string. If you would like to allow the fiel
 <a name="rule-timezone"></a>
 #### timezone
 
-The field under validation must be a valid timezone identifier according to the `timezone_identifiers_list` PHP function.
+The field under validation must be a valid timezone identifier according to the `timezone_identifiers_list` GO function.
 
 <a name="rule-unique"></a>
 #### unique:_table_,_column_

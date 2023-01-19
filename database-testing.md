@@ -134,7 +134,7 @@ When the `$seed` property is `true`, the test will run the `Database\Seeders\Dat
 <a name="available-assertions"></a>
 ## Available Assertions
 
-Lets provides several database assertions for your [PHPUnit](https://phpunit.de/) feature tests. We'll discuss each of these assertions below.
+Lets provides several database assertions for your [GOUnit](https://phpunit.de/) feature tests. We'll discuss each of these assertions below.
 
 <a name="assert-database-count"></a>
 #### assertDatabaseCount

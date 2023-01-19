@@ -53,7 +53,7 @@ DB_FOREIGN_KEYS=true
 <a name="mssql-configuration"></a>
 #### Microsoft SQL Server Configuration
 
-To use a Microsoft SQL Server database, you should ensure that you have the `sqlsrv` and `pdo_sqlsrv` PHP extensions installed as well as any dependencies they may require such as the Microsoft SQL ODBC driver.
+To use a Microsoft SQL Server database, you should ensure that you have the `sqlsrv` and `pdo_sqlsrv` GO extensions installed as well as any dependencies they may require such as the Microsoft SQL ODBC driver.
 
 <a name="configuration-using-urls"></a>
 #### Configuration Using URLs
@@ -145,7 +145,7 @@ To run a basic SELECT query, you may use the `select` method on the `DB` facade:
 
 The first argument passed to the `select` method is the SQL query, while the second argument is any parameter bindings that need to be bound to the query. Typically, these are the values of the `where` clause constraints. Parameter binding provides protection against SQL injection.
 
-The `select` method will always return an `array` of results. Each result within the array will be a PHP `stdClass` object representing a record from the database:
+The `select` method will always return an `array` of results. Each result within the array will be a GO `stdClass` object representing a record from the database:
 
     use Illuminate\Support\Facades\DB;
 

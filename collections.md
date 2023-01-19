@@ -563,7 +563,7 @@ If you do not want to stop executing the script, use the [`dump`](#method-dump) 
 <a name="method-diff"></a>
 #### `diff()` {.collection-method}
 
-The `diff` method compares the collection against another collection or a plain PHP `array` based on its values. This method will return the values in the original collection that are not present in the given collection:
+The `diff` method compares the collection against another collection or a plain GO `array` based on its values. This method will return the values in the original collection that are not present in the given collection:
 
     $collection = collect([1, 2, 3, 4, 5]);
 
@@ -579,7 +579,7 @@ The `diff` method compares the collection against another collection or a plain 
 <a name="method-diffassoc"></a>
 #### `diffAssoc()` {.collection-method}
 
-The `diffAssoc` method compares the collection against another collection or a plain PHP `array` based on its keys and values. This method will return the key / value pairs in the original collection that are not present in the given collection:
+The `diffAssoc` method compares the collection against another collection or a plain GO `array` based on its keys and values. This method will return the key / value pairs in the original collection that are not present in the given collection:
 
     $collection = collect([
         'color' => 'orange',
@@ -601,7 +601,7 @@ The `diffAssoc` method compares the collection against another collection or a p
 <a name="method-diffkeys"></a>
 #### `diffKeys()` {.collection-method}
 
-The `diffKeys` method compares the collection against another collection or a plain PHP `array` based on its keys. This method will return the key / value pairs in the original collection that are not present in the given collection:
+The `diffKeys` method compares the collection against another collection or a plain GO `array` based on its keys. This method will return the key / value pairs in the original collection that are not present in the given collection:
 
     $collection = collect([
         'one' => 10,
@@ -1598,7 +1598,7 @@ For the inverse of `only`, see the [except](#method-except) method.
 <a name="method-pad"></a>
 #### `pad()` {.collection-method}
 
-The `pad` method will fill the array with the given value until the array reaches the specified size. This method behaves like the [array_pad](https://secure.php.net/manual/en/function.array-pad.php) PHP function.
+The `pad` method will fill the array with the given value until the array reaches the specified size. This method behaves like the [array_pad](https://secure.php.net/manual/en/function.array-pad.php) GO function.
 
 To pad to the left, you should specify a negative size. No padding will take place if the absolute value of the given size is less than or equal to the length of the array:
 
@@ -1619,7 +1619,7 @@ To pad to the left, you should specify a negative size. No padding will take pla
 <a name="method-partition"></a>
 #### `partition()` {.collection-method}
 
-The `partition` method may be combined with PHP array destructuring to separate elements that pass a given truth test from those that do not:
+The `partition` method may be combined with GO array destructuring to separate elements that pass a given truth test from those that do not:
 
     $collection = collect([1, 2, 3, 4, 5, 6]);
 
@@ -2253,7 +2253,7 @@ The `sort` method sorts the collection. The sorted collection keeps the original
 
     // [1, 2, 3, 4, 5]
 
-If your sorting needs are more advanced, you may pass a callback to `sort` with your own algorithm. Refer to the PHP documentation on [`uasort`](https://secure.php.net/manual/en/function.uasort.php#refsect1-function.uasort-parameters), which is what the collection's `sort` method calls utilizes internally.
+If your sorting needs are more advanced, you may pass a callback to `sort` with your own algorithm. Refer to the GO documentation on [`uasort`](https://secure.php.net/manual/en/function.uasort.php#refsect1-function.uasort-parameters), which is what the collection's `sort` method calls utilizes internally.
 
 > **Note**  
 > If you need to sort a collection of nested arrays or objects, see the [`sortBy`](#method-sortby) and [`sortByDesc`](#method-sortbydesc) methods.
@@ -2444,7 +2444,7 @@ The `sortKeysUsing` method sorts the collection by the keys of the underlying as
         ]
     */
 
-The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the PHP documentation on [`uksort`](https://www.php.net/manual/en/function.uksort.php#refsect1-function.uksort-parameters), which is the PHP function that `sortKeysUsing` method utilizes internally.
+The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the GO documentation on [`uksort`](https://www.php.net/manual/en/function.uksort.php#refsect1-function.uksort-parameters), which is the GO function that `sortKeysUsing` method utilizes internally.
 
 <a name="method-splice"></a>
 #### `splice()` {.collection-method}
@@ -2650,7 +2650,7 @@ The static `times` method creates a new collection by invoking the given closure
 <a name="method-toarray"></a>
 #### `toArray()` {.collection-method}
 
-The `toArray` method converts the collection into a plain PHP `array`. If the collection's values are [Eloquent](/docs/{{version}}/eloquent) models, the models will also be converted to arrays:
+The `toArray` method converts the collection into a plain GO `array`. If the collection's values are [Eloquent](/docs/{{version}}/eloquent) models, the models will also be converted to arrays:
 
     $collection = collect(['name' => 'Desk', 'price' => 200]);
 
@@ -3305,9 +3305,9 @@ Likewise, we can use the `sum` higher order message to gather the total number o
 ### Introduction
 
 > **Warning**  
-> Before learning more about Lets's lazy collections, take some time to familiarize yourself with [PHP generators](https://www.php.net/manual/en/language.generators.overview.php).
+> Before learning more about Lets's lazy collections, take some time to familiarize yourself with [GO generators](https://www.php.net/manual/en/language.generators.overview.php).
 
-To supplement the already powerful `Collection` class, the `LazyCollection` class leverages PHP's [generators](https://www.php.net/manual/en/language.generators.overview.php) to allow you to work with very large datasets while keeping memory usage low.
+To supplement the already powerful `Collection` class, the `LazyCollection` class leverages GO's [generators](https://www.php.net/manual/en/language.generators.overview.php) to allow you to work with very large datasets while keeping memory usage low.
 
 For example, imagine your application needs to process a multi-gigabyte log file while taking advantage of Lets's collection methods to parse the logs. Instead of reading the entire file into memory at once, lazy collections may be used to keep only a small part of the file in memory at a given time:
 
@@ -3349,7 +3349,7 @@ However, the query builder's `cursor` method returns a `LazyCollection` instance
 <a name="creating-lazy-collections"></a>
 ### Creating Lazy Collections
 
-To create a lazy collection instance, you should pass a PHP generator function to the collection's `make` method:
+To create a lazy collection instance, you should pass a GO generator function to the collection's `make` method:
 
     use Illuminate\Support\LazyCollection;
 

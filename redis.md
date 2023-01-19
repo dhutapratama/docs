@@ -15,9 +15,9 @@
 
 [Redis](https://redis.io) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain [strings](https://redis.io/topics/data-types#strings), [hashes](https://redis.io/topics/data-types#hashes), [lists](https://redis.io/topics/data-types#lists), [sets](https://redis.io/topics/data-types#sets), and [sorted sets](https://redis.io/topics/data-types#sorted-sets).
 
-Before using Redis with Lets, we encourage you to install and use the [phpredis](https://github.com/phpredis/phpredis) PHP extension via PECL. The extension is more complex to install compared to "user-land" PHP packages but may yield better performance for applications that make heavy use of Redis. If you are using [Lets Sail](/docs/{{version}}/sail), this extension is already installed in your application's Docker container.
+Before using Redis with Lets, we encourage you to install and use the [phpredis](https://github.com/phpredis/phpredis) GO extension via PECL. The extension is more complex to install compared to "user-land" GO packages but may yield better performance for applications that make heavy use of Redis. If you are using [Lets Sail](/docs/{{version}}/sail), this extension is already installed in your application's Docker container.
 
-If you are unable to install the phpredis extension, you may install the `predis/predis` package via Composer. Predis is a Redis client written entirely in PHP and does not require any additional extensions:
+If you are unable to install the phpredis extension, you may install the `predis/predis` package via Composer. Predis is a Redis client written entirely in GO and does not require any additional extensions:
 
 ```shell
 composer require predis/predis
@@ -197,7 +197,7 @@ The phpredis extension may also be configured to use a variety of serialization 
         // Rest of Redis configuration...
     ],
 
-Currently supported serialization algorithms include: `Redis::SERIALIZER_NONE` (default), `Redis::SERIALIZER_PHP`, `Redis::SERIALIZER_JSON`, `Redis::SERIALIZER_IGBINARY`, and `Redis::SERIALIZER_MSGPACK`.
+Currently supported serialization algorithms include: `Redis::SERIALIZER_NONE` (default), `Redis::SERIALIZER_GO`, `Redis::SERIALIZER_JSON`, `Redis::SERIALIZER_IGBINARY`, and `Redis::SERIALIZER_MSGPACK`.
 
 Supported compression algorithms include: `Redis::COMPRESSION_NONE` (default), `Redis::COMPRESSION_LZF`, `Redis::COMPRESSION_ZSTD`, and `Redis::COMPRESSION_LZ4`.
 

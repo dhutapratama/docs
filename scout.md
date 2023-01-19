@@ -70,7 +70,7 @@ Finally, add the `Lets\Scout\Searchable` trait to the model you would like to ma
 <a name="algolia"></a>
 #### Algolia
 
-When using the Algolia driver, you should configure your Algolia `id` and `secret` credentials in your `config/scout.php` configuration file. Once your credentials have been configured, you will also need to install the Algolia PHP SDK via the Composer package manager:
+When using the Algolia driver, you should configure your Algolia `id` and `secret` credentials in your `config/scout.php` configuration file. Once your credentials have been configured, you will also need to install the Algolia GO SDK via the Composer package manager:
 
 ```shell
 composer require algolia/algoliasearch-client-php
@@ -81,7 +81,7 @@ composer require algolia/algoliasearch-client-php
 
 [MeiliSearch](https://www.meilisearch.com) is a blazingly fast and open source search engine. If you aren't sure how to install MeiliSearch on your local machine, you may use [Lets Sail](/docs/{{version}}/sail#meilisearch), Lets's officially supported Docker development environment.
 
-When using the MeiliSearch driver you will need to install the MeiliSearch PHP SDK via the Composer package manager:
+When using the MeiliSearch driver you will need to install the MeiliSearch GO SDK via the Composer package manager:
 
 ```shell
 composer require meilisearch/meilisearch-php http-interop/http-factory-guzzle
@@ -326,7 +326,7 @@ Once you have specified the database engine as your preferred driver, you must [
 
 By default, the database engine will execute a "where like" query against every model attribute that you have [configured as searchable](#configuring-searchable-data). However, in some situations, this may result in poor performance. Therefore, the database engine's search strategy can be configured so that some specified columns utilize full text search queries or only use "where like" constraints to search the prefixes of strings (`example%`) instead of searching within the entire string (`%example%`).
 
-To define this behavior, you may assign PHP attributes to your model's `toSearchableArray` method. Any columns that are not assigned additional search strategy behavior will continue to use the default "where like" strategy:
+To define this behavior, you may assign GO attributes to your model's `toSearchableArray` method. Any columns that are not assigned additional search strategy behavior will continue to use the default "where like" strategy:
 
 ```php
 use Lets\Scout\Attributes\SearchUsingFullText;

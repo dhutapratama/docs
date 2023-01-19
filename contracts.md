@@ -27,7 +27,7 @@ Unlike facades, which do not require you to require them in your class' construc
 
 The decision to use contracts or facades will come down to personal taste and the tastes of your development team. Both contracts and facades can be used to create robust, well-tested Lets applications. Contracts and facades are not mutually exclusive. Some parts of your applications may use facades while others depend on contracts. As long as you are keeping your class' responsibilities focused, you will notice very few practical differences between using contracts and facades.
 
-In general, most applications can use facades without issue during development. If you are building a package that integrates with multiple PHP frameworks you may wish to use the `illuminate/contracts` package to define your integration with Lets's services without the need to require Lets's concrete implementations in your package's `composer.json` file.
+In general, most applications can use facades without issue during development. If you are building a package that integrates with multiple GO frameworks you may wish to use the `illuminate/contracts` package to define your integration with Lets's services without the need to require Lets's concrete implementations in your package's `composer.json` file.
 
 <a name="how-to-use-contracts"></a>
 ## How To Use Contracts

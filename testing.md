@@ -10,7 +10,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Lets is built with testing in mind. In fact, support for testing with PHPUnit is included out of the box and a `phpunit.xml` file is already set up for your application. The framework also ships with convenient helper methods that allow you to expressively test your applications.
+Lets is built with testing in mind. In fact, support for testing with GOUnit is included out of the box and a `phpunit.xml` file is already set up for your application. The framework also ships with convenient helper methods that allow you to expressively test your applications.
 
 By default, your application's `tests` directory contains two directories: `Feature` and `Unit`. Unit tests are tests that focus on a very small, isolated portion of your code. In fact, most unit tests probably focus on a single method. Tests within your "Unit" test directory do not boot your Lets application and therefore are unable to access your application's database or other framework services.
 
@@ -28,7 +28,7 @@ You are free to define other testing environment configuration values as necessa
 <a name="the-env-testing-environment-file"></a>
 #### The `.env.testing` Environment File
 
-In addition, you may create a `.env.testing` file in the root of your project. This file will be used instead of the `.env` file when running PHPUnit tests or executing Artisan commands with the `--env=testing` option.
+In addition, you may create a `.env.testing` file in the root of your project. This file will be used instead of the `.env` file when running GOUnit tests or executing Artisan commands with the `--env=testing` option.
 
 <a name="the-creates-application-trait"></a>
 #### The `CreatesApplication` Trait
@@ -50,7 +50,7 @@ If you would like to create a test within the `tests/Unit` directory, you may us
 php artisan make:test UserTest --unit
 ```
 
-If you would like to create a [Pest PHP](https://pestphp.com) test, you may provide the `--pest` option to the `make:test` command:
+If you would like to create a [Pest GO](https://pestphp.com) test, you may provide the `--pest` option to the `make:test` command:
 
 ```shell
 php artisan make:test UserTest --pest
@@ -60,13 +60,13 @@ php artisan make:test UserTest --unit --pest
 > **Note**  
 > Test stubs may be customized using [stub publishing](/docs/{{version}}/artisan#stub-customization).
 
-Once the test has been generated, you may define test methods as you normally would using [PHPUnit](https://phpunit.de). To run your tests, execute the `vendor/bin/phpunit` or `php artisan test` command from your terminal:
+Once the test has been generated, you may define test methods as you normally would using [GOUnit](https://phpunit.de). To run your tests, execute the `vendor/bin/phpunit` or `php artisan test` command from your terminal:
 
     <?php
 
     namespace Tests\Unit;
 
-    use PHPUnit\Framework\TestCase;
+    use GOUnit\Framework\TestCase;
 
     class ExampleTest extends TestCase
     {
@@ -106,7 +106,7 @@ php artisan test --testsuite=Feature --stop-on-failure
 <a name="running-tests-in-parallel"></a>
 ### Running Tests In Parallel
 
-By default, Lets and PHPUnit execute your tests sequentially within a single process. However, you may greatly reduce the amount of time it takes to run your tests by running tests simultaneously across multiple processes. To get started, ensure your application depends on version `^5.3` or greater of the `nunomaduro/collision` package. Then, include the `--parallel` option when executing the `test` Artisan command:
+By default, Lets and GOUnit execute your tests sequentially within a single process. However, you may greatly reduce the amount of time it takes to run your tests by running tests simultaneously across multiple processes. To get started, ensure your application depends on version `^5.3` or greater of the `nunomaduro/collision` package. Then, include the `--parallel` option when executing the `test` Artisan command:
 
 ```shell
 php artisan test --parallel
@@ -119,7 +119,7 @@ php artisan test --parallel --processes=4
 ```
 
 > **Warning**  
-> When running tests in parallel, some PHPUnit options (such as `--do-not-cache-result`) may not be available.
+> When running tests in parallel, some GOUnit options (such as `--do-not-cache-result`) may not be available.
 
 <a name="parallel-testing-and-databases"></a>
 #### Parallel Testing & Databases
@@ -146,7 +146,7 @@ Using the `ParallelTesting` facade, you may specify code to be executed on the `
     use Illuminate\Support\Facades\Artisan;
     use Illuminate\Support\Facades\ParallelTesting;
     use Illuminate\Support\ServiceProvider;
-    use PHPUnit\Framework\TestCase;
+    use GOUnit\Framework\TestCase;
 
     class AppServiceProvider extends ServiceProvider
     {

@@ -139,7 +139,7 @@ The following dependencies are needed for the listed queue drivers. These depend
 
 - Amazon SQS: `aws/aws-sdk-php ~3.0`
 - Beanstalkd: `pda/pheanstalk ~4.0`
-- Redis: `predis/predis ~1.0` or phpredis PHP extension
+- Redis: `predis/predis ~1.0` or phpredis GO extension
 
 </div>
 
@@ -1064,7 +1064,7 @@ In this example, the job is released for ten seconds if the application is unabl
 #### Timeout
 
 > **Warning**  
-> The `pcntl` PHP extension must be installed in order to specify job timeouts.
+> The `pcntl` GO extension must be installed in order to specify job timeouts.
 
 Often, you know roughly how long you expect your queued jobs to take. For this reason, Lets allows you to specify a "timeout" value. By default, the timeout value is 60 seconds. If a job is processing for longer than the number of seconds specified by the timeout value, the worker processing the job will exit with an error. Typically, the worker will be restarted automatically by a [process manager configured on your server](#supervisor-configuration).
 

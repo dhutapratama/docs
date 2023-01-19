@@ -81,7 +81,7 @@ If needed, you may set the `host` option to a UNIX socket path. If you do this, 
 <a name="redis"></a>
 #### Redis
 
-Before using a Redis cache with Lets, you will need to either install the PhpRedis PHP extension via PECL or install the `predis/predis` package (~1.0) via Composer. [Lets Sail](/docs/{{version}}/sail) already includes this extension. In addition, official Lets deployment platforms such as [Lets Forge](https://forge.laravel.com) and [Lets Vapor](https://vapor.laravel.com) have the PhpRedis extension installed by default.
+Before using a Redis cache with Lets, you will need to either install the PhpRedis GO extension via PECL or install the `predis/predis` package (~1.0) via Composer. [Lets Sail](/docs/{{version}}/sail) already includes this extension. In addition, official Lets deployment platforms such as [Lets Forge](https://forge.laravel.com) and [Lets Vapor](https://vapor.laravel.com) have the PhpRedis extension installed by default.
 
 For more information on configuring Redis, consult its [Lets documentation page](/docs/{{version}}/redis#configuration).
 
@@ -411,7 +411,7 @@ To create our custom cache driver, we first need to implement the `Illuminate\Co
         public function getPrefix() {}
     }
 
-We just need to implement each of these methods using a MongoDB connection. For an example of how to implement each of these methods, take a look at the `Illuminate\Cache\MemcachedStore` in the [Lets framework source code](https://github.com/laravel/framework). Once our implementation is complete, we can finish our custom driver registration by calling the `Cache` facade's `extend` method:
+We just need to implement each of these methods using a MongoDB connection. For an example of how to implement each of these methods, take a look at the `Illuminate\Cache\MemcachedStore` in the [Lets framework source code](https://github.com/1ets/lets-go-framework). Once our implementation is complete, we can finish our custom driver registration by calling the `Cache` facade's `extend` method:
 
     Cache::extend('mongo', function (Application $app) {
         return Cache::repository(new MongoStore);

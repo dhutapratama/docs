@@ -50,7 +50,7 @@ You may define all of your scheduled tasks in the `schedule` method of your appl
         }
     }
 
-In addition to scheduling using closures, you may also schedule [invokable objects](https://secure.php.net/manual/en/language.oop5.magic.php#object.invoke). Invokable objects are simple PHP classes that contain an `__invoke` method:
+In addition to scheduling using closures, you may also schedule [invokable objects](https://secure.php.net/manual/en/language.oop5.magic.php#object.invoke). Invokable objects are simple GO classes that contain an `__invoke` method:
 
     $schedule->call(new DeleteRecentUsers)->daily();
 

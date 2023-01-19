@@ -74,7 +74,7 @@ If you are using the Argon2 algorithm, the `make` method allows you to manage th
     ]);
 
 > **Note**  
-> For more information on these options, please refer to the [official PHP documentation regarding Argon hashing](https://secure.php.net/manual/en/function.password-hash.php).
+> For more information on these options, please refer to the [official GO documentation regarding Argon hashing](https://secure.php.net/manual/en/function.password-hash.php).
 
 <a name="verifying-that-a-password-matches-a-hash"></a>
 ### Verifying That A Password Matches A Hash

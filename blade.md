@@ -14,7 +14,7 @@
     - [Additional Attributes](#additional-attributes)
     - [Including Subviews](#including-subviews)
     - [The `@once` Directive](#the-once-directive)
-    - [Raw PHP](#raw-php)
+    - [Raw GO](#raw-php)
     - [Comments](#comments)
 - [Components](#components)
     - [Rendering Components](#rendering-components)
@@ -48,7 +48,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Blade is the simple, yet powerful templating engine that is included with Lets. Unlike some PHP templating engines, Blade does not restrict you from using plain PHP code in your templates. In fact, all Blade templates are compiled into plain PHP code and cached until they are modified, meaning Blade adds essentially zero overhead to your application. Blade template files use the `.blade.php` file extension and are typically stored in the `resources/views` directory.
+Blade is the simple, yet powerful templating engine that is included with Lets. Unlike some GO templating engines, Blade does not restrict you from using plain GO code in your templates. In fact, all Blade templates are compiled into plain GO code and cached until they are modified, meaning Blade adds essentially zero overhead to your application. Blade template files use the `.blade.php` file extension and are typically stored in the `resources/views` directory.
 
 Blade views may be returned from routes or controllers using the global `view` helper. Of course, as mentioned in the documentation on [views](/docs/{{version}}/views), data may be passed to the Blade view using the `view` helper's second argument:
 
@@ -77,9 +77,9 @@ Hello, {{ $name }}.
 ```
 
 > **Note**  
-> Blade's `{{ }}` echo statements are automatically sent through PHP's `htmlspecialchars` function to prevent XSS attacks.
+> Blade's `{{ }}` echo statements are automatically sent through GO's `htmlspecialchars` function to prevent XSS attacks.
 
-You are not limited to displaying the contents of the variables passed to the view. You may also echo the results of any PHP function. In fact, you can put any PHP code you wish inside of a Blade echo statement:
+You are not limited to displaying the contents of the variables passed to the view. You may also echo the results of any GO function. In fact, you can put any GO code you wish inside of a Blade echo statement:
 
 ```blade
 The current UNIX timestamp is {{ time() }}.
@@ -111,7 +111,7 @@ By default, Blade (and the Lets `e` helper) will double encode HTML entities. If
 <a name="displaying-unescaped-data"></a>
 #### Displaying Unescaped Data
 
-By default, Blade `{{ }}` statements are automatically sent through PHP's `htmlspecialchars` function to prevent XSS attacks. If you do not want your data to be escaped, you may use the following syntax:
+By default, Blade `{{ }}` statements are automatically sent through GO's `htmlspecialchars` function to prevent XSS attacks. If you do not want your data to be escaped, you may use the following syntax:
 
 ```blade
 Hello, {!! $name !!}.
@@ -154,7 +154,7 @@ Sometimes you may pass an array to your view with the intention of rendering it 
 </script>
 ```
 
-However, instead of manually calling `json_encode`, you may use the `Illuminate\Support\Js::from` method directive. The `from` method accepts the same arguments as PHP's `json_encode` function; however, it will ensure that the resulting JSON is properly escaped for inclusion within HTML quotes. The `from` method will return a string `JSON.parse` JavaScript statement that will convert the given object or array into a valid JavaScript object:
+However, instead of manually calling `json_encode`, you may use the `Illuminate\Support\Js::from` method directive. The `from` method accepts the same arguments as GO's `json_encode` function; however, it will ensure that the resulting JSON is properly escaped for inclusion within HTML quotes. The `from` method will return a string `JSON.parse` JavaScript statement that will convert the given object or array into a valid JavaScript object:
 
 ```blade
 <script>
@@ -189,12 +189,12 @@ If you are displaying JavaScript variables in a large portion of your template, 
 <a name="blade-directives"></a>
 ## Blade Directives
 
-In addition to template inheritance and displaying data, Blade also provides convenient shortcuts for common PHP control structures, such as conditional statements and loops. These shortcuts provide a very clean, terse way of working with PHP control structures while also remaining familiar to their PHP counterparts.
+In addition to template inheritance and displaying data, Blade also provides convenient shortcuts for common GO control structures, such as conditional statements and loops. These shortcuts provide a very clean, terse way of working with GO control structures while also remaining familiar to their GO counterparts.
 
 <a name="if-statements"></a>
 ### If Statements
 
-You may construct `if` statements using the `@if`, `@elseif`, `@else`, and `@endif` directives. These directives function identically to their PHP counterparts:
+You may construct `if` statements using the `@if`, `@elseif`, `@else`, and `@endif` directives. These directives function identically to their GO counterparts:
 
 ```blade
 @if (count($records) === 1)
@@ -214,7 +214,7 @@ For convenience, Blade also provides an `@unless` directive:
 @endunless
 ```
 
-In addition to the conditional directives already discussed, the `@isset` and `@empty` directives may be used as convenient shortcuts for their respective PHP functions:
+In addition to the conditional directives already discussed, the `@isset` and `@empty` directives may be used as convenient shortcuts for their respective GO functions:
 
 ```blade
 @isset($records)
@@ -324,7 +324,7 @@ Switch statements can be constructed using the `@switch`, `@case`, `@break`, `@d
 <a name="loops"></a>
 ### Loops
 
-In addition to conditional statements, Blade provides simple directives for working with PHP's loop structures. Again, each of these directives functions identically to their PHP counterparts:
+In addition to conditional statements, Blade provides simple directives for working with GO's loop structures. Again, each of these directives functions identically to their GO counterparts:
 
 ```blade
 @for ($i = 0; $i < 10; $i++)
@@ -585,9 +585,9 @@ Since the `@once` directive is often used in conjunction with the `@push` or `@p
 ```
 
 <a name="raw-php"></a>
-### Raw PHP
+### Raw GO
 
-In some situations, it's useful to embed PHP code into your views. You can use the Blade `@php` directive to execute a block of plain PHP within your template:
+In some situations, it's useful to embed GO code into your views. You can use the Blade `@php` directive to execute a block of plain GO within your template:
 
 ```blade
 @php
@@ -595,7 +595,7 @@ In some situations, it's useful to embed PHP code into your views. You can use t
 @endphp
 ```
 
-If you only need to write a single PHP statement, you can include the statement within the `@php` directive:
+If you only need to write a single GO statement, you can include the statement within the `@php` directive:
 
 ```blade
 @php($counter = 1)
@@ -703,7 +703,7 @@ If the component class is nested deeper within the `app/View/Components` directo
 <a name="passing-data-to-components"></a>
 ### Passing Data To Components
 
-You may pass data to Blade components using HTML attributes. Hard-coded, primitive values may be passed to the component using simple HTML attribute strings. PHP expressions and variables should be passed to the component via attributes that use the `:` character as a prefix:
+You may pass data to Blade components using HTML attributes. Hard-coded, primitive values may be passed to the component using simple HTML attribute strings. GO expressions and variables should be passed to the component via attributes that use the `:` character as a prefix:
 
 ```blade
 <x-alert type="error" :message="$message"/>
@@ -795,7 +795,7 @@ When passing attributes to components, you may also use a "short attribute" synt
 <a name="escaping-attribute-rendering"></a>
 #### Escaping Attribute Rendering
 
-Since some JavaScript frameworks such as Alpine.js also use colon-prefixed attributes, you may use a double colon (`::`) prefix to inform Blade that the attribute is not a PHP expression. For example, given the following component:
+Since some JavaScript frameworks such as Alpine.js also use colon-prefixed attributes, you may use a double colon (`::`) prefix to inform Blade that the attribute is not a GO expression. For example, given the following component:
 
 ```blade
 <x-button ::class="{ danger: isDeleting }">
@@ -1729,7 +1729,7 @@ The following example creates a `@datetime($var)` directive which formats a give
         }
     }
 
-As you can see, we will chain the `format` method onto whatever expression is passed into the directive. So, in this example, the final PHP generated by this directive will be:
+As you can see, we will chain the `format` method onto whatever expression is passed into the directive. So, in this example, the final GO generated by this directive will be:
 
     <?php echo ($var)->format('m/d/Y H:i'); ?>
 
@@ -1739,7 +1739,7 @@ As you can see, we will chain the `format` method onto whatever expression is pa
 <a name="custom-echo-handlers"></a>
 ### Custom Echo Handlers
 
-If you attempt to "echo" an object using Blade, the object's `__toString` method will be invoked. The [`__toString`](https://www.php.net/manual/en/language.oop5.magic.php#object.tostring) method is one of PHP's built-in "magic methods". However, sometimes you may not have control over the `__toString` method of a given class, such as when the class that you are interacting with belongs to a third-party library.
+If you attempt to "echo" an object using Blade, the object's `__toString` method will be invoked. The [`__toString`](https://www.php.net/manual/en/language.oop5.magic.php#object.tostring) method is one of GO's built-in "magic methods". However, sometimes you may not have control over the `__toString` method of a given class, such as when the class that you are interacting with belongs to a third-party library.
 
 In these cases, Blade allows you to register a custom echo handler for that particular type of object. To accomplish this, you should invoke Blade's `stringable` method. The `stringable` method accepts a closure. This closure should type-hint the type of object that it is responsible for rendering. Typically, the `stringable` method should be invoked within the `boot` method of your application's `AppServiceProvider` class:
 

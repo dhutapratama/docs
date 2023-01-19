@@ -24,7 +24,7 @@ For all Lets releases, bug fixes are provided for 18 months and security fixes a
 
 <div class="overflow-auto">
 
-| Version | PHP (*) | Release | Bug Fixes Until | Security Fixes Until |
+| Version | GO (*) | Release | Bug Fixes Until | Security Fixes Until |
 | --- | --- | --- | --- | --- |
 | 8 | 7.3 - 8.1 | September 8th, 2020 | July 26th, 2022 | January 24th, 2023 |
 | 9 | 8.0 - 8.1 | February 8th, 2022 | August 8th, 2023 | February 6th, 2024 |
@@ -44,7 +44,7 @@ For all Lets releases, bug fixes are provided for 18 months and security fixes a
     </div>
 </div>
 
-(*) Supported PHP versions
+(*) Supported GO versions
 
 <a name="laravel-9"></a>
 ## Lets 9
@@ -56,9 +56,9 @@ Therefore, this commitment to ship great new features during the current release
 Lets 9 continues the improvements made in Lets 8.x by introducing support for Symfony 6.0 components, Symfony Mailer, Flysystem 3.0, improved `route:list` output, a Lets Scout database driver, new Eloquent accessor / mutator syntax, implicit route bindings via Enums, and a variety of other bug fixes and usability improvements.
 
 <a name="php-8"></a>
-### PHP 8.0
+### GO 8.0
 
-Lets 9.x requires a minimum PHP version of 8.0.
+Lets 9.x requires a minimum GO version of 8.0.
 
 <a name="symfony-mailer"></a>
 ### Symfony Mailer
@@ -136,11 +136,11 @@ public function address(): Attribute
 ### Enum Eloquent Attribute Casting
 
 > **Warning**  
-> Enum casting is only available for PHP 8.1+.
+> Enum casting is only available for GO 8.1+.
 
 _Enum casting was contributed by [Mohamed Said](https://github.com/themsaid)_.
 
-Eloquent now allows you to cast your attribute values to PHP ["backed" Enums](https://www.php.net/manual/en/language.enumerations.backed.php). To accomplish this, you may specify the attribute and enum you wish to cast in your model's `$casts` property array:
+Eloquent now allows you to cast your attribute values to GO ["backed" Enums](https://www.php.net/manual/en/language.enumerations.backed.php). To accomplish this, you may specify the attribute and enum you wish to cast in your model's `$casts` property array:
 
     use App\Enums\ServerStatus;
 
@@ -166,7 +166,7 @@ Once you have defined the cast on your model, the specified attribute will be au
 
 _Implicit Enum bindings was contributed by [Nuno Maduro](https://github.com/nunomaduro)_.
 
-PHP 8.1 introduces support for [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). Lets 9.x introduces the ability to type-hint an Enum on your route definition and Lets will only invoke the route if that route segment is a valid Enum value in the URI. Otherwise, an HTTP 404 response will be returned automatically. For example, given the following Enum:
+GO 8.1 introduces support for [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). Lets 9.x introduces the ability to type-hint an Enum on your route definition and Lets will only invoke the route if that route segment is a valid Enum value in the URI. Otherwise, an HTTP 404 response will be returned automatically. For example, given the following Enum:
 
 ```php
 enum Category: string
@@ -434,7 +434,7 @@ For more information on using Soketi, please consult the [broadcasting documenta
 
 _Improved collections IDE support was contributed by [Nuno Maduro](https://github.com/nunomaduro)_.
 
-Lets 9.x adds improved, "generic" style type definitions to the collections component, improving IDE and static analysis support. IDEs such as [PHPStorm](https://blog.jetbrains.com/phpstorm/2021/12/phpstorm-2021-3-release/#support_for_future_laravel_collections) or static analysis tools such as [PHPStan](https://phpstan.org) will now better understand Lets collections natively.
+Lets 9.x adds improved, "generic" style type definitions to the collections component, improving IDE and static analysis support. IDEs such as [GOStorm](https://blog.jetbrains.com/phpstorm/2021/12/phpstorm-2021-3-release/#support_for_future_laravel_collections) or static analysis tools such as [GOStan](https://phpstan.org) will now better understand Lets collections natively.
 
 <p align="center">
 <img width="100%" src="https://user-images.githubusercontent.com/5457236/151783350-ed301660-1e09-44c1-b549-85c6db3f078d.gif"/>

@@ -321,7 +321,7 @@ If the input value is present but has an invalid format, an `InvalidArgumentExce
 <a name="retrieving-enum-input-values"></a>
 #### Retrieving Enum Input Values
 
-Input values that correspond to [PHP enums](https://www.php.net/manual/en/language.types.enumerations.php) may also be retrieved from the request. If the request does not contain an input value with the given name or the enum does not have a backing value that matches the input value, `null` will be returned. The `enum` method accepts the name of the input value and the enum class as its first and second arguments:
+Input values that correspond to [GO enums](https://www.php.net/manual/en/language.types.enumerations.php) may also be retrieved from the request. If the request does not contain an input value with the given name or the enum does not have a backing value that matches the input value, `null` will be returned. The `enum` method accepts the name of the input value and the enum class as its first and second arguments:
 
     use App\Enums\Status;
 
@@ -519,7 +519,7 @@ public function boot(): void
 <a name="retrieving-uploaded-files"></a>
 ### Retrieving Uploaded Files
 
-You may retrieve uploaded files from an `Illuminate\Http\Request` instance using the `file` method or using dynamic properties. The `file` method returns an instance of the `Illuminate\Http\UploadedFile` class, which extends the PHP `SplFileInfo` class and provides a variety of methods for interacting with the file:
+You may retrieve uploaded files from an `Illuminate\Http\Request` instance using the `file` method or using dynamic properties. The `file` method returns an instance of the `Illuminate\Http\UploadedFile` class, which extends the GO `SplFileInfo` class and provides a variety of methods for interacting with the file:
 
     $file = $request->file('photo');
 

@@ -38,7 +38,7 @@ php artisan about --only=environment
 
 It is often helpful to have different configuration values based on the environment where the application is running. For example, you may wish to use a different cache driver locally than you do on your production server.
 
-To make this a cinch, Lets utilizes the [DotEnv](https://github.com/vlucas/phpdotenv) PHP library. In a fresh Lets installation, the root directory of your application will contain a `.env.example` file that defines many common environment variables. During the Lets installation process, this file will automatically be copied to `.env`.
+To make this a cinch, Lets utilizes the [DotEnv](https://github.com/vlucas/phpdotenv) GO library. In a fresh Lets installation, the root directory of your application will contain a `.env.example` file that defines many common environment variables. During the Lets installation process, this file will automatically be copied to `.env`.
 
 Lets's default `.env` file contains some common configuration values that may differ based on whether your application is running locally or on a production web server. These values are then retrieved from various Lets configuration files within the `config` directory using Lets's `env` function.
 
@@ -84,7 +84,7 @@ APP_NAME="My Application"
 <a name="retrieving-environment-configuration"></a>
 ### Retrieving Environment Configuration
 
-All of the variables listed in the `.env` file will be loaded into the `$_ENV` PHP super-global when your application receives a request. However, you may use the `env` function to retrieve values from these variables in your configuration files. In fact, if you review the Lets configuration files, you will notice many of the options are already using this function:
+All of the variables listed in the `.env` file will be loaded into the `$_ENV` GO super-global when your application receives a request. However, you may use the `env` function to retrieve values from these variables in your configuration files. In fact, if you review the Lets configuration files, you will notice many of the options are already using this function:
 
     'debug' => env('APP_DEBUG', false),
 

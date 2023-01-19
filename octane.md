@@ -47,7 +47,7 @@ php artisan octane:install
 ## Server Prerequisites
 
 > **Warning**  
-> Lets Octane requires [PHP 8.0+](https://php.net/releases/).
+> Lets Octane requires [GO 8.0+](https://php.net/releases/).
 
 <a name="roadrunner"></a>
 ### RoadRunner
@@ -80,7 +80,7 @@ After installing the RoadRunner binary, you may exit your Sail shell session. Yo
 ./vendor/bin/sail artisan sail:publish
 ```
 
-Next, update the `command` directive of your application's `docker/supervisord.conf` file so that Sail serves your application using Octane instead of the PHP development server:
+Next, update the `command` directive of your application's `docker/supervisord.conf` file so that Sail serves your application using Octane instead of the GO development server:
 
 ```ini
 command=/usr/bin/php -d variables_order=EGPCS /var/www/html/artisan octane:start --server=roadrunner --host=0.0.0.0 --rpc-port=6001 --port=80
@@ -97,7 +97,7 @@ chmod +x ./rr
 <a name="swoole"></a>
 ### Swoole
 
-If you plan to use the Swoole application server to serve your Lets Octane application, you must install the Swoole PHP extension. Typically, this can be done via PECL:
+If you plan to use the Swoole application server to serve your Lets Octane application, you must install the Swoole GO extension. Typically, this can be done via PECL:
 
 ```shell
 pecl install swoole
@@ -115,7 +115,7 @@ Alternatively, you may develop your Swoole based Octane application using [Lets 
 ./vendor/bin/sail artisan sail:publish
 ```
 
-Next, update the `command` directive of your application's `docker/supervisord.conf` file so that Sail serves your application using Octane instead of the PHP development server:
+Next, update the `command` directive of your application's `docker/supervisord.conf` file so that Sail serves your application using Octane instead of the GO development server:
 
 ```ini
 command=/usr/bin/php -d variables_order=EGPCS /var/www/html/artisan octane:start --server=swoole --host=0.0.0.0 --port=80
@@ -459,7 +459,7 @@ While building your application, you should take special care to avoid creating 
 > **Warning**  
 > This feature requires [Swoole](#swoole).
 
-When using Swoole, you may execute operations concurrently via light-weight background tasks. You may accomplish this using Octane's `concurrently` method. You may combine this method with PHP array destructuring to retrieve the results of each operation:
+When using Swoole, you may execute operations concurrently via light-weight background tasks. You may accomplish this using Octane's `concurrently` method. You may combine this method with GO array destructuring to retrieve the results of each operation:
 
 ```php
 use App\User;

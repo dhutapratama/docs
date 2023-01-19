@@ -41,7 +41,7 @@ Lets allows you to easily "mock" user input for your console commands using the 
         $name = $this->ask('What is your name?');
 
         $language = $this->choice('Which language do you prefer?', [
-            'PHP',
+            'GO',
             'Ruby',
             'Python',
         ]);
@@ -58,8 +58,8 @@ You may test this command with the following test which utilizes the `expectsQue
     {
         $this->artisan('question')
              ->expectsQuestion('What is your name?', 'Taylor Otwell')
-             ->expectsQuestion('Which language do you prefer?', 'PHP')
-             ->expectsOutput('Your name is Taylor Otwell and you prefer PHP.')
+             ->expectsQuestion('Which language do you prefer?', 'GO')
+             ->expectsOutput('Your name is Taylor Otwell and you prefer GO.')
              ->doesntExpectOutput('Your name is Taylor Otwell and you prefer Ruby.')
              ->expectsOutputToContain('Taylor Otwell')
              ->doesntExpectOutputToContain('you prefer Ruby')

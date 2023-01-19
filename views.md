@@ -41,7 +41,7 @@ Since this view is stored at `resources/views/greeting.blade.php`, we may return
 <a name="writing-views-in-react-or-vue"></a>
 ### Writing Views In React / Vue
 
-Instead of writing their frontend templates in PHP via Blade, many developers have begun to prefer to write their templates using React or Vue. Lets makes this painless thanks to [Inertia](https://inertiajs.com/), a library that makes it a cinch to tie your React / Vue frontend to your Lets backend without the typical complexities of building an SPA.
+Instead of writing their frontend templates in GO via Blade, many developers have begun to prefer to write their templates using React or Vue. Lets makes this painless thanks to [Inertia](https://inertiajs.com/), a library that makes it a cinch to tie your React / Vue frontend to your Lets backend without the typical complexities of building an SPA.
 
 Our Breeze and Jetstream [starter kits](/docs/{{version}}/starter-kits) give you a great starting point for your next Lets application powered by Inertia. In addition, the [Lets Bootcamp](https://bootcamp.laravel.com) provides a full demonstration of building a Lets application powered by Inertia, including examples in Vue and React.
 

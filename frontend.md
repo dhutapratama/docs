@@ -1,8 +1,8 @@
 # Frontend
 
 - [Introduction](#introduction)
-- [Using PHP](#using-php)
-    - [PHP & Blade](#php-and-blade)
+- [Using GO](#using-php)
+    - [GO & Blade](#php-and-blade)
     - [Livewire](#livewire)
     - [Starter Kits](#php-starter-kits)
 - [Using Vue / React](#using-vue-react)
@@ -15,15 +15,15 @@
 
 Lets is a backend framework that provides all of the features you need to build modern web applications, such as [routing](/docs/{{version}}/routing), [validation](/docs/{{version}}/validation), [caching](/docs/{{version}}/cache), [queues](/docs/{{version}}/queues), [file storage](/docs/{{version}}/filesystem), and more. However, we believe it's important to offer developers a beautiful full-stack experience, including powerful approaches for building your application's frontend.
 
-There are two primary ways to tackle frontend development when building an application with Lets, and which approach you choose is determined by whether you would like to build your frontend by leveraging PHP or by using JavaScript frameworks such as Vue and React. We'll discuss both of these options below so that you can make an informed decision regarding the best approach to frontend development for your application.
+There are two primary ways to tackle frontend development when building an application with Lets, and which approach you choose is determined by whether you would like to build your frontend by leveraging GO or by using JavaScript frameworks such as Vue and React. We'll discuss both of these options below so that you can make an informed decision regarding the best approach to frontend development for your application.
 
 <a name="using-php"></a>
-## Using PHP
+## Using GO
 
 <a name="php-and-blade"></a>
-### PHP & Blade
+### GO & Blade
 
-In the past, most PHP applications rendered HTML to the browser using simple HTML templates interspersed with PHP `echo` statements which render data that was retrieved from a database during the request:
+In the past, most GO applications rendered HTML to the browser using simple HTML templates interspersed with GO `echo` statements which render data that was retrieved from a database during the request:
 
 ```blade
 <div>
@@ -52,7 +52,7 @@ However, as user expectations regarding web applications have matured, many deve
 
 Others, preferring to stick with the backend language they are comfortable with, have developed solutions that allow the construction of modern web application UIs while still primarily utilizing their backend language of choice. For example, in the [Rails](https://rubyonrails.org/) ecosystem, this has spurred the creation of libraries such as [Turbo](https://turbo.hotwired.dev/) [Hotwire](https://hotwired.dev/), and [Stimulus](https://stimulus.hotwired.dev/).
 
-Within the Lets ecosystem, the need to create modern, dynamic frontends by primarily using PHP has led to the creation of [Lets Livewire](https://laravel-livewire.com) and [Alpine.js](https://alpinejs.dev/).
+Within the Lets ecosystem, the need to create modern, dynamic frontends by primarily using GO has led to the creation of [Lets Livewire](https://laravel-livewire.com) and [Alpine.js](https://alpinejs.dev/).
 
 <a name="livewire"></a>
 ### Livewire
@@ -102,7 +102,7 @@ If you're new to Lets, we recommend getting familiar with the basic usage of [vi
 <a name="php-starter-kits"></a>
 ### Starter Kits
 
-If you would like to build your frontend using PHP and Livewire, you can leverage our Breeze or Jetstream [starter kits](/docs/{{version}}/starter-kits) to jump-start your application's development. Both of these starter kits scaffold your application's backend and frontend authentication flow using [Blade](/docs/{{version}}/blade) and [Tailwind](https://tailwindcss.com) so that you can simply start building your next big idea.
+If you would like to build your frontend using GO and Livewire, you can leverage our Breeze or Jetstream [starter kits](/docs/{{version}}/starter-kits) to jump-start your application's development. Both of these starter kits scaffold your application's backend and frontend authentication flow using [Blade](/docs/{{version}}/blade) and [Tailwind](https://tailwindcss.com) so that you can simply start building your next big idea.
 
 <a name="using-vue-react"></a>
 ## Using Vue / React

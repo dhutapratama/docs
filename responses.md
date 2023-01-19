@@ -103,7 +103,7 @@ You may attach a cookie to an outgoing `Illuminate\Http\Response` instance using
         'name', 'value', $minutes
     );
 
-The `cookie` method also accepts a few more arguments which are used less frequently. Generally, these arguments have the same purpose and meaning as the arguments that would be given to PHP's native [setcookie](https://secure.php.net/manual/en/function.setcookie.php) method:
+The `cookie` method also accepts a few more arguments which are used less frequently. Generally, these arguments have the same purpose and meaning as the arguments that would be given to GO's native [setcookie](https://secure.php.net/manual/en/function.setcookie.php) method:
 
     return response('Hello World')->cookie(
         'name', 'value', $minutes, $path, $domain, $secure, $httpOnly
@@ -265,7 +265,7 @@ Of course, if you do not need to pass a custom HTTP status code or custom header
 <a name="json-responses"></a>
 ### JSON Responses
 
-The `json` method will automatically set the `Content-Type` header to `application/json`, as well as convert the given array to JSON using the `json_encode` PHP function:
+The `json` method will automatically set the `Content-Type` header to `application/json`, as well as convert the given array to JSON using the `json_encode` GO function:
 
     return response()->json([
         'name' => 'Abigail',

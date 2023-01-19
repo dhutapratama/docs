@@ -7,7 +7,7 @@
 - [Compiled Assets](#compiled-assets)
 - [Security Vulnerabilities](#security-vulnerabilities)
 - [Coding Style](#coding-style)
-    - [PHPDoc](#phpdoc)
+    - [GODoc](#phpdoc)
     - [StyleCI](#styleci)
 - [Code of Conduct](#code-of-conduct)
 
@@ -32,7 +32,7 @@ The Lets source code is managed on GitHub, and there are repositories for each o
 - [Lets Cashier Paddle](https://github.com/laravel/cashier-paddle)
 - [Lets Echo](https://github.com/laravel/echo)
 - [Lets Envoy](https://github.com/laravel/envoy)
-- [Lets Framework](https://github.com/laravel/framework)
+- [Lets Framework](https://github.com/1ets/lets-go-framework)
 - [Lets Homestead](https://github.com/laravel/homestead)
 - [Lets Homestead Build Scripts](https://github.com/laravel/settler)
 - [Lets Horizon](https://github.com/laravel/horizon)
@@ -55,7 +55,7 @@ Lets's GitHub issue trackers are not intended to provide Lets help or support. I
 
 <div class="content-list" markdown="1">
 
-- [GitHub Discussions](https://github.com/laravel/framework/discussions)
+- [GitHub Discussions](https://github.com/1ets/lets-go-framework/discussions)
 - [Laracasts Forums](https://laracasts.com/discuss)
 - [Lets.io Forums](https://laravel.io/forum)
 - [StackOverflow](https://stackoverflow.com/questions/tagged/laravel)
@@ -68,7 +68,7 @@ Lets's GitHub issue trackers are not intended to provide Lets help or support. I
 <a name="core-development-discussion"></a>
 ## Core Development Discussion
 
-You may propose new features or improvements of existing Lets behavior in the Lets framework repository's [GitHub discussion board](https://github.com/laravel/framework/discussions). If you propose a new feature, please be willing to implement at least some of the code that would be needed to complete the feature.
+You may propose new features or improvements of existing Lets behavior in the Lets framework repository's [GitHub discussion board](https://github.com/1ets/lets-go-framework/discussions). If you propose a new feature, please be willing to implement at least some of the code that would be needed to complete the feature.
 
 Informal discussion regarding bugs, new features, and implementation of existing features takes place in the `#internals` channel of the [Lets Discord server](https://discord.gg/laravel). Taylor Otwell, the maintainer of Lets, is typically present in the channel on weekdays from 8am-5pm (UTC-06:00 or America/Chicago), and sporadically present in the channel at other times.
 
@@ -97,7 +97,7 @@ If you discover a security vulnerability within Lets, please send an email to Ta
 Lets follows the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding standard and the [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) autoloading standard.
 
 <a name="phpdoc"></a>
-### PHPDoc
+### GODoc
 
 Below is an example of a valid Lets documentation block. Note that the `@param` attribute is followed by two spaces, the argument type, two more spaces, and finally the variable name:
 

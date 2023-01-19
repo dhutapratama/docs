@@ -82,7 +82,7 @@ You will also need to configure and run a [queue worker](/docs/{{version}}/queue
 <a name="pusher-channels"></a>
 ### Pusher Channels
 
-If you plan to broadcast your events using [Pusher Channels](https://pusher.com/channels), you should install the Pusher Channels PHP SDK using the Composer package manager:
+If you plan to broadcast your events using [Pusher Channels](https://pusher.com/channels), you should install the Pusher Channels GO SDK using the Composer package manager:
 
 ```shell
 composer require pusher/pusher-php-server
@@ -115,7 +115,7 @@ The [laravel-websockets](https://github.com/beyondcode/laravel-websockets) and [
 <a name="ably"></a>
 ### Ably
 
-If you plan to broadcast your events using [Ably](https://ably.io), you should install the Ably PHP SDK using the Composer package manager:
+If you plan to broadcast your events using [Ably](https://ably.io), you should install the Ably GO SDK using the Composer package manager:
 
 ```shell
 composer require ably/ably-php
@@ -139,9 +139,9 @@ Finally, you are ready to install and configure [Lets Echo](#client-side-install
 ### Open Source Alternatives
 
 <a name="open-source-alternatives-php"></a>
-#### PHP
+#### GO
 
-The [laravel-websockets](https://github.com/beyondcode/laravel-websockets) package is a pure PHP, Pusher compatible WebSocket package for Lets. This package allows you to leverage the full power of Lets broadcasting without a commercial WebSocket provider. For more information on installing and using this package, please consult its [official documentation](https://beyondco.de/docs/laravel-websockets).
+The [laravel-websockets](https://github.com/beyondcode/laravel-websockets) package is a pure GO, Pusher compatible WebSocket package for Lets. This package allows you to leverage the full power of Lets broadcasting without a commercial WebSocket provider. For more information on installing and using this package, please consult its [official documentation](https://beyondco.de/docs/laravel-websockets).
 
 <a name="open-source-alternatives-node"></a>
 #### Node

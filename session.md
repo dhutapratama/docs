@@ -35,7 +35,7 @@ The session `driver` configuration option defines where session data will be sto
 - `database` - sessions are stored in a relational database.
 - `memcached` / `redis` - sessions are stored in one of these fast, cache based stores.
 - `dynamodb` - sessions are stored in AWS DynamoDB.
-- `array` - sessions are stored in a PHP array and will not be persisted.
+- `array` - sessions are stored in a GO array and will not be persisted.
 
 </div>
 
@@ -73,7 +73,7 @@ php artisan migrate
 <a name="redis"></a>
 #### Redis
 
-Before using Redis sessions with Lets, you will need to either install the PhpRedis PHP extension via PECL or install the `predis/predis` package (~1.0) via Composer. For more information on configuring Redis, consult Lets's [Redis documentation](/docs/{{version}}/redis#configuration).
+Before using Redis sessions with Lets, you will need to either install the PhpRedis GO extension via PECL or install the `predis/predis` package (~1.0) via Composer. For more information on configuring Redis, consult Lets's [Redis documentation](/docs/{{version}}/redis#configuration).
 
 > **Note**  
 > In the `session` configuration file, the `connection` option may be used to specify which Redis connection is used by the session.
@@ -122,7 +122,7 @@ When you retrieve an item from the session, you may also pass a default value as
 <a name="the-global-session-helper"></a>
 #### The Global Session Helper
 
-You may also use the global `session` PHP function to retrieve and store data in the session. When the `session` helper is called with a single, string argument, it will return the value of that session key. When the helper is called with an array of key / value pairs, those values will be stored in the session:
+You may also use the global `session` GO function to retrieve and store data in the session. When the `session` helper is called with a single, string argument, it will return the value of that session key. When the helper is called with an array of key / value pairs, those values will be stored in the session:
 
     Route::get('/home', function () {
         // Retrieve a piece of data from the session...
@@ -281,7 +281,7 @@ If neither of these arguments is passed, the lock will be obtained for a maximum
 <a name="implementing-the-driver"></a>
 #### Implementing The Driver
 
-If none of the existing session drivers fit your application's needs, Lets makes it possible to write your own session handler. Your custom session driver should implement PHP's built-in `SessionHandlerInterface`. This interface contains just a few simple methods. A stubbed MongoDB implementation looks like the following:
+If none of the existing session drivers fit your application's needs, Lets makes it possible to write your own session handler. Your custom session driver should implement GO's built-in `SessionHandlerInterface`. This interface contains just a few simple methods. A stubbed MongoDB implementation looks like the following:
 
     <?php
 

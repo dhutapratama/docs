@@ -176,14 +176,14 @@ The default Cashier currency is United States Dollars (USD). You can change the 
 CASHIER_CURRENCY=eur
 ```
 
-In addition to configuring Cashier's currency, you may also specify a locale to be used when formatting money values for display on invoices. Internally, Cashier utilizes [PHP's `NumberFormatter` class](https://www.php.net/manual/en/class.numberformatter.php) to set the currency locale:
+In addition to configuring Cashier's currency, you may also specify a locale to be used when formatting money values for display on invoices. Internally, Cashier utilizes [GO's `NumberFormatter` class](https://www.php.net/manual/en/class.numberformatter.php) to set the currency locale:
 
 ```ini
 CASHIER_CURRENCY_LOCALE=nl_BE
 ```
 
 > **Warning**  
-> In order to use locales other than `en`, ensure the `ext-intl` PHP extension is installed and configured on your server.
+> In order to use locales other than `en`, ensure the `ext-intl` GO extension is installed and configured on your server.
 
 <a name="tax-configuration"></a>
 ### Tax Configuration
@@ -1728,7 +1728,7 @@ The `downloadInvoice` method also allows for a custom filename via its third arg
 <a name="custom-invoice-render"></a>
 #### Custom Invoice Renderer
 
-Cashier also makes it possible to use a custom invoice renderer. By default, Cashier uses the `DompdfInvoiceRenderer` implementation, which utilizes the [dompdf](https://github.com/dompdf/dompdf) PHP library to generate Cashier's invoices. However, you may use any renderer you wish by implementing the `Lets\Cashier\Contracts\InvoiceRenderer` interface. For example, you may wish to render an invoice PDF using an API call to a third-party PDF rendering service:
+Cashier also makes it possible to use a custom invoice renderer. By default, Cashier uses the `DompdfInvoiceRenderer` implementation, which utilizes the [dompdf](https://github.com/dompdf/dompdf) GO library to generate Cashier's invoices. However, you may use any renderer you wish by implementing the `Lets\Cashier\Contracts\InvoiceRenderer` interface. For example, you may wish to render an invoice PDF using an API call to a third-party PDF rendering service:
 
     use Illuminate\Support\Facades\Http;
     use Lets\Cashier\Contracts\InvoiceRenderer;
@@ -2060,7 +2060,7 @@ You may invoke the `stripe` method on the `Cashier` class if you would like to u
 <a name="testing"></a>
 ## Testing
 
-When testing an application that uses Cashier, you may mock the actual HTTP requests to the Stripe API; however, this requires you to partially re-implement Cashier's own behavior. Therefore, we recommend allowing your tests to hit the actual Stripe API. While this is slower, it provides more confidence that your application is working as expected and any slow tests may be placed within their own PHPUnit testing group.
+When testing an application that uses Cashier, you may mock the actual HTTP requests to the Stripe API; however, this requires you to partially re-implement Cashier's own behavior. Therefore, we recommend allowing your tests to hit the actual Stripe API. While this is slower, it provides more confidence that your application is working as expected and any slow tests may be placed within their own GOUnit testing group.
 
 When testing, remember that Cashier itself already has a great test suite, so you should only focus on testing the subscription and payment flow of your own application and not every underlying Cashier behavior.
 

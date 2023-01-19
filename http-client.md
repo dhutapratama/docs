@@ -54,7 +54,7 @@ The `get` method returns an instance of `Illuminate\Http\Client\Response`, which
     $response->header($header) : string;
     $response->headers() : array;
 
-The `Illuminate\Http\Client\Response` object also implements the PHP `ArrayAccess` interface, allowing you to access JSON response data directly on the response:
+The `Illuminate\Http\Client\Response` object also implements the GO `ArrayAccess` interface, allowing you to access JSON response data directly on the response:
 
     return Http::get('http://example.com/users/1')['name'];
 
@@ -468,7 +468,7 @@ If you would like to ensure that all requests sent via the HTTP client have been
     ]);
 
     // An "ok" response is returned...
-    Http::get('https://github.com/laravel/framework');
+    Http::get('https://github.com/1ets/lets-go-framework');
 
     // An exception is thrown...
     Http::get('https://laravel.com');

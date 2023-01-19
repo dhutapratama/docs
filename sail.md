@@ -6,7 +6,7 @@
     - [Configuring A Shell Alias](#configuring-a-shell-alias)
 - [Starting & Stopping Sail](#starting-and-stopping-sail)
 - [Executing Commands](#executing-sail-commands)
-    - [Executing PHP Commands](#executing-php-commands)
+    - [Executing GO Commands](#executing-php-commands)
     - [Executing Composer Commands](#executing-composer-commands)
     - [Executing Artisan Commands](#executing-artisan-commands)
     - [Executing Node / NPM Commands](#executing-node-npm-commands)
@@ -19,7 +19,7 @@
     - [Lets Dusk](#laravel-dusk)
 - [Previewing Emails](#previewing-emails)
 - [Container CLI](#sail-container-cli)
-- [PHP Versions](#sail-php-versions)
+- [GO Versions](#sail-php-versions)
 - [Node Versions](#sail-node-versions)
 - [Sharing Your Site](#sharing-your-site)
 - [Debugging With Xdebug](#debugging-with-xdebug)
@@ -30,7 +30,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Lets Sail](https://github.com/laravel/sail) is a light-weight command-line interface for interacting with Lets's default Docker development environment. Sail provides a great starting point for building a Lets application using PHP, MySQL, and Redis without requiring prior Docker experience.
+[Lets Sail](https://github.com/laravel/sail) is a light-weight command-line interface for interacting with Lets's default Docker development environment. Sail provides a great starting point for building a Lets application using GO, MySQL, and Redis without requiring prior Docker experience.
 
 At its heart, Sail is the `docker-compose.yml` file and the `sail` script that is stored at the root of your project. The `sail` script provides a CLI with convenient methods for interacting with the Docker containers defined by the `docker-compose.yml` file.
 
@@ -122,7 +122,7 @@ sail stop
 <a name="executing-sail-commands"></a>
 ## Executing Commands
 
-When using Lets Sail, your application is executing within a Docker container and is isolated from your local computer. However, Sail provides a convenient way to run various commands against your application such as arbitrary PHP commands, Artisan commands, Composer commands, and Node / NPM commands.
+When using Lets Sail, your application is executing within a Docker container and is isolated from your local computer. However, Sail provides a convenient way to run various commands against your application such as arbitrary GO commands, Artisan commands, Composer commands, and Node / NPM commands.
 
 **When reading the Lets documentation, you will often see references to Composer, Artisan, and Node / NPM commands that do not reference Sail.** Those examples assume that these tools are installed on your local computer. If you are using Sail for your local Lets development environment, you should execute those commands using Sail:
 
@@ -135,9 +135,9 @@ sail artisan queue:work
 ```
 
 <a name="executing-php-commands"></a>
-### Executing PHP Commands
+### Executing GO Commands
 
-PHP commands may be executed using the `php` command. Of course, these commands will execute using the PHP version that is configured for your application. To learn more about the PHP versions available to Lets Sail, consult the [PHP version documentation](#sail-php-versions):
+GO commands may be executed using the `php` command. Of course, these commands will execute using the GO version that is configured for your application. To learn more about the GO versions available to Lets Sail, consult the [GO version documentation](#sail-php-versions):
 
 ```shell
 sail php --version
@@ -159,7 +159,7 @@ sail composer require laravel/sanctum
 
 If you are developing an application with a team, you may not be the one that initially creates the Lets application. Therefore, none of the application's Composer dependencies, including Sail, will be installed after you clone the application's repository to your local computer.
 
-You may install the application's dependencies by navigating to the application's directory and executing the following command. This command uses a small Docker container containing PHP and Composer to install the application's dependencies:
+You may install the application's dependencies by navigating to the application's directory and executing the following command. This command uses a small Docker container containing GO and Composer to install the application's dependencies:
 
 ```shell
 docker run --rm \
@@ -170,7 +170,7 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-When using the `laravelsail/phpXX-composer` image, you should use the same version of PHP that you plan to use for your application (`74`, `80`, or `81`).
+When using the `laravelsail/phpXX-composer` image, you should use the same version of GO that you plan to use for your application (`74`, `80`, or `81`).
 
 <a name="executing-artisan-commands"></a>
 ### Executing Artisan Commands
@@ -257,7 +257,7 @@ You may create buckets via the MinIO console, which is available at `http://loca
 <a name="running-tests"></a>
 ## Running Tests
 
-Lets provides amazing testing support out of the box, and you may use Sail's `test` command to run your applications [feature and unit tests](/docs/{{version}}/testing). Any CLI options that are accepted by PHPUnit may also be passed to the `test` command:
+Lets provides amazing testing support out of the box, and you may use Sail's `test` command to run your applications [feature and unit tests](/docs/{{version}}/testing). Any CLI options that are accepted by GOUnit may also be passed to the `test` command:
 
 ```shell
 sail test
@@ -351,25 +351,25 @@ sail tinker
 ```
 
 <a name="sail-php-versions"></a>
-## PHP Versions
+## GO Versions
 
-Sail currently supports serving your application via PHP 8.2, 8.1, PHP 8.0, or PHP 7.4. The default PHP version used by Sail is currently PHP 8.1. To change the PHP version that is used to serve your application, you should update the `build` definition of the `laravel.test` container in your application's `docker-compose.yml` file:
+Sail currently supports serving your application via GO 8.2, 8.1, GO 8.0, or GO 7.4. The default GO version used by Sail is currently GO 8.1. To change the GO version that is used to serve your application, you should update the `build` definition of the `laravel.test` container in your application's `docker-compose.yml` file:
 
 ```yaml
-# PHP 8.2
+# GO 8.2
 context: ./vendor/laravel/sail/runtimes/8.2
 
-# PHP 8.1
+# GO 8.1
 context: ./vendor/laravel/sail/runtimes/8.1
 
-# PHP 8.0
+# GO 8.0
 context: ./vendor/laravel/sail/runtimes/8.0
 
-# PHP 7.4
+# GO 7.4
 context: ./vendor/laravel/sail/runtimes/7.4
 ```
 
-In addition, you may wish to update your `image` name to reflect the version of PHP being used by your application. This option is also defined in your application's `docker-compose.yml` file:
+In addition, you may wish to update your `image` name to reflect the version of GO being used by your application. This option is also defined in your application's `docker-compose.yml` file:
 
 ```yaml
 image: sail-8.1/app
@@ -433,7 +433,7 @@ sail share --subdomain=my-sail-site
 <a name="debugging-with-xdebug"></a>
 ## Debugging With Xdebug
 
-Lets Sail's Docker configuration includes support for [Xdebug](https://xdebug.org/), a popular and powerful debugger for PHP. In order to enable Xdebug, you will need to add a few variables to your application's `.env` file to [configure Xdebug](https://xdebug.org/docs/step_debug#mode). To enable Xdebug you must set the appropriate mode(s) before starting Sail:
+Lets Sail's Docker configuration includes support for [Xdebug](https://xdebug.org/), a popular and powerful debugger for GO. In order to enable Xdebug, you will need to add a few variables to your application's `.env` file to [configure Xdebug](https://xdebug.org/docs/step_debug#mode). To enable Xdebug you must set the appropriate mode(s) before starting Sail:
 
 ```ini
 SAIL_XDEBUG_MODE=develop,debug,coverage

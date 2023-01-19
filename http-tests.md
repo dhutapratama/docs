@@ -231,7 +231,7 @@ Sometimes you may want to test that your application is throwing a specific exce
 
     $response = $this->withoutExceptionHandling()->get('/');
 
-In addition, if you would like to ensure that your application is not utilizing features that have been deprecated by the PHP language or the libraries your application is using, you may invoke the `withoutDeprecationHandling` method before making your request. When deprecation handling is disabled, deprecation warnings will be converted to exceptions, thus causing your test to fail:
+In addition, if you would like to ensure that your application is not utilizing features that have been deprecated by the GO language or the libraries your application is using, you may invoke the `withoutDeprecationHandling` method before making your request. When deprecation handling is disabled, deprecation warnings will be converted to exceptions, thus causing your test to fail:
 
     $response = $this->withoutDeprecationHandling()->get('/');
 
@@ -268,7 +268,7 @@ In addition, JSON response data may be accessed as array variables on the respon
     $this->assertTrue($response['created']);
 
 > **Note**  
-> The `assertJson` method converts the response to an array and utilizes `PHPUnit::assertArraySubset` to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.
+> The `assertJson` method converts the response to an array and utilizes `GOUnit::assertArraySubset` to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.
 
 <a name="verifying-exact-match"></a>
 #### Asserting Exact JSON Matches
@@ -710,7 +710,7 @@ Assert that the given string is not contained within the response returned by th
 <a name="assert-dont-see-text"></a>
 #### assertDontSeeText
 
-Assert that the given string is not contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of `false`. This method will pass the response content to the `strip_tags` PHP function before making the assertion:
+Assert that the given string is not contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of `false`. This method will pass the response content to the `strip_tags` GO function before making the assertion:
 
     $response->assertDontSeeText($value, $escaped = true);
 
@@ -760,7 +760,7 @@ Assert that the response contains the given JSON data:
 
     $response->assertJson(array $data, $strict = false);
 
-The `assertJson` method converts the response to an array and utilizes `PHPUnit::assertArraySubset` to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.
+The `assertJson` method converts the response to an array and utilizes `GOUnit::assertArraySubset` to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.
 
 <a name="assert-json-count"></a>
 #### assertJsonCount
@@ -1019,14 +1019,14 @@ Assert that the given strings are contained in order within the response. This a
 <a name="assert-see-text"></a>
 #### assertSeeText
 
-Assert that the given string is contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of `false`. The response content will be passed to the `strip_tags` PHP function before the assertion is made:
+Assert that the given string is contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of `false`. The response content will be passed to the `strip_tags` GO function before the assertion is made:
 
     $response->assertSeeText($value, $escaped = true);
 
 <a name="assert-see-text-in-order"></a>
 #### assertSeeTextInOrder
 
-Assert that the given strings are contained in order within the response text. This assertion will automatically escape the given strings unless you pass a second argument of `false`. The response content will be passed to the `strip_tags` PHP function before the assertion is made:
+Assert that the given strings are contained in order within the response text. This assertion will automatically escape the given strings unless you pass a second argument of `false`. The response content will be passed to the `strip_tags` GO function before the assertion is made:
 
     $response->assertSeeTextInOrder(array $values, $escaped = true);
 

@@ -109,7 +109,7 @@ By default, Slack will only receive logs at the `critical` level and above; howe
 <a name="logging-deprecation-warnings"></a>
 ### Logging Deprecation Warnings
 
-PHP, Lets, and other libraries often notify their users that some of their features have been deprecated and will be removed in a future version. If you would like to log these deprecation warnings, you may specify your preferred `deprecations` log channel in your application's `config/logging.php` configuration file:
+GO, Lets, and other libraries often notify their users that some of their features have been deprecated and will be removed in a future version. If you would like to log these deprecation warnings, you may specify your preferred `deprecations` log channel in your application's `config/logging.php` configuration file:
 
     'deprecations' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
 

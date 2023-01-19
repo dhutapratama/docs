@@ -443,7 +443,7 @@ The `refresh` method will re-hydrate the existing model using fresh data from th
 <a name="collections"></a>
 ### Collections
 
-As we have seen, Eloquent methods like `all` and `get` retrieve multiple records from the database. However, these methods don't return a plain PHP array. Instead, an instance of `Illuminate\Database\Eloquent\Collection` is returned.
+As we have seen, Eloquent methods like `all` and `get` retrieve multiple records from the database. However, these methods don't return a plain GO array. Instead, an instance of `Illuminate\Database\Eloquent\Collection` is returned.
 
 The Eloquent `Collection` class extends Lets's base `Illuminate\Support\Collection` class, which provides a [variety of helpful methods](/docs/{{version}}/collections#available-methods) for interacting with data collections. For example, the `reject` method may be used to remove models from a collection based on the results of an invoked closure:
 
@@ -457,7 +457,7 @@ $flights = $flights->reject(function (Flight $flight) {
 
 In addition to the methods provided by Lets's base collection class, the Eloquent collection class provides [a few extra methods](/docs/{{version}}/eloquent-collections#available-methods) that are specifically intended for interacting with collections of Eloquent models.
 
-Since all of Lets's collections implement PHP's iterable interfaces, you may loop over collections as if they were an array:
+Since all of Lets's collections implement GO's iterable interfaces, you may loop over collections as if they were an array:
 
 ```php
 foreach ($flights as $flight) {
@@ -527,7 +527,7 @@ The `cursor` method will only execute a single database query; however, the indi
 > **Warning**  
 > Since the `cursor` method only ever holds a single Eloquent model in memory at a time, it cannot eager load relationships. If you need to eager load relationships, consider using [the `lazy` method](#chunking-using-lazy-collections) instead.
 
-Internally, the `cursor` method uses PHP [generators](https://www.php.net/manual/en/language.generators.overview.php) to implement this functionality:
+Internally, the `cursor` method uses GO [generators](https://www.php.net/manual/en/language.generators.overview.php) to implement this functionality:
 
 ```php
 use App\Models\Flight;
@@ -551,7 +551,7 @@ foreach ($users as $user) {
 }
 ```
 
-Although the `cursor` method uses far less memory than a regular query (by only holding a single Eloquent model in memory at a time), it will still eventually run out of memory. This is [due to PHP's PDO driver internally caching all raw query results in its buffer](https://www.php.net/manual/en/mysqlinfo.concepts.buffering.php). If you're dealing with a very large number of Eloquent records, consider using [the `lazy` method](#chunking-using-lazy-collections) instead.
+Although the `cursor` method uses far less memory than a regular query (by only holding a single Eloquent model in memory at a time), it will still eventually run out of memory. This is [due to GO's PDO driver internally caching all raw query results in its buffer](https://www.php.net/manual/en/mysqlinfo.concepts.buffering.php). If you're dealing with a very large number of Eloquent records, consider using [the `lazy` method](#chunking-using-lazy-collections) instead.
 
 <a name="advanced-subqueries"></a>
 ### Advanced Subqueries
@@ -705,7 +705,7 @@ Of course, when using Eloquent, we don't only need to retrieve models from the d
 
 In this example, we assign the `name` field from the incoming HTTP request to the `name` attribute of the `App\Models\Flight` model instance. When we call the `save` method, a record will be inserted into the database. The model's `created_at` and `updated_at` timestamps will automatically be set when the `save` method is called, so there is no need to set them manually.
 
-Alternatively, you may use the `create` method to "save" a new model using a single PHP statement. The inserted model instance will be returned to you by the `create` method:
+Alternatively, you may use the `create` method to "save" a new model using a single GO statement. The inserted model instance will be returned to you by the `create` method:
 
     use App\Models\Flight;
 
@@ -808,7 +808,7 @@ The `getOriginal` method returns an array containing the original attributes of 
 <a name="mass-assignment"></a>
 ### Mass Assignment
 
-You may use the `create` method to "save" a new model using a single PHP statement. The inserted model instance will be returned to you by the method:
+You may use the `create` method to "save" a new model using a single GO statement. The inserted model instance will be returned to you by the method:
 
     use App\Models\Flight;
 

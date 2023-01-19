@@ -837,7 +837,7 @@ The `imageable` relation on the `Image` model will return either a `Post` or `Us
 <a name="morph-one-to-one-key-conventions"></a>
 #### Key Conventions
 
-If necessary, you may specify the name of the "id" and "type" columns utilized by your polymorphic child model. If you do so, ensure that you always pass the name of the relationship as the first argument to the `morphTo` method. Typically, this value should match the method name, so you may use PHP's `__FUNCTION__` constant:
+If necessary, you may specify the name of the "id" and "type" columns utilized by your polymorphic child model. If you do so, ensure that you always pass the name of the relationship as the first argument to the `morphTo` method. Typically, this value should match the method name, so you may use GO's `__FUNCTION__` constant:
 
     /**
      * Get the model that the image belongs to.
@@ -1852,7 +1852,7 @@ If you would like to `save` your model and all of its associated relationships, 
 <a name="the-create-method"></a>
 ### The `create` Method
 
-In addition to the `save` and `saveMany` methods, you may also use the `create` method, which accepts an array of attributes, creates a model, and inserts it into the database. The difference between `save` and `create` is that `save` accepts a full Eloquent model instance while `create` accepts a plain PHP `array`. The newly created model will be returned by the `create` method:
+In addition to the `save` and `saveMany` methods, you may also use the `create` method, which accepts an array of attributes, creates a model, and inserts it into the database. The difference between `save` and `create` is that `save` accepts a full Eloquent model instance while `create` accepts a plain GO `array`. The newly created model will be returned by the `create` method:
 
     use App\Models\Post;
 

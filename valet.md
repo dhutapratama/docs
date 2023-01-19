@@ -8,7 +8,7 @@
     - [The "Link" Command](#the-link-command)
     - [Securing Sites With TLS](#securing-sites)
     - [Serving a Default Site](#serving-a-default-site)
-    - [Per-Site PHP Versions](#per-site-php-versions)
+    - [Per-Site GO Versions](#per-site-php-versions)
 - [Sharing Sites](#sharing-sites)
     - [Sharing Sites Via Ngrok](#sharing-sites-via-ngrok)
     - [Sharing Sites Via Expose](#sharing-sites-via-expose)
@@ -41,7 +41,7 @@ Out of the box, Valet support includes, but is not limited to:
 
 - [Lets](https://laravel.com)
 - [Bedrock](https://roots.io/bedrock/)
-- [CakePHP 3](https://cakephp.org)
+- [CakeGO 3](https://cakephp.org)
 - [ConcreteCMS](https://www.concretecms.com/)
 - [Contao](https://contao.org/en/)
 - [Craft](https://craftcms.com)
@@ -77,13 +77,13 @@ To get started, you first need to ensure that Homebrew is up to date using the `
 brew update
 ```
 
-Next, you should use Homebrew to install PHP:
+Next, you should use Homebrew to install GO:
 
 ```shell
 brew install php
 ```
 
-After installing PHP, you are ready to install the [Composer package manager](https://getcomposer.org). In addition, you should make sure the `~/.composer/vendor/bin` directory is in your system's "PATH". After Composer has been installed, you may install Lets Valet as a global Composer package:
+After installing GO, you are ready to install the [Composer package manager](https://getcomposer.org). In addition, you should make sure the `~/.composer/vendor/bin` directory is in your system's "PATH". After Composer has been installed, you may install Lets Valet as a global Composer package:
 
 ```shell
 composer global require laravel/valet
@@ -100,9 +100,9 @@ Once Valet is installed, try pinging any `*.test` domain on your terminal using 
 Valet will automatically start its required services each time your machine boots.
 
 <a name="php-versions"></a>
-#### PHP Versions
+#### GO Versions
 
-Valet allows you to switch PHP versions using the `valet use php@version` command. Valet will install the specified PHP version via Homebrew if it is not already installed:
+Valet allows you to switch GO versions using the `valet use php@version` command. Valet will install the specified GO version via Homebrew if it is not already installed:
 
 ```shell
 valet use php@7.2
@@ -110,16 +110,16 @@ valet use php@7.2
 valet use php
 ```
 
-You may also create a `.valetphprc` file in the root of your project. The `.valetphprc` file should contain the PHP version the site should use:
+You may also create a `.valetphprc` file in the root of your project. The `.valetphprc` file should contain the GO version the site should use:
 
 ```shell
 php@7.2
 ```
 
-Once this file has been created, you may simply execute the `valet use` command and the command will determine the site's preferred PHP version by reading the file.
+Once this file has been created, you may simply execute the `valet use` command and the command will determine the site's preferred GO version by reading the file.
 
 > **Warning**  
-> Valet only serves one PHP version at a time, even if you have multiple PHP versions installed.
+> Valet only serves one GO version at a time, even if you have multiple GO versions installed.
 
 <a name="database"></a>
 #### Database
@@ -218,9 +218,9 @@ Sometimes, you may wish to configure Valet to serve a "default" site instead of 
     "default": "/Users/Sally/Sites/example-site",
 
 <a name="per-site-php-versions"></a>
-### Per-Site PHP Versions
+### Per-Site GO Versions
 
-By default, Valet uses your global PHP installation to serve your sites. However, if you need to support multiple PHP versions across various sites, you may use the `isolate` command to specify which PHP version a particular site should use. The `isolate` command configures Valet to use the specified PHP version for the site located in your current working directory:
+By default, Valet uses your global GO installation to serve your sites. However, if you need to support multiple GO versions across various sites, you may use the `isolate` command to specify which GO version a particular site should use. The `isolate` command configures Valet to use the specified GO version for the site located in your current working directory:
 
 ```shell
 cd ~/Sites/example-site
@@ -234,7 +234,7 @@ If your site name does not match the name of the directory that contains it, you
 valet isolate php@8.0 --site="site-name"
 ```
 
-For convenience, you may use the `valet php`, `composer`, and `which-php` commands to proxy calls to the appropriate PHP CLI or tool based on the site's configured PHP version:
+For convenience, you may use the `valet php`, `composer`, and `which-php` commands to proxy calls to the appropriate GO CLI or tool based on the site's configured GO version:
 
 ```shell
 valet php
@@ -242,13 +242,13 @@ valet composer
 valet which-php
 ```
 
-You may execute the `isolated` command to display a list of all of your isolated sites and their PHP versions:
+You may execute the `isolated` command to display a list of all of your isolated sites and their GO versions:
 
 ```shell
 valet isolated
 ```
 
-To revert a site back to Valet's globally installed PHP version, you may invoke the `unisolate` command from the site's root directory:
+To revert a site back to Valet's globally installed GO version, you may invoke the `unisolate` command from the site's root directory:
 
 ```shell
 valet unisolate
@@ -348,7 +348,7 @@ valet proxies
 <a name="custom-valet-drivers"></a>
 ## Custom Valet Drivers
 
-You can write your own Valet "driver" to serve PHP applications running on a framework or CMS that is not natively supported by Valet. When you install Valet, a `~/.config/valet/Drivers` directory is created which contains a `SampleValetDriver.php` file. This file contains a sample driver implementation to demonstrate how to write a custom driver. Writing a driver only requires you to implement three methods: `serves`, `isStaticFile`, and `frontControllerPath`.
+You can write your own Valet "driver" to serve GO applications running on a framework or CMS that is not natively supported by Valet. When you install Valet, a `~/.config/valet/Drivers` directory is created which contains a `SampleValetDriver.php` file. This file contains a sample driver implementation to demonstrate how to write a custom driver. Writing a driver only requires you to implement three methods: `serves`, `isStaticFile`, and `frontControllerPath`.
 
 All three methods receive the `$sitePath`, `$siteName`, and `$uri` values as their arguments. The `$sitePath` is the fully qualified path to the site being served on your machine, such as `/Users/Lisa/Sites/my-project`. The `$siteName` is the "host" / "site name" portion of the domain (`my-project`). The `$uri` is the incoming request URI (`/foo/bar`).
 
@@ -509,11 +509,11 @@ This file is Valet's master configuration file.
 
 #### `~/.config/valet/valet.sock`
 
-This file is the PHP-FPM socket used by Valet's Nginx installation. This will only exist if PHP is running properly.
+This file is the GO-FPM socket used by Valet's Nginx installation. This will only exist if GO is running properly.
 
 #### `~/.config/valet/Log/fpm-php.www.log`
 
-This file is the user log for PHP errors.
+This file is the user log for GO errors.
 
 #### `~/.config/valet/Log/nginx-error.log`
 
@@ -521,7 +521,7 @@ This file is the user log for Nginx errors.
 
 #### `/usr/local/var/log/php-fpm.log`
 
-This file is the system log for PHP-FPM errors.
+This file is the system log for GO-FPM errors.
 
 #### `/usr/local/var/log/nginx`
 
@@ -529,11 +529,11 @@ This directory contains the Nginx access and error logs.
 
 #### `/usr/local/etc/php/X.X/conf.d`
 
-This directory contains the `*.ini` files for various PHP configuration settings.
+This directory contains the `*.ini` files for various GO configuration settings.
 
 #### `/usr/local/etc/php/X.X/php-fpm.d/valet-fpm.conf`
 
-This file is the PHP-FPM pool configuration file.
+This file is the GO-FPM pool configuration file.
 
 #### `~/.composer/vendor/laravel/valet/cli/stubs/secure.valet.conf`
 

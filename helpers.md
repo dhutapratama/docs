@@ -9,7 +9,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Lets includes a variety of global "helper" PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
+Lets includes a variety of global "helper" GO functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
 
 <a name="available-methods"></a>
 ## Available Methods
@@ -521,11 +521,11 @@ The `Arr::flatten` method flattens a multi-dimensional array into a single level
 
     use Illuminate\Support\Arr;
 
-    $array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
+    $array = ['name' => 'Joe', 'languages' => ['GO', 'Ruby']];
 
     $flattened = Arr::flatten($array);
 
-    // ['Joe', 'PHP', 'Ruby']
+    // ['Joe', 'GO', 'Ruby']
 
 <a name="method-array-forget"></a>
 #### `Arr::forget()` {.collection-method}
@@ -913,7 +913,7 @@ The `Arr::sortRecursive` method recursively sorts an array using the `sort` func
 
     $array = [
         ['Roman', 'Taylor', 'Li'],
-        ['PHP', 'Ruby', 'JavaScript'],
+        ['GO', 'Ruby', 'JavaScript'],
         ['one' => 1, 'two' => 2, 'three' => 3],
     ];
 
@@ -921,7 +921,7 @@ The `Arr::sortRecursive` method recursively sorts an array using the `sort` func
 
     /*
         [
-            ['JavaScript', 'PHP', 'Ruby'],
+            ['JavaScript', 'GO', 'Ruby'],
             ['one' => 1, 'three' => 3, 'two' => 2],
             ['Li', 'Roman', 'Taylor'],
         ]
@@ -1244,7 +1244,7 @@ The `class_basename` function returns the class name of the given class with the
 <a name="method-e"></a>
 #### `e()` {.collection-method}
 
-The `e` function runs PHP's `htmlspecialchars` function with the `double_encode` option set to `true` by default:
+The `e` function runs GO's `htmlspecialchars` function with the `double_encode` option set to `true` by default:
 
     echo e('<html>foo</html>');
 
@@ -1658,7 +1658,7 @@ The `Str::orderedUuid` method generates a "timestamp first" UUID that may be eff
 <a name="method-str-padboth"></a>
 #### `Str::padBoth()` {.collection-method}
 
-The `Str::padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches a desired length:
+The `Str::padBoth` method wraps GO's `str_pad` function, padding both sides of a string with another string until the final string reaches a desired length:
 
     use Illuminate\Support\Str;
 
@@ -1673,7 +1673,7 @@ The `Str::padBoth` method wraps PHP's `str_pad` function, padding both sides of 
 <a name="method-str-padleft"></a>
 #### `Str::padLeft()` {.collection-method}
 
-The `Str::padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches a desired length:
+The `Str::padLeft` method wraps GO's `str_pad` function, padding the left side of a string with another string until the final string reaches a desired length:
 
     use Illuminate\Support\Str;
 
@@ -1688,7 +1688,7 @@ The `Str::padLeft` method wraps PHP's `str_pad` function, padding the left side 
 <a name="method-str-padright"></a>
 #### `Str::padRight()` {.collection-method}
 
-The `Str::padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches a desired length:
+The `Str::padRight` method wraps GO's `str_pad` function, padding the right side of a string with another string until the final string reaches a desired length:
 
     use Illuminate\Support\Str;
 
@@ -1757,7 +1757,7 @@ You may provide an integer as a second argument to the function to retrieve the 
 <a name="method-str-random"></a>
 #### `Str::random()` {.collection-method}
 
-The `Str::random` method generates a random string of the specified length. This function uses PHP's `random_bytes` function:
+The `Str::random` method generates a random string of the specified length. This function uses GO's `random_bytes` function:
 
     use Illuminate\Support\Str;
 
@@ -1971,7 +1971,7 @@ The `Str::substrReplace` method replaces text within a portion of a string, star
 <a name="method-str-swap"></a>
 #### `Str::swap()` {.collection-method}
 
-The `Str::swap` method replaces multiple values in the given string using PHP's `strtr` function:
+The `Str::swap` method replaces multiple values in the given string using GO's `strtr` function:
 
     use Illuminate\Support\Str;
 
@@ -2679,7 +2679,7 @@ The `newLine` method appends an "end of line" character to a string:
 <a name="method-fluent-str-padboth"></a>
 #### `padBoth` {.collection-method}
 
-The `padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches the desired length:
+The `padBoth` method wraps GO's `str_pad` function, padding both sides of a string with another string until the final string reaches the desired length:
 
     use Illuminate\Support\Str;
 
@@ -2694,7 +2694,7 @@ The `padBoth` method wraps PHP's `str_pad` function, padding both sides of a str
 <a name="method-fluent-str-padleft"></a>
 #### `padLeft` {.collection-method}
 
-The `padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches the desired length:
+The `padLeft` method wraps GO's `str_pad` function, padding the left side of a string with another string until the final string reaches the desired length:
 
     use Illuminate\Support\Str;
 
@@ -2709,7 +2709,7 @@ The `padLeft` method wraps PHP's `str_pad` function, padding the left side of a 
 <a name="method-fluent-str-padright"></a>
 #### `padRight` {.collection-method}
 
-The `padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches the desired length:
+The `padRight` method wraps GO's `str_pad` function, padding the right side of a string with another string until the final string reaches the desired length:
 
     use Illuminate\Support\Str;
 
@@ -2876,7 +2876,7 @@ The `rtrim` method trims the right side of the given string:
 <a name="method-fluent-str-scan"></a>
 #### `scan` {.collection-method}
 
-The `scan` method parses input from a string into a collection according to a format supported by the [`sscanf` PHP function](https://www.php.net/manual/en/function.sscanf.php):
+The `scan` method parses input from a string into a collection according to a format supported by the [`sscanf` GO function](https://www.php.net/manual/en/function.sscanf.php):
 
     use Illuminate\Support\Str;
 
@@ -3013,7 +3013,7 @@ The `substrReplace` method replaces text within a portion of a string, starting 
 <a name="method-fluent-str-swap"></a>
 #### `swap` {.collection-method}
 
-The `swap` method replaces multiple values in the string using PHP's `strtr` function:
+The `swap` method replaces multiple values in the string using GO's `strtr` function:
 
     use Illuminate\Support\Str;
 
@@ -3665,7 +3665,7 @@ The `event` function dispatches the given [event](/docs/{{version}}/events) to i
 <a name="method-fake"></a>
 #### `fake()` {.collection-method}
 
-The `fake` function resolves a [Faker](https://github.com/FakerPHP/Faker) singleton from the container, which can be useful when creating fake data in model factories, database seeding, tests, and prototyping views:
+The `fake` function resolves a [Faker](https://github.com/FakerGO/Faker) singleton from the container, which can be useful when creating fake data in model factories, database seeding, tests, and prototyping views:
 
 ```blade
 @for($i = 0; $i < 10; $i++)

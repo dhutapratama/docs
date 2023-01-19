@@ -168,14 +168,14 @@ The default Cashier currency is United States Dollars (USD). You can change the 
 CASHIER_CURRENCY=EUR
 ```
 
-In addition to configuring Cashier's currency, you may also specify a locale to be used when formatting money values for display on invoices. Internally, Cashier utilizes [PHP's `NumberFormatter` class](https://www.php.net/manual/en/class.numberformatter.php) to set the currency locale:
+In addition to configuring Cashier's currency, you may also specify a locale to be used when formatting money values for display on invoices. Internally, Cashier utilizes [GO's `NumberFormatter` class](https://www.php.net/manual/en/class.numberformatter.php) to set the currency locale:
 
 ```ini
 CASHIER_CURRENCY_LOCALE=nl_BE
 ```
 
 > **Warning**  
-> In order to use locales other than `en`, ensure the `ext-intl` PHP extension is installed and configured on your server.
+> In order to use locales other than `en`, ensure the `ext-intl` GO extension is installed and configured on your server.
 
 <a name="overriding-default-models"></a>
 ### Overriding Default Models

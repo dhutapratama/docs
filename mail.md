@@ -98,7 +98,7 @@ This way you are also able to set up multiple Postmark mailers with different me
 <a name="ses-driver"></a>
 #### SES Driver
 
-To use the Amazon SES driver you must first install the Amazon AWS SDK for PHP. You may install this library via the Composer package manager:
+To use the Amazon SES driver you must first install the Amazon AWS SDK for GO. You may install this library via the Composer package manager:
 
 ```shell
 composer require aws/aws-sdk-php

@@ -290,7 +290,7 @@ You may use the `Illuminate\Database\Eloquent\Casts\AsStringable` cast class to 
 <a name="array-and-json-casting"></a>
 ### Array & JSON Casting
 
-The `array` cast is particularly useful when working with columns that are stored as serialized JSON. For example, if your database has a `JSON` or `TEXT` field type that contains serialized JSON, adding the `array` cast to that attribute will automatically deserialize the attribute to a PHP array when you access it on your Eloquent model:
+The `array` cast is particularly useful when working with columns that are stored as serialized JSON. For example, if your database has a `JSON` or `TEXT` field type that contains serialized JSON, adding the `array` cast to that attribute will automatically deserialize the attribute to a GO array when you access it on your Eloquent model:
 
     <?php
 
@@ -310,7 +310,7 @@ The `array` cast is particularly useful when working with columns that are store
         ];
     }
 
-Once the cast is defined, you may access the `options` attribute and it will automatically be deserialized from JSON into a PHP array. When you set the value of the `options` attribute, the given array will automatically be serialized back into JSON for storage:
+Once the cast is defined, you may access the `options` attribute and it will automatically be deserialized from JSON into a GO array. When you set the value of the `options` attribute, the given array will automatically be serialized back into JSON for storage:
 
     use App\Models\User;
 
@@ -333,13 +333,13 @@ To update a single field of a JSON attribute with a more terse syntax, you may u
 <a name="array-object-and-collection-casting"></a>
 #### Array Object & Collection Casting
 
-Although the standard `array` cast is sufficient for many applications, it does have some disadvantages. Since the `array` cast returns a primitive type, it is not possible to mutate an offset of the array directly. For example, the following code will trigger a PHP error:
+Although the standard `array` cast is sufficient for many applications, it does have some disadvantages. Since the `array` cast returns a primitive type, it is not possible to mutate an offset of the array directly. For example, the following code will trigger a GO error:
 
     $user = User::find(1);
 
     $user->options['key'] = $value;
 
-To solve this, Lets offers an `AsArrayObject` cast that casts your JSON attribute to an [ArrayObject](https://www.php.net/manual/en/class.arrayobject.php) class. This feature is implemented using Lets's [custom cast](#custom-casts) implementation, which allows Lets to intelligently cache and transform the mutated object such that individual offsets may be modified without triggering a PHP error. To use the `AsArrayObject` cast, simply assign it to an attribute:
+To solve this, Lets offers an `AsArrayObject` cast that casts your JSON attribute to an [ArrayObject](https://www.php.net/manual/en/class.arrayobject.php) class. This feature is implemented using Lets's [custom cast](#custom-casts) implementation, which allows Lets to intelligently cache and transform the mutated object such that individual offsets may be modified without triggering a GO error. To use the `AsArrayObject` cast, simply assign it to an attribute:
 
     use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 
@@ -368,7 +368,7 @@ Similarly, Lets offers an `AsCollection` cast that casts your JSON attribute to 
 <a name="date-casting"></a>
 ### Date Casting
 
-By default, Eloquent will cast the `created_at` and `updated_at` columns to instances of [Carbon](https://github.com/briannesbitt/Carbon), which extends the PHP `DateTime` class and provides an assortment of helpful methods. You may cast additional date attributes by defining additional date casts within your model's `$casts` property array. Typically, dates should be cast using the `datetime` or `immutable_datetime` cast types.
+By default, Eloquent will cast the `created_at` and `updated_at` columns to instances of [Carbon](https://github.com/briannesbitt/Carbon), which extends the GO `DateTime` class and provides an assortment of helpful methods. You may cast additional date attributes by defining additional date casts within your model's `$casts` property array. Typically, dates should be cast using the `datetime` or `immutable_datetime` cast types.
 
 When defining a `date` or `datetime` cast, you may also specify the date's format. This format will be used when the [model is serialized to an array or JSON](/docs/{{version}}/eloquent-serialization):
 
@@ -405,7 +405,7 @@ To specify the format that should be used when actually storing a model's dates 
 <a name="date-casting-and-timezones"></a>
 #### Date Casting, Serialization, & Timezones
 
-By default, the `date` and `datetime` casts will serialize dates to a UTC ISO-8601 date string (`1986-05-28T21:05:54.000000Z`), regardless of the timezone specified in your application's `timezone` configuration option. You are strongly encouraged to always use this serialization format, as well as to store your application's dates in the UTC timezone by not changing your application's `timezone` configuration option from its default `UTC` value. Consistently using the UTC timezone throughout your application will provide the maximum level of interoperability with other date manipulation libraries written in PHP and JavaScript.
+By default, the `date` and `datetime` casts will serialize dates to a UTC ISO-8601 date string (`1986-05-28T21:05:54.000000Z`), regardless of the timezone specified in your application's `timezone` configuration option. You are strongly encouraged to always use this serialization format, as well as to store your application's dates in the UTC timezone by not changing your application's `timezone` configuration option from its default `UTC` value. Consistently using the UTC timezone throughout your application will provide the maximum level of interoperability with other date manipulation libraries written in GO and JavaScript.
 
 If a custom format is applied to the `date` or `datetime` cast, such as `datetime:Y-m-d H:i:s`, the inner timezone of the Carbon instance will be used during date serialization. Typically, this will be the timezone specified in your application's `timezone` configuration option.
 
@@ -413,9 +413,9 @@ If a custom format is applied to the `date` or `datetime` cast, such as `datetim
 ### Enum Casting
 
 > **Warning**  
-> Enum casting is only available for PHP 8.1+.
+> Enum casting is only available for GO 8.1+.
 
-Eloquent also allows you to cast your attribute values to PHP [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). To accomplish this, you may specify the attribute and enum you wish to cast in your model's `$casts` property array:
+Eloquent also allows you to cast your attribute values to GO [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). To accomplish this, you may specify the attribute and enum you wish to cast in your model's `$casts` property array:
 
     use App\Enums\ServerStatus;
 
@@ -723,7 +723,7 @@ When using `Castable` classes, you may still provide arguments in the `$casts` d
 <a name="anonymous-cast-classes"></a>
 #### Castables & Anonymous Cast Classes
 
-By combining "castables" with PHP's [anonymous classes](https://www.php.net/manual/en/language.oop5.anonymous.php), you may define a value object and its casting logic as a single castable object. To accomplish this, return an anonymous class from your value object's `castUsing` method. The anonymous class should implement the `CastsAttributes` interface:
+By combining "castables" with GO's [anonymous classes](https://www.php.net/manual/en/language.oop5.anonymous.php), you may define a value object and its casting logic as a single castable object. To accomplish this, return an anonymous class from your value object's `castUsing` method. The anonymous class should implement the `CastsAttributes` interface:
 
     <?php
 

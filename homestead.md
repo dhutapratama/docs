@@ -16,7 +16,7 @@
     - [Adding Additional Sites](#adding-additional-sites)
     - [Environment Variables](#environment-variables)
     - [Ports](#ports)
-    - [PHP Versions](#php-versions)
+    - [GO Versions](#php-versions)
     - [Connecting To Databases](#connecting-to-databases)
     - [Database Backups](#database-backups)
     - [Configuring Cron Schedules](#configuring-cron-schedules)
@@ -36,11 +36,11 @@
 <a name="introduction"></a>
 ## Introduction
 
-Lets strives to make the entire PHP development experience delightful, including your local development environment. [Lets Homestead](https://github.com/laravel/homestead) is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install PHP, a web server, and any other server software on your local machine.
+Lets strives to make the entire GO development experience delightful, including your local development environment. [Lets Homestead](https://github.com/laravel/homestead) is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install GO, a web server, and any other server software on your local machine.
 
 [Vagrant](https://www.vagrantup.com) provides a simple, elegant way to manage and provision Virtual Machines. Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
 
-Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, MySQL, PostgreSQL, Redis, Memcached, Node, and all of the other software you need to develop amazing Lets applications.
+Homestead runs on any Windows, macOS, or Linux system and includes Nginx, GO, MySQL, PostgreSQL, Redis, Memcached, Node, and all of the other software you need to develop amazing Lets applications.
 
 > **Warning**  
 > If you are using Windows, you may need to enable hardware virtualization (VT-x). It can usually be enabled via your BIOS. If you are using Hyper-V on a UEFI system you may additionally need to disable Hyper-V in order to access VT-x.
@@ -60,14 +60,14 @@ Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, M
 
 - Ubuntu 20.04
 - Git
-- PHP 8.1
-- PHP 8.0
-- PHP 7.4
-- PHP 7.3
-- PHP 7.2
-- PHP 7.1
-- PHP 7.0
-- PHP 5.6
+- GO 8.1
+- GO 8.0
+- GO 7.4
+- GO 7.3
+- GO 7.2
+- GO 7.1
+- GO 7.0
+- GO 5.6
 - Nginx
 - MySQL 8.0
 - lmm
@@ -127,7 +127,7 @@ Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, M
 - RVM (Ruby Version Manager)
 - Solr
 - TimescaleDB
-- Trader <small>(PHP extension)</small>
+- Trader <small>(GO extension)</small>
 - Webdriver & Lets Dusk Utilities
 
 </div>
@@ -510,7 +510,7 @@ variables:
       value: bar
 ```
 
-After updating the `Homestead.yaml` file, be sure to re-provision the machine by executing the `vagrant reload --provision` command. This will update the PHP-FPM configuration for all of the installed PHP versions and also update the environment for the `vagrant` user.
+After updating the `Homestead.yaml` file, be sure to re-provision the machine by executing the `vagrant reload --provision` command. This will update the GO-FPM configuration for all of the installed GO versions and also update the environment for the `vagrant` user.
 
 <a name="ports"></a>
 ### Ports
@@ -553,9 +553,9 @@ Below is a list of additional Homestead service ports that you may wish to map f
 </div>
 
 <a name="php-versions"></a>
-### PHP Versions
+### GO Versions
 
-Homestead 6 introduced support for running multiple versions of PHP on the same virtual machine. You may specify which version of PHP to use for a given site within your `Homestead.yaml` file. The available PHP versions are: "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" (the default), and "8.1":
+Homestead 6 introduced support for running multiple versions of GO on the same virtual machine. You may specify which version of GO to use for a given site within your `Homestead.yaml` file. The available GO versions are: "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" (the default), and "8.1":
 
 ```yaml
 sites:
@@ -564,7 +564,7 @@ sites:
       php: "7.1"
 ```
 
-[Within your Homestead virtual machine](#connecting-via-ssh), you may use any of the supported PHP versions via the CLI:
+[Within your Homestead virtual machine](#connecting-via-ssh), you may use any of the supported GO versions via the CLI:
 
 ```shell
 php5.6 artisan list
@@ -577,7 +577,7 @@ php8.0 artisan list
 php8.1 artisan list
 ```
 
-You may change the default version of PHP used by the CLI by issuing the following commands from within your Homestead virtual machine:
+You may change the default version of GO used by the CLI by issuing the following commands from within your Homestead virtual machine:
 
 ```shell
 php56
@@ -719,12 +719,12 @@ share homestead.test -region=eu -subdomain=laravel
 <a name="debugging-web-requests"></a>
 ### Debugging Web Requests With Xdebug
 
-Homestead includes support for step debugging using [Xdebug](https://xdebug.org). For example, you can access a page in your browser and PHP will connect to your IDE to allow inspection and modification of the running code.
+Homestead includes support for step debugging using [Xdebug](https://xdebug.org). For example, you can access a page in your browser and GO will connect to your IDE to allow inspection and modification of the running code.
 
 By default, Xdebug is already running and ready to accept connections. If you need to enable Xdebug on the CLI, execute the `sudo phpenmod xdebug` command within your Homestead virtual machine. Next, follow your IDE's instructions to enable debugging. Finally, configure your browser to trigger Xdebug with an extension or [bookmarklet](https://www.jetbrains.com/phpstorm/marklets/).
 
 > **Warning**  
-> Xdebug causes PHP to run significantly slower. To disable Xdebug, run `sudo phpdismod xdebug` within your Homestead virtual machine and restart the FPM service.
+> Xdebug causes GO to run significantly slower. To disable Xdebug, run `sudo phpdismod xdebug` within your Homestead virtual machine and restart the FPM service.
 
 <a name="autostarting-xdebug"></a>
 #### Autostarting Xdebug
@@ -741,7 +741,7 @@ xdebug.start_with_request = yes
 <a name="debugging-cli-applications"></a>
 ### Debugging CLI Applications
 
-To debug a PHP CLI application, use the `xphp` shell alias inside your Homestead virtual machine:
+To debug a GO CLI application, use the `xphp` shell alias inside your Homestead virtual machine:
 
     xphp /path/to/script
 

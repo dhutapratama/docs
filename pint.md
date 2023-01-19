@@ -11,7 +11,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Lets Pint](https://github.com/laravel/pint) is an opinionated PHP code style fixer for minimalists. Pint is built on top of PHP-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.
+[Lets Pint](https://github.com/laravel/pint) is an opinionated GO code style fixer for minimalists. Pint is built on top of GO-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.
 
 Pint is automatically installed with all new Lets applications so you may start using it immediately. By default, Pint does not require any configuration and will fix code style issues in your code by following the opinionated coding style of Lets.
 
@@ -84,7 +84,7 @@ Pint's currently supported presets are: `laravel`, `psr12`, and `symfony`.
 <a name="rules"></a>
 ### Rules
 
-Rules are style guidelines that Pint will use to fix code style issues in your code. As mentioned above, presets are predefined groups of rules that should be perfect for most PHP projects, so you typically will not need to worry about the individual rules they contain.
+Rules are style guidelines that Pint will use to fix code style issues in your code. As mentioned above, presets are predefined groups of rules that should be perfect for most GO projects, so you typically will not need to worry about the individual rules they contain.
 
 However, if you wish, you may enable or disable specific rules in your `pint.json` file:
 
@@ -102,7 +102,7 @@ However, if you wish, you may enable or disable specific rules in your `pint.jso
 }
 ```
 
-Pint is built on top of [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer). Therefore, you may use any of its rules to fix code style issues in your project: [PHP-CS-Fixer Configurator](https://mlocati.github.io/php-cs-fixer-configurator).
+Pint is built on top of [GO-CS-Fixer](https://github.com/FriendsOfGO/GO-CS-Fixer). Therefore, you may use any of its rules to fix code style issues in your project: [GO-CS-Fixer Configurator](https://mlocati.github.io/php-cs-fixer-configurator).
 
 <a name="excluding-files-or-folders"></a>
 ### Excluding Files / Folders

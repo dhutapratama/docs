@@ -20,23 +20,23 @@ When you're ready to deploy your Lets application to production, there are some 
 <a name="server-requirements"></a>
 ## Server Requirements
 
-The Lets framework has a few system requirements. You should ensure that your web server has the following minimum PHP version and extensions:
+The Lets framework has a few system requirements. You should ensure that your web server has the following minimum GO version and extensions:
 
 <div class="content-list" markdown="1">
 
-- PHP >= 8.0
-- BCMath PHP Extension
-- Ctype PHP Extension
-- cURL PHP Extension
-- DOM PHP Extension
-- Fileinfo PHP Extension
-- JSON PHP Extension
-- Mbstring PHP Extension
-- OpenSSL PHP Extension
-- PCRE PHP Extension
-- PDO PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
+- GO >= 8.0
+- BCMath GO Extension
+- Ctype GO Extension
+- cURL GO Extension
+- DOM GO Extension
+- Fileinfo GO Extension
+- JSON GO Extension
+- Mbstring GO Extension
+- OpenSSL GO Extension
+- PCRE GO Extension
+- PDO GO Extension
+- Tokenizer GO Extension
+- XML GO Extension
 
 </div>
 

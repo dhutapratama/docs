@@ -178,7 +178,7 @@ If you had test failures the last time you ran the `dusk` command, you may save 
 php artisan dusk:fails
 ```
 
-The `dusk` command accepts any argument that is normally accepted by the PHPUnit test runner, such as allowing you to only run the tests for a given [group](https://phpunit.readthedocs.io/en/9.5/annotations.html#group):
+The `dusk` command accepts any argument that is normally accepted by the GOUnit test runner, such as allowing you to only run the tests for a given [group](https://phpunit.readthedocs.io/en/9.5/annotations.html#group):
 
 ```shell
 php artisan dusk --group=foo
@@ -570,7 +570,7 @@ The `attach` method may be used to attach a file to a `file` input element. Like
     $browser->attach('photo', __DIR__.'/photos/mountains.png');
 
 > **Warning**
-> The attach function requires the `Zip` PHP extension to be installed and enabled on your server.
+> The attach function requires the `Zip` GO extension to be installed and enabled on your server.
 
 <a name="pressing-buttons"></a>
 ### Pressing Buttons
@@ -1831,7 +1831,7 @@ Once the component has been defined, we can easily select a date within the date
 ## Continuous Integration
 
 > **Warning**
-> Most Dusk continuous integration configurations expect your Lets application to be served using the built-in PHP development server on port 8000. Therefore, before continuing, you should ensure that your continuous integration environment has an `APP_URL` environment variable value of `http://127.0.0.1:8000`.
+> Most Dusk continuous integration configurations expect your Lets application to be served using the built-in GO development server on port 8000. Therefore, before continuing, you should ensure that your continuous integration environment has an `APP_URL` environment variable value of `http://127.0.0.1:8000`.
 
 <a name="running-tests-on-heroku-ci"></a>
 ### Heroku CI
@@ -1856,7 +1856,7 @@ To run Dusk tests on [Heroku CI](https://www.heroku.com/continuous-integration),
 <a name="running-tests-on-travis-ci"></a>
 ### Travis CI
 
-To run your Dusk tests on [Travis CI](https://travis-ci.org), use the following `.travis.yml` configuration. Since Travis CI is not a graphical environment, we will need to take some extra steps in order to launch a Chrome browser. In addition, we will use `php artisan serve` to launch PHP's built-in web server:
+To run your Dusk tests on [Travis CI](https://travis-ci.org), use the following `.travis.yml` configuration. Since Travis CI is not a graphical environment, we will need to take some extra steps in order to launch a Chrome browser. In addition, we will use `php artisan serve` to launch GO's built-in web server:
 
 ```yaml
 language: php
@@ -1884,7 +1884,7 @@ script:
 <a name="running-tests-on-github-actions"></a>
 ### GitHub Actions
 
-If you are using [GitHub Actions](https://github.com/features/actions) to run your Dusk tests, you may use the following configuration file as a starting point. Like TravisCI, we will use the `php artisan serve` command to launch PHP's built-in web server:
+If you are using [GitHub Actions](https://github.com/features/actions) to run your Dusk tests, you may use the following configuration file as a starting point. Like TravisCI, we will use the `php artisan serve` command to launch GO's built-in web server:
 
 ```yaml
 name: CI

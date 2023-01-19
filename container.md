@@ -452,7 +452,7 @@ You may invoke the `generate` method via the container like so:
 
     $report = App::call([new UserReport, 'generate']);
 
-The `call` method accepts any PHP callable. The container's `call` method may even be used to invoke a closure while automatically injecting its dependencies:
+The `call` method accepts any GO callable. The container's `call` method may even be used to invoke a closure while automatically injecting its dependencies:
 
     use App\Repositories\UserRepository;
     use Illuminate\Support\Facades\App;
