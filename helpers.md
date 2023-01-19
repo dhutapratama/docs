@@ -9,7 +9,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel includes a variety of global "helper" PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
+Lets includes a variety of global "helper" PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
 
 <a name="available-methods"></a>
 ## Available Methods
@@ -636,15 +636,15 @@ The `Arr::join` method joins array elements with a string. Using this method's s
 
     use Illuminate\Support\Arr;
 
-    $array = ['Tailwind', 'Alpine', 'Laravel', 'Livewire'];
+    $array = ['Tailwind', 'Alpine', 'Lets', 'Livewire'];
 
     $joined = Arr::join($array, ', ');
 
-    // Tailwind, Alpine, Laravel, Livewire
+    // Tailwind, Alpine, Lets, Livewire
 
     $joined = Arr::join($array, ', ', ' and ');
 
-    // Tailwind, Alpine, Laravel and Livewire
+    // Tailwind, Alpine, Lets and Livewire
 
 <a name="method-array-keyby"></a>
 #### `Arr::keyBy()` {.collection-method}
@@ -945,7 +945,7 @@ The `Arr::toCssClasses` conditionally compiles a CSS class string. The method ac
         'p-4 bg-red'
     */
 
-This method powers Laravel's functionality allowing [merging classes with a Blade component's attribute bag](/docs/{{version}}/blade#conditionally-merge-classes) as well as the `@class` [Blade directive](/docs/{{version}}/blade#conditional-classes).
+This method powers Lets's functionality allowing [merging classes with a Blade component's attribute bag](/docs/{{version}}/blade#conditionally-merge-classes) as well as the `@class` [Blade directive](/docs/{{version}}/blade#conditional-classes).
 
 <a name="method-array-undot"></a>
 #### `Arr::undot()` {.collection-method}
@@ -998,11 +998,11 @@ The `Arr::wrap` method wraps the given value in an array. If the given value is 
 
     use Illuminate\Support\Arr;
 
-    $string = 'Laravel';
+    $string = 'Lets';
 
     $array = Arr::wrap($string);
 
-    // ['Laravel']
+    // ['Lets']
 
 If the given value is `null`, an empty array will be returned:
 
@@ -1466,9 +1466,9 @@ The `Str::inlineMarkdown` method converts GitHub flavored Markdown into inline H
 
     use Illuminate\Support\Str;
 
-    $html = Str::inlineMarkdown('**Laravel**');
+    $html = Str::inlineMarkdown('**Lets**');
 
-    // <strong>Laravel</strong>
+    // <strong>Lets</strong>
 
 <a name="method-str-is"></a>
 #### `Str::is()` {.collection-method}
@@ -1578,7 +1578,7 @@ The `Str::length` method returns the length of the given string:
 
     use Illuminate\Support\Str;
 
-    $length = Str::length('Laravel');
+    $length = Str::length('Lets');
 
     // 7
 
@@ -1619,9 +1619,9 @@ The `Str::markdown` method converts GitHub flavored Markdown into HTML using [Co
 
     use Illuminate\Support\Str;
 
-    $html = Str::markdown('# Laravel');
+    $html = Str::markdown('# Lets');
 
-    // <h1>Laravel</h1>
+    // <h1>Lets</h1>
 
     $html = Str::markdown('# Taylor <b>Otwell</b>', [
         'html_input' => 'strip',
@@ -1703,7 +1703,7 @@ The `Str::padRight` method wraps PHP's `str_pad` function, padding the right sid
 <a name="method-str-plural"></a>
 #### `Str::plural()` {.collection-method}
 
-The `Str::plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Laravel's pluralizer](/docs/{{version}}/localization#pluralization-language):
+The `Str::plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Lets's pluralizer](/docs/{{version}}/localization#pluralization-language):
 
     use Illuminate\Support\Str;
 
@@ -1730,7 +1730,7 @@ You may provide an integer as a second argument to the function to retrieve the 
 <a name="method-str-plural-studly"></a>
 #### `Str::pluralStudly()` {.collection-method}
 
-The `Str::pluralStudly` method converts a singular word string formatted in studly caps case to its plural form. This function supports [any of the languages support by Laravel's pluralizer](/docs/{{version}}/localization#pluralization-language):
+The `Str::pluralStudly` method converts a singular word string formatted in studly caps case to its plural form. This function supports [any of the languages support by Lets's pluralizer](/docs/{{version}}/localization#pluralization-language):
 
     use Illuminate\Support\Str;
 
@@ -1785,11 +1785,11 @@ The `Str::replace` method replaces a given string within the string:
 
     use Illuminate\Support\Str;
 
-    $string = 'Laravel 8.x';
+    $string = 'Lets 8.x';
 
     $replaced = Str::replace('8.x', '9.x', $string);
 
-    // Laravel 9.x
+    // Lets 9.x
 
 <a name="method-str-replace-array"></a>
 #### `Str::replaceArray()` {.collection-method}
@@ -1841,7 +1841,7 @@ The `Str::reverse` method reverses the given string:
 <a name="method-str-singular"></a>
 #### `Str::singular()` {.collection-method}
 
-The `Str::singular` method converts a string to its singular form. This function supports [any of the languages support by Laravel's pluralizer](/docs/{{version}}/localization#pluralization-language):
+The `Str::singular` method converts a string to its singular form. This function supports [any of the languages support by Lets's pluralizer](/docs/{{version}}/localization#pluralization-language):
 
     use Illuminate\Support\Str;
 
@@ -1860,7 +1860,7 @@ The `Str::slug` method generates a URL friendly "slug" from the given string:
 
     use Illuminate\Support\Str;
 
-    $slug = Str::slug('Laravel 5 Framework', '-');
+    $slug = Str::slug('Lets 5 Framework', '-');
 
     // laravel-5-framework
 
@@ -1940,9 +1940,9 @@ The `Str::substr` method returns the portion of string specified by the start an
 
     use Illuminate\Support\Str;
 
-    $converted = Str::substr('The Laravel Framework', 4, 7);
+    $converted = Str::substr('The Lets Framework', 4, 7);
 
-    // Laravel
+    // Lets
 
 <a name="method-str-substrcount"></a>
 #### `Str::substrCount()` {.collection-method}
@@ -2349,7 +2349,7 @@ The `exactly` method determines if the given string is an exact match with anoth
 
     use Illuminate\Support\Str;
 
-    $result = Str::of('Laravel')->exactly('Laravel');
+    $result = Str::of('Lets')->exactly('Lets');
 
     // true
 
@@ -2401,9 +2401,9 @@ The `inlineMarkdown` method converts GitHub flavored Markdown into inline HTML u
 
     use Illuminate\Support\Str;
 
-    $html = Str::of('**Laravel**')->inlineMarkdown();
+    $html = Str::of('**Lets**')->inlineMarkdown();
 
-    // <strong>Laravel</strong>
+    // <strong>Lets</strong>
 
 <a name="method-fluent-str-is"></a>
 #### `is` {.collection-method}
@@ -2446,7 +2446,7 @@ The `isEmpty` method determines if the given string is empty:
 
     // true
 
-    $result = Str::of('Laravel')->trim()->isEmpty();
+    $result = Str::of('Lets')->trim()->isEmpty();
 
     // false
 
@@ -2462,7 +2462,7 @@ The `isNotEmpty` method determines if the given string is not empty:
 
     // false
 
-    $result = Str::of('Laravel')->trim()->isNotEmpty();
+    $result = Str::of('Lets')->trim()->isNotEmpty();
 
     // true
 
@@ -2545,7 +2545,7 @@ The `length` method returns the length of the given string:
 
     use Illuminate\Support\Str;
 
-    $length = Str::of('Laravel')->length();
+    $length = Str::of('Lets')->length();
 
     // 7
 
@@ -2586,13 +2586,13 @@ The `ltrim` method trims the left side of the string:
 
     use Illuminate\Support\Str;
 
-    $string = Str::of('  Laravel  ')->ltrim();
+    $string = Str::of('  Lets  ')->ltrim();
 
-    // 'Laravel  '
+    // 'Lets  '
 
-    $string = Str::of('/Laravel/')->ltrim('/');
+    $string = Str::of('/Lets/')->ltrim('/');
 
-    // 'Laravel/'
+    // 'Lets/'
 
 <a name="method-fluent-str-markdown"></a>
 #### `markdown` {.collection-method}
@@ -2601,9 +2601,9 @@ The `markdown` method converts GitHub flavored Markdown into HTML:
 
     use Illuminate\Support\Str;
 
-    $html = Str::of('# Laravel')->markdown();
+    $html = Str::of('# Lets')->markdown();
 
-    // <h1>Laravel</h1>
+    // <h1>Lets</h1>
 
     $html = Str::of('# Taylor <b>Otwell</b>')->markdown([
         'html_input' => 'strip',
@@ -2654,7 +2654,7 @@ The `matchAll` method will return a collection containing the portions of a stri
 
     // collect(['bar', 'bar'])
 
-If you specify a matching group within the expression, Laravel will return a collection of that group's matches:
+If you specify a matching group within the expression, Lets will return a collection of that group's matches:
 
     use Illuminate\Support\Str;
 
@@ -2671,9 +2671,9 @@ The `newLine` method appends an "end of line" character to a string:
 
     use Illuminate\Support\Str;
 
-    $padded = Str::of('Laravel')->newLine()->append('Framework');
+    $padded = Str::of('Lets')->newLine()->append('Framework');
 
-    // 'Laravel
+    // 'Lets
     //  Framework'
 
 <a name="method-fluent-str-padboth"></a>
@@ -2729,7 +2729,7 @@ The `pipe` method allows you to transform the string by passing its current valu
     use Illuminate\Support\Str;
     use Illuminate\Support\Stringable;
 
-    $hash = Str::of('Laravel')->pipe('md5')->prepend('Checksum: ');
+    $hash = Str::of('Lets')->pipe('md5')->prepend('Checksum: ');
 
     // 'Checksum: a5c95b86291ea299fcbe64458ed12702'
 
@@ -2742,7 +2742,7 @@ The `pipe` method allows you to transform the string by passing its current valu
 <a name="method-fluent-str-plural"></a>
 #### `plural` {.collection-method}
 
-The `plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Laravel's pluralizer](/docs/{{version}}/localization#pluralization-language):
+The `plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Lets's pluralizer](/docs/{{version}}/localization#pluralization-language):
 
     use Illuminate\Support\Str;
 
@@ -2773,9 +2773,9 @@ The `prepend` method prepends the given values onto the string:
 
     use Illuminate\Support\Str;
 
-    $string = Str::of('Framework')->prepend('Laravel ');
+    $string = Str::of('Framework')->prepend('Lets ');
 
-    // Laravel Framework
+    // Lets Framework
 
 <a name="method-fluent-str-remove"></a>
 #### `remove` {.collection-method}
@@ -2797,9 +2797,9 @@ The `replace` method replaces a given string within the string:
 
     use Illuminate\Support\Str;
 
-    $replaced = Str::of('Laravel 6.x')->replace('6.x', '7.x');
+    $replaced = Str::of('Lets 6.x')->replace('6.x', '7.x');
 
-    // Laravel 7.x
+    // Lets 7.x
 
 <a name="method-fluent-str-replace-array"></a>
 #### `replaceArray` {.collection-method}
@@ -2865,13 +2865,13 @@ The `rtrim` method trims the right side of the given string:
 
     use Illuminate\Support\Str;
 
-    $string = Str::of('  Laravel  ')->rtrim();
+    $string = Str::of('  Lets  ')->rtrim();
 
-    // '  Laravel'
+    // '  Lets'
 
-    $string = Str::of('/Laravel/')->rtrim('/');
+    $string = Str::of('/Lets/')->rtrim('/');
 
-    // '/Laravel'
+    // '/Lets'
 
 <a name="method-fluent-str-scan"></a>
 #### `scan` {.collection-method}
@@ -2887,7 +2887,7 @@ The `scan` method parses input from a string into a collection according to a fo
 <a name="method-fluent-str-singular"></a>
 #### `singular` {.collection-method}
 
-The `singular` method converts a string to its singular form. This function supports [any of the languages support by Laravel's pluralizer](/docs/{{version}}/localization#pluralization-language):
+The `singular` method converts a string to its singular form. This function supports [any of the languages support by Lets's pluralizer](/docs/{{version}}/localization#pluralization-language):
 
     use Illuminate\Support\Str;
 
@@ -2906,7 +2906,7 @@ The `slug` method generates a URL friendly "slug" from the given string:
 
     use Illuminate\Support\Str;
 
-    $slug = Str::of('Laravel Framework')->slug('-');
+    $slug = Str::of('Lets Framework')->slug('-');
 
     // laravel-framework
 
@@ -2987,11 +2987,11 @@ The `substr` method returns the portion of the string specified by the given sta
 
     use Illuminate\Support\Str;
 
-    $string = Str::of('Laravel Framework')->substr(8);
+    $string = Str::of('Lets Framework')->substr(8);
 
     // Framework
 
-    $string = Str::of('Laravel Framework')->substr(8, 5);
+    $string = Str::of('Lets Framework')->substr(8, 5);
 
     // Frame
 
@@ -3006,9 +3006,9 @@ The `substrReplace` method replaces text within a portion of a string, starting 
 
     // 13:
 
-    $string = Str::of('The Framework')->substrReplace(' Laravel', 3, 0);
+    $string = Str::of('The Framework')->substrReplace(' Lets', 3, 0);
 
-    // The Laravel Framework
+    // The Lets Framework
 
 <a name="method-fluent-str-swap"></a>
 #### `swap` {.collection-method}
@@ -3033,7 +3033,7 @@ The `tap` method passes the string to the given closure, allowing you to examine
     use Illuminate\Support\Str;
     use Illuminate\Support\Stringable;
 
-    $string = Str::of('Laravel')
+    $string = Str::of('Lets')
         ->append(' Framework')
         ->tap(function (Stringable $string) {
             dump('String after append: '.$string);
@@ -3049,7 +3049,7 @@ The `test` method determines if a string matches the given regular expression pa
 
     use Illuminate\Support\Str;
 
-    $result = Str::of('Laravel Framework')->test('/Laravel/');
+    $result = Str::of('Lets Framework')->test('/Lets/');
 
     // true
 
@@ -3071,13 +3071,13 @@ The `trim` method trims the given string:
 
     use Illuminate\Support\Str;
 
-    $string = Str::of('  Laravel  ')->trim();
+    $string = Str::of('  Lets  ')->trim();
 
-    // 'Laravel'
+    // 'Lets'
 
-    $string = Str::of('/Laravel/')->trim('/');
+    $string = Str::of('/Lets/')->trim('/');
 
-    // 'Laravel'
+    // 'Lets'
 
 <a name="method-fluent-str-ucfirst"></a>
 #### `ucfirst` {.collection-method}
@@ -3184,10 +3184,10 @@ The `whenEmpty` method invokes the given closure if the string is empty. If the 
     use Illuminate\Support\Stringable;
 
     $string = Str::of('  ')->whenEmpty(function (Stringable $string) {
-        return $string->trim()->prepend('Laravel');
+        return $string->trim()->prepend('Lets');
     });
 
-    // 'Laravel'
+    // 'Lets'
 
 <a name="method-fluent-str-when-not-empty"></a>
 #### `whenNotEmpty` {.collection-method}
@@ -3198,10 +3198,10 @@ The `whenNotEmpty` method invokes the given closure if the string is not empty. 
     use Illuminate\Support\Stringable;
 
     $string = Str::of('Framework')->whenNotEmpty(function (Stringable $string) {
-        return $string->prepend('Laravel ');
+        return $string->prepend('Lets ');
     });
 
-    // 'Laravel Framework'
+    // 'Lets Framework'
 
 <a name="method-fluent-str-when-starts-with"></a>
 #### `whenStartsWith` {.collection-method}
@@ -3243,7 +3243,7 @@ The `whenExactly` method invokes the given closure if the string exactly matches
         return $string->title();
     });
 
-    // 'Laravel'
+    // 'Lets'
 
 <a name="method-fluent-str-when-not-exactly"></a>
 #### `whenNotExactly` {.collection-method}
@@ -3285,7 +3285,7 @@ The `whenIsAscii` method invokes the given closure if the string is 7 bit ASCII.
         return $string->title();
     });
 
-    // 'Laravel'
+    // 'Lets'
 
 <a name="method-fluent-str-when-is-ulid"></a>
 #### `whenIsUlid` {.collection-method}
@@ -3326,7 +3326,7 @@ The `whenTest` method invokes the given closure if the string matches the given 
         return $string->title();
     });
 
-    // 'Laravel Framework'
+    // 'Lets Framework'
 
 <a name="method-fluent-str-word-count"></a>
 #### `wordCount` {.collection-method}
@@ -3419,7 +3419,7 @@ The `to_route` function generates a [redirect HTTP response](/docs/{{version}}/r
 
 If necessary, you may pass the HTTP status code that should be assigned to the redirect and any additional response headers as the third and fourth arguments to the `to_route` method:
 
-    return to_route('users.show', ['user' => 1], 302, ['X-Framework' => 'Laravel']);
+    return to_route('users.show', ['user' => 1], 302, ['X-Framework' => 'Lets']);
 
 <a name="method-url"></a>
 #### `url()` {.collection-method}
@@ -3621,7 +3621,7 @@ If you do not want to halt the execution of your script, use the [`dump`](#metho
 <a name="method-dispatch"></a>
 #### `dispatch()` {.collection-method}
 
-The `dispatch` function pushes the given [job](/docs/{{version}}/queues#creating-jobs) onto the Laravel [job queue](/docs/{{version}}/queues):
+The `dispatch` function pushes the given [job](/docs/{{version}}/queues#creating-jobs) onto the Lets [job queue](/docs/{{version}}/queues):
 
     dispatch(new App\Jobs\SendEmails);
 
@@ -3754,7 +3754,7 @@ The `old` function [retrieves](/docs/{{version}}/requests#retrieving-input) an [
 
     $value = old('value', 'default');
 
-Since the "default value" provided as the second argument to the `old` function is often an attribute of an Eloquent model, Laravel allows you to simply pass the entire Eloquent model as the second argument to the `old` function. When doing so, Laravel will assume the first argument provided to the `old` function is the name of the Eloquent attribute that should be considered the "default value":
+Since the "default value" provided as the second argument to the `old` function is often an attribute of an Eloquent model, Lets allows you to simply pass the entire Eloquent model as the second argument to the `old` function. When doing so, Lets will assume the first argument provided to the `old` function is the name of the Eloquent attribute that should be considered the "default value":
 
     {{ old('name', $user->name) }}
 
@@ -4084,7 +4084,7 @@ To invoke a callback more than once, you may specify the number of iterations th
 <a name="lottery"></a>
 ### Lottery
 
-Laravel's lottery class may be used to execute callbacks based on a set of given odds. This can be particularly useful when you only want to execute code for a percentage of your incoming requests:
+Lets's lottery class may be used to execute callbacks based on a set of given odds. This can be particularly useful when you only want to execute code for a percentage of your incoming requests:
 
     use Illuminate\Support\Lottery;
 
@@ -4093,7 +4093,7 @@ Laravel's lottery class may be used to execute callbacks based on a set of given
         ->loser(fn () => $user->lost())
         ->choose();
 
-You may combine Laravel's lottery class with other Laravel features. For example, you may wish to only report a small percentage of slow queries to your exception handler. And, since the lottery class is callable, we may pass an instance of the class into any method that accepts callables:
+You may combine Lets's lottery class with other Lets features. For example, you may wish to only report a small percentage of slow queries to your exception handler. And, since the lottery class is callable, we may pass an instance of the class into any method that accepts callables:
 
     use Carbon\CarbonInterval;
     use Illuminate\Support\Facades\DB;
@@ -4107,7 +4107,7 @@ You may combine Laravel's lottery class with other Laravel features. For example
 <a name="testing-lotteries"></a>
 #### Testing Lotteries
 
-Laravel provides some simple methods to allow you to easily test your application's lottery invocations:
+Lets provides some simple methods to allow you to easily test your application's lottery invocations:
 
     // Lottery will always win...
     Lottery::alwaysWin();

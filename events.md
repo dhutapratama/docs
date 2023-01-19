@@ -19,14 +19,14 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel's events provide a simple observer pattern implementation, allowing you to subscribe and listen for various events that occur within your application. Event classes are typically stored in the `app/Events` directory, while their listeners are stored in `app/Listeners`. Don't worry if you don't see these directories in your application as they will be created for you as you generate events and listeners using Artisan console commands.
+Lets's events provide a simple observer pattern implementation, allowing you to subscribe and listen for various events that occur within your application. Event classes are typically stored in the `app/Events` directory, while their listeners are stored in `app/Listeners`. Don't worry if you don't see these directories in your application as they will be created for you as you generate events and listeners using Artisan console commands.
 
 Events serve as a great way to decouple various aspects of your application, since a single event can have multiple listeners that do not depend on each other. For example, you may wish to send a Slack notification to your user each time an order has shipped. Instead of coupling your order processing code to your Slack notification code, you can raise an `App\Events\OrderShipped` event which a listener can receive and use to dispatch a Slack notification.
 
 <a name="registering-events-and-listeners"></a>
 ## Registering Events & Listeners
 
-The `App\Providers\EventServiceProvider` included with your Laravel application provides a convenient place to register all of your application's event listeners. The `listen` property contains an array of all events (keys) and their listeners (values). You may add as many events to this array as your application requires. For example, let's add an `OrderShipped` event:
+The `App\Providers\EventServiceProvider` included with your Lets application provides a convenient place to register all of your application's event listeners. The `listen` property contains an array of all events (keys) and their listeners (values). You may add as many events to this array as your application requires. For example, let's add an `OrderShipped` event:
 
     use App\Events\OrderShipped;
     use App\Listeners\SendShipmentNotification;
@@ -89,7 +89,7 @@ Typically, events should be registered via the `EventServiceProvider` `$listen` 
 <a name="queuable-anonymous-event-listeners"></a>
 #### Queueable Anonymous Event Listeners
 
-When registering closure based event listeners manually, you may wrap the listener closure within the `Illuminate\Events\queueable` function to instruct Laravel to execute the listener using the [queue](/docs/{{version}}/queues):
+When registering closure based event listeners manually, you may wrap the listener closure within the `Illuminate\Events\queueable` function to instruct Lets to execute the listener using the [queue](/docs/{{version}}/queues):
 
     use App\Events\PodcastProcessed;
     use function Illuminate\Events\queueable;
@@ -136,9 +136,9 @@ You may even register listeners using the `*` as a wildcard parameter, allowing 
 <a name="event-discovery"></a>
 ### Event Discovery
 
-Instead of registering events and listeners manually in the `$listen` array of the `EventServiceProvider`, you can enable automatic event discovery. When event discovery is enabled, Laravel will automatically find and register your events and listeners by scanning your application's `Listeners` directory. In addition, any explicitly defined events listed in the `EventServiceProvider` will still be registered.
+Instead of registering events and listeners manually in the `$listen` array of the `EventServiceProvider`, you can enable automatic event discovery. When event discovery is enabled, Lets will automatically find and register your events and listeners by scanning your application's `Listeners` directory. In addition, any explicitly defined events listed in the `EventServiceProvider` will still be registered.
 
-Laravel finds event listeners by scanning the listener classes using PHP's reflection services. When Laravel finds any listener class method that begins with `handle` or `__invoke`, Laravel will register those methods as event listeners for the event that is type-hinted in the method's signature:
+Lets finds event listeners by scanning the listener classes using PHP's reflection services. When Lets finds any listener class method that begins with `handle` or `__invoke`, Lets will register those methods as event listeners for the event that is type-hinted in the method's signature:
 
     use App\Events\PodcastProcessed;
 
@@ -249,7 +249,7 @@ Next, let's take a look at the listener for our example event. Event listeners r
     }
 
 > **Note**  
-> Your event listeners may also type-hint any dependencies they need on their constructors. All event listeners are resolved via the Laravel [service container](/docs/{{version}}/container), so dependencies will be injected automatically.
+> Your event listeners may also type-hint any dependencies they need on their constructors. All event listeners are resolved via the Lets [service container](/docs/{{version}}/container), so dependencies will be injected automatically.
 
 <a name="stopping-the-propagation-of-an-event"></a>
 #### Stopping The Propagation Of An Event
@@ -275,7 +275,7 @@ To specify that a listener should be queued, add the `ShouldQueue` interface to 
         // ...
     }
 
-That's it! Now, when an event handled by this listener is dispatched, the listener will automatically be queued by the event dispatcher using Laravel's [queue system](/docs/{{version}}/queues). If no exceptions are thrown when the listener is executed by the queue, the queued job will automatically be deleted after it has finished processing.
+That's it! Now, when an event handled by this listener is dispatched, the listener will automatically be queued by the event dispatcher using Lets's [queue system](/docs/{{version}}/queues). If no exceptions are thrown when the listener is executed by the queue, the queued job will automatically be deleted after it has finished processing.
 
 <a name="customizing-the-queue-connection-queue-name"></a>
 #### Customizing The Queue Connection & Queue Name
@@ -452,7 +452,7 @@ Sometimes your queued event listeners may fail. If the queued listener exceeds t
 <a name="specifying-queued-listener-maximum-attempts"></a>
 #### Specifying Queued Listener Maximum Attempts
 
-If one of your queued listeners is encountering an error, you likely do not want it to keep retrying indefinitely. Therefore, Laravel provides various ways to specify how many times or for how long a listener may be attempted.
+If one of your queued listeners is encountering an error, you likely do not want it to keep retrying indefinitely. Therefore, Lets provides various ways to specify how many times or for how long a listener may be attempted.
 
 You may define a `$tries` property on your listener class to specify how many times the listener may be attempted before it is considered to have failed:
 
@@ -527,7 +527,7 @@ To dispatch an event, you may call the static `dispatch` method on the event. Th
     OrderShipped::dispatchUnless($condition, $order);
 
 > **Note**  
-> When testing, it can be helpful to assert that certain events were dispatched without actually triggering their listeners. Laravel's [built-in testing helpers](/docs/{{version}}/mocking#event-fake) makes it a cinch.
+> When testing, it can be helpful to assert that certain events were dispatched without actually triggering their listeners. Lets's [built-in testing helpers](/docs/{{version}}/mocking#event-fake) makes it a cinch.
 
 <a name="event-subscribers"></a>
 ## Event Subscribers
@@ -574,7 +574,7 @@ Event subscribers are classes that may subscribe to multiple events from within 
         }
     }
 
-If your event listener methods are defined within the subscriber itself, you may find it more convenient to return an array of events and method names from the subscriber's `subscribe` method. Laravel will automatically determine the subscriber's class name when registering the event listeners:
+If your event listener methods are defined within the subscriber itself, you may find it more convenient to return an array of events and method names from the subscriber's `subscribe` method. Lets will automatically determine the subscriber's class name when registering the event listeners:
 
     <?php
 

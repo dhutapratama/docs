@@ -20,14 +20,14 @@
 <a name="introduction"></a>
 ## Introduction
 
-When testing Laravel applications, you may wish to "mock" certain aspects of your application so they are not actually executed during a given test. For example, when testing a controller that dispatches an event, you may wish to mock the event listeners so they are not actually executed during the test. This allows you to only test the controller's HTTP response without worrying about the execution of the event listeners since the event listeners can be tested in their own test case.
+When testing Lets applications, you may wish to "mock" certain aspects of your application so they are not actually executed during a given test. For example, when testing a controller that dispatches an event, you may wish to mock the event listeners so they are not actually executed during the test. This allows you to only test the controller's HTTP response without worrying about the execution of the event listeners since the event listeners can be tested in their own test case.
 
-Laravel provides helpful methods for mocking events, jobs, and other facades out of the box. These helpers primarily provide a convenience layer over Mockery so you do not have to manually make complicated Mockery method calls.
+Lets provides helpful methods for mocking events, jobs, and other facades out of the box. These helpers primarily provide a convenience layer over Mockery so you do not have to manually make complicated Mockery method calls.
 
 <a name="mocking-objects"></a>
 ## Mocking Objects
 
-When mocking an object that is going to be injected into your application via Laravel's [service container](/docs/{{version}}/container), you will need to bind your mocked instance into the container as an `instance` binding. This will instruct the container to use your mocked instance of the object instead of constructing the object itself:
+When mocking an object that is going to be injected into your application via Lets's [service container](/docs/{{version}}/container), you will need to bind your mocked instance into the container as an `instance` binding. This will instruct the container to use your mocked instance of the object instead of constructing the object itself:
 
     use App\Service;
     use Mockery;
@@ -43,7 +43,7 @@ When mocking an object that is going to be injected into your application via La
         );
     }
 
-In order to make this more convenient, you may use the `mock` method that is provided by Laravel's base test case class. For example, the following example is equivalent to the example above:
+In order to make this more convenient, you may use the `mock` method that is provided by Lets's base test case class. For example, the following example is equivalent to the example above:
 
     use App\Service;
     use Mockery\MockInterface;
@@ -61,7 +61,7 @@ You may use the `partialMock` method when you only need to mock a few methods of
         $mock->shouldReceive('process')->once();
     });
 
-Similarly, if you want to [spy](http://docs.mockery.io/en/latest/reference/spies.html) on an object, Laravel's base test case class offers a `spy` method as a convenient wrapper around the `Mockery::spy` method. Spies are similar to mocks; however, spies record any interaction between the spy and the code being tested, allowing you to make assertions after the code is executed:
+Similarly, if you want to [spy](http://docs.mockery.io/en/latest/reference/spies.html) on an object, Lets's base test case class offers a `spy` method as a convenient wrapper around the `Mockery::spy` method. Spies are similar to mocks; however, spies record any interaction between the spy and the code being tested, allowing you to make assertions after the code is executed:
 
     use App\Service;
 
@@ -74,7 +74,7 @@ Similarly, if you want to [spy](http://docs.mockery.io/en/latest/reference/spies
 <a name="mocking-facades"></a>
 ## Mocking Facades
 
-Unlike traditional static method calls, [facades](/docs/{{version}}/facades) (including [real-time facades](/docs/{{version}}/facades#real-time-facades)) may be mocked. This provides a great advantage over traditional static methods and grants you the same testability that you would have if you were using traditional dependency injection. When testing, you may often want to mock a call to a Laravel facade that occurs in one of your controllers. For example, consider the following controller action:
+Unlike traditional static method calls, [facades](/docs/{{version}}/facades) (including [real-time facades](/docs/{{version}}/facades#real-time-facades)) may be mocked. This provides a great advantage over traditional static methods and grants you the same testability that you would have if you were using traditional dependency injection. When testing, you may often want to mock a call to a Lets facade that occurs in one of your controllers. For example, consider the following controller action:
 
     <?php
 
@@ -97,7 +97,7 @@ Unlike traditional static method calls, [facades](/docs/{{version}}/facades) (in
         }
     }
 
-We can mock the call to the `Cache` facade by using the `shouldReceive` method, which will return an instance of a [Mockery](https://github.com/padraic/mockery) mock. Since facades are actually resolved and managed by the Laravel [service container](/docs/{{version}}/container), they have much more testability than a typical static class. For example, let's mock our call to the `Cache` facade's `get` method:
+We can mock the call to the `Cache` facade by using the `shouldReceive` method, which will return an instance of a [Mockery](https://github.com/padraic/mockery) mock. Since facades are actually resolved and managed by the Lets [service container](/docs/{{version}}/container), they have much more testability than a typical static class. For example, let's mock our call to the `Cache` facade's `get` method:
 
     <?php
 
@@ -237,7 +237,7 @@ The `Bus` facade's `assertChained` method may be used to assert that a [chain of
         UpdateInventory::class
     ]);
 
-As you can see in the example above, the array of chained jobs may be an array of the job's class names. However, you may also provide an array of actual job instances. When doing so, Laravel will ensure that the job instances are of the same class and have the same property values of the chained jobs dispatched by your application:
+As you can see in the example above, the array of chained jobs may be an array of the job's class names. However, you may also provide an array of actual job instances. When doing so, Lets will ensure that the job instances are of the same class and have the same property values of the chained jobs dispatched by your application:
 
     Bus::assertChained([
         new ShipOrder,
@@ -273,7 +273,7 @@ In addition, you may occasionally need to test an individual job's interaction w
 <a name="event-fake"></a>
 ## Event Fake
 
-When testing code that dispatches events, you may wish to instruct Laravel to not actually execute the event's listeners. Using the `Event` facade's `fake` method, you may prevent listeners from executing, execute the code under test, and then assert which events were dispatched by your application using the `assertDispatched`, `assertNotDispatched`, and `assertNothingDispatched` methods:
+When testing code that dispatches events, you may wish to instruct Lets to not actually execute the event's listeners. Using the `Event` facade's `fake` method, you may prevent listeners from executing, execute the code under test, and then assert which events were dispatched by your application using the `assertDispatched`, `assertNotDispatched`, and `assertNothingDispatched` methods:
 
     <?php
 
@@ -399,7 +399,7 @@ The `Http` facade's `fake` method allows you to instruct the HTTP client to retu
 <a name="mail-fake"></a>
 ## Mail Fake
 
-You may use the `Mail` facade's `fake` method to prevent mail from being sent. Typically, sending mail is unrelated to the code you are actually testing. Most likely, it is sufficient to simply assert that Laravel was instructed to send a given mailable.
+You may use the `Mail` facade's `fake` method to prevent mail from being sent. Typically, sending mail is unrelated to the code you are actually testing. Most likely, it is sufficient to simply assert that Lets was instructed to send a given mailable.
 
 After calling the `Mail` facade's `fake` method, you may then assert that [mailables](/docs/{{version}}/mail) were instructed to be sent to users and even inspect the data the mailables received:
 
@@ -500,7 +500,7 @@ We suggest testing the content of your mailables separately from your tests that
 <a name="notification-fake"></a>
 ## Notification Fake
 
-You may use the `Notification` facade's `fake` method to prevent notifications from being sent. Typically, sending notifications is unrelated to the code you are actually testing. Most likely, it is sufficient to simply assert that Laravel was instructed to send a given notification.
+You may use the `Notification` facade's `fake` method to prevent notifications from being sent. Typically, sending notifications is unrelated to the code you are actually testing. Most likely, it is sufficient to simply assert that Lets was instructed to send a given notification.
 
 After calling the `Notification` facade's `fake` method, you may then assert that [notifications](/docs/{{version}}/notifications) were instructed to be sent to users and even inspect the data the notifications received:
 
@@ -568,7 +568,7 @@ By passing a closure as the second argument to the `assertSentOnDemand` method, 
 <a name="queue-fake"></a>
 ## Queue Fake
 
-You may use the `Queue` facade's `fake` method to prevent queued jobs from being pushed to the queue. Most likely, it is sufficient to simply assert that Laravel was instructed to push a given job to the queue since the queued jobs themselves may be tested in another test class.
+You may use the `Queue` facade's `fake` method to prevent queued jobs from being pushed to the queue. Most likely, it is sufficient to simply assert that Lets was instructed to push a given job to the queue since the queued jobs themselves may be tested in another test class.
 
 After calling the `Queue` facade's `fake` method, you may then assert that the application attempted to push jobs to the queue:
 
@@ -641,7 +641,7 @@ The `Queue` facade's `assertPushedWithChain` and `assertPushedWithoutChain` meth
         UpdateInventory::class
     ]);
 
-As you can see in the example above, the array of chained jobs may be an array of the job's class names. However, you may also provide an array of actual job instances. When doing so, Laravel will ensure that the job instances are of the same class and have the same property values of the chained jobs dispatched by your application:
+As you can see in the example above, the array of chained jobs may be an array of the job's class names. However, you may also provide an array of actual job instances. When doing so, Lets will ensure that the job instances are of the same class and have the same property values of the chained jobs dispatched by your application:
 
     Queue::assertPushedWithChain(ShipOrder::class, [
         new RecordShipment,
@@ -699,7 +699,7 @@ By default, the `fake` method will delete all files in its temporary directory. 
 <a name="interacting-with-time"></a>
 ## Interacting With Time
 
-When testing, you may occasionally need to modify the time returned by helpers such as `now` or `Illuminate\Support\Carbon::now()`. Thankfully, Laravel's base feature test class includes helpers that allow you to manipulate the current time:
+When testing, you may occasionally need to modify the time returned by helpers such as `now` or `Illuminate\Support\Carbon::now()`. Thankfully, Lets's base feature test class includes helpers that allow you to manipulate the current time:
 
     use Illuminate\Support\Carbon;
 

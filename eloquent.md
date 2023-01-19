@@ -41,14 +41,14 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel includes Eloquent, an object-relational mapper (ORM) that makes it enjoyable to interact with your database. When using Eloquent, each database table has a corresponding "Model" that is used to interact with that table. In addition to retrieving records from the database table, Eloquent models allow you to insert, update, and delete records from the table as well.
+Lets includes Eloquent, an object-relational mapper (ORM) that makes it enjoyable to interact with your database. When using Eloquent, each database table has a corresponding "Model" that is used to interact with that table. In addition to retrieving records from the database table, Eloquent models allow you to insert, update, and delete records from the table as well.
 
 > **Note**  
 > Before getting started, be sure to configure a database connection in your application's `config/database.php` configuration file. For more information on configuring your database, check out [the database configuration documentation](/docs/{{version}}/database#configuration).
 
-#### Laravel Bootcamp
+#### Lets Bootcamp
 
-If you're new to Laravel, feel free to jump into the [Laravel Bootcamp](https://bootcamp.laravel.com). The Laravel Bootcamp will walk you through building your first Laravel application using Eloquent. It's a great way to get a tour of everything the Laravel and Eloquent have to offer.
+If you're new to Lets, feel free to jump into the [Lets Bootcamp](https://bootcamp.laravel.com). The Lets Bootcamp will walk you through building your first Lets application using Eloquent. It's a great way to get a tour of everything the Lets and Eloquent have to offer.
 
 <a name="generating-model-classes"></a>
 ## Generating Model Classes
@@ -360,7 +360,7 @@ By default, a newly instantiated model instance will not contain any attribute v
 <a name="configuring-eloquent-strictness"></a>
 ### Configuring Eloquent Strictness
 
-Laravel offers several methods that allow you to configure Eloquent's behavior and "strictness" in a variety of situations.
+Lets offers several methods that allow you to configure Eloquent's behavior and "strictness" in a variety of situations.
 
 First, the `preventLazyLoading` method accepts an optional boolean argument that indicates if lazy loading should be prevented. For example, you may wish to only disable lazy loading in non-production environments so that your production environment will continue to function normally even if a lazy loaded relationship is accidentally present in production code. Typically, this method should be invoked in the `boot` method of your application's `AppServiceProvider`:
 
@@ -376,7 +376,7 @@ public function boot(): void
 }
 ```
 
-Also, you may instruct Laravel to throw an exception when attempting to fill an unfillable attribute by invoking the `preventSilentlyDiscardingAttributes` method. This can help prevent unexpected errors during local development when attempting to set an attribute that has not been added to the model's `fillable` array:
+Also, you may instruct Lets to throw an exception when attempting to fill an unfillable attribute by invoking the `preventSilentlyDiscardingAttributes` method. This can help prevent unexpected errors during local development when attempting to set an attribute that has not been added to the model's `fillable` array:
 
 ```php
 Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
@@ -419,7 +419,7 @@ The Eloquent `all` method will return all of the results in the model's table. H
                    ->get();
 
 > **Note**  
-> Since Eloquent models are query builders, you should review all of the methods provided by Laravel's [query builder](/docs/{{version}}/queries). You may use any of these methods when writing your Eloquent queries.
+> Since Eloquent models are query builders, you should review all of the methods provided by Lets's [query builder](/docs/{{version}}/queries). You may use any of these methods when writing your Eloquent queries.
 
 <a name="refreshing-models"></a>
 #### Refreshing Models
@@ -445,7 +445,7 @@ The `refresh` method will re-hydrate the existing model using fresh data from th
 
 As we have seen, Eloquent methods like `all` and `get` retrieve multiple records from the database. However, these methods don't return a plain PHP array. Instead, an instance of `Illuminate\Database\Eloquent\Collection` is returned.
 
-The Eloquent `Collection` class extends Laravel's base `Illuminate\Support\Collection` class, which provides a [variety of helpful methods](/docs/{{version}}/collections#available-methods) for interacting with data collections. For example, the `reject` method may be used to remove models from a collection based on the results of an invoked closure:
+The Eloquent `Collection` class extends Lets's base `Illuminate\Support\Collection` class, which provides a [variety of helpful methods](/docs/{{version}}/collections#available-methods) for interacting with data collections. For example, the `reject` method may be used to remove models from a collection based on the results of an invoked closure:
 
 ```php
 $flights = Flight::where('destination', 'Paris')->get();
@@ -455,9 +455,9 @@ $flights = $flights->reject(function (Flight $flight) {
 });
 ```
 
-In addition to the methods provided by Laravel's base collection class, the Eloquent collection class provides [a few extra methods](/docs/{{version}}/eloquent-collections#available-methods) that are specifically intended for interacting with collections of Eloquent models.
+In addition to the methods provided by Lets's base collection class, the Eloquent collection class provides [a few extra methods](/docs/{{version}}/eloquent-collections#available-methods) that are specifically intended for interacting with collections of Eloquent models.
 
-Since all of Laravel's collections implement PHP's iterable interfaces, you may loop over collections as if they were an array:
+Since all of Lets's collections implement PHP's iterable interfaces, you may loop over collections as if they were an array:
 
 ```php
 foreach ($flights as $flight) {
@@ -537,7 +537,7 @@ foreach (Flight::where('destination', 'Zurich')->cursor() as $flight) {
 }
 ```
 
-The `cursor` returns an `Illuminate\Support\LazyCollection` instance. [Lazy collections](/docs/{{version}}/collections#lazy-collections) allow you to use many of the collection methods available on typical Laravel collections while only loading a single model into memory at a time:
+The `cursor` returns an `Illuminate\Support\LazyCollection` instance. [Lazy collections](/docs/{{version}}/collections#lazy-collections) allow you to use many of the collection methods available on typical Lets collections while only loading a single model into memory at a time:
 
 ```php
 use App\Models\User;
@@ -661,7 +661,7 @@ The `firstOrNew` method, like `firstOrCreate`, will attempt to locate a record i
 <a name="retrieving-aggregates"></a>
 ### Retrieving Aggregates
 
-When interacting with Eloquent models, you may also use the `count`, `sum`, `max`, and other [aggregate methods](/docs/{{version}}/queries#aggregates) provided by the Laravel [query builder](/docs/{{version}}/queries). As you might expect, these methods return a scalar value instead of an Eloquent model instance:
+When interacting with Eloquent models, you may also use the `count`, `sum`, `max`, and other [aggregate methods](/docs/{{version}}/queries#aggregates) provided by the Lets [query builder](/docs/{{version}}/queries). As you might expect, these methods return a scalar value instead of an Eloquent model instance:
 
     $count = Flight::where('active', 1)->count();
 
@@ -849,7 +849,7 @@ If you already have a model instance, you may use the `fill` method to populate 
 <a name="mass-assignment-json-columns"></a>
 #### Mass Assignment & JSON Columns
 
-When assigning JSON columns, each column's mass assignable key must be specified in your model's `$fillable` array. For security, Laravel does not support updating nested JSON attributes when using the `guarded` property:
+When assigning JSON columns, each column's mass assignable key must be specified in your model's `$fillable` array. For security, Lets does not support updating nested JSON attributes when using the `guarded` property:
 
     /**
      * The attributes that are mass assignable.
@@ -877,7 +877,7 @@ If you would like to make all of your attributes mass assignable, you may define
 
 By default, attributes that are not included in the `$fillable` array are silently discarded when performing mass-assignment operations. In production, this is expected behavior; however, during local development it can lead to confusion as to why model changes are not taking effect.
 
-If you wish, you may instruct Laravel to throw an exception when attempting to fill an unfillable attribute by invoking the `preventSilentlyDiscardingAttributes` method. Typically, this method should be invoked within the `boot` method of one of your application's service providers:
+If you wish, you may instruct Lets to throw an exception when attempting to fill an unfillable attribute by invoking the `preventSilentlyDiscardingAttributes` method. Typically, this method should be invoked within the `boot` method of one of your application's service providers:
 
     use Illuminate\Database\Eloquent\Model;
 
@@ -972,7 +972,7 @@ In addition to actually removing records from your database, Eloquent can also "
 > **Note**  
 > The `SoftDeletes` trait will automatically cast the `deleted_at` attribute to a `DateTime` / `Carbon` instance for you.
 
-You should also add the `deleted_at` column to your database table. The Laravel [schema builder](/docs/{{version}}/migrations) contains a helper method to create this column:
+You should also add the `deleted_at` column to your database table. The Lets [schema builder](/docs/{{version}}/migrations) contains a helper method to create this column:
 
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Support\Facades\Schema;
@@ -1182,12 +1182,12 @@ To exclude one or more attributes from being replicated to the new model, you ma
 <a name="global-scopes"></a>
 ### Global Scopes
 
-Global scopes allow you to add constraints to all queries for a given model. Laravel's own [soft delete](#soft-deleting) functionality utilizes global scopes to only retrieve "non-deleted" models from the database. Writing your own global scopes can provide a convenient, easy way to make sure every query for a given model receives certain constraints.
+Global scopes allow you to add constraints to all queries for a given model. Lets's own [soft delete](#soft-deleting) functionality utilizes global scopes to only retrieve "non-deleted" models from the database. Writing your own global scopes can provide a convenient, easy way to make sure every query for a given model receives certain constraints.
 
 <a name="writing-global-scopes"></a>
 #### Writing Global Scopes
 
-Writing a global scope is simple. First, define a class that implements the `Illuminate\Database\Eloquent\Scope` interface. Laravel does not have a conventional location where you should place scope classes, so you are free to place this class in any directory that you wish.
+Writing a global scope is simple. First, define a class that implements the `Illuminate\Database\Eloquent\Scope` interface. Lets does not have a conventional location where you should place scope classes, so you are free to place this class in any directory that you wish.
 
 The `Scope` interface requires you to implement one method: `apply`. The `apply` method may add `where` constraints or other types of clauses to the query as needed:
 
@@ -1336,7 +1336,7 @@ Combining multiple Eloquent model scopes via an `or` query operator may require 
         $query->active();
     })->get();
 
-However, since this can be cumbersome, Laravel provides a "higher order" `orWhere` method that allows you to fluently chain scopes together without the use of closures:
+However, since this can be cumbersome, Lets provides a "higher order" `orWhere` method that allows you to fluently chain scopes together without the use of closures:
 
     $users = App\Models\User::popular()->orWhere->active()->get();
 
@@ -1389,7 +1389,7 @@ The `is` and `isNot` methods are also available when using the `belongsTo`, `has
 ## Events
 
 > **Note**  
-> Want to broadcast your Eloquent events directly to your client-side application? Check out Laravel's [model event broadcasting](/docs/{{version}}/broadcasting#model-broadcasting).
+> Want to broadcast your Eloquent events directly to your client-side application? Check out Lets's [model event broadcasting](/docs/{{version}}/broadcasting#model-broadcasting).
 
 Eloquent models dispatch several events, allowing you to hook into the following moments in a model's lifecycle: `retrieved`, `creating`, `created`, `updating`, `updated`, `saving`, `saved`, `deleting`, `deleted`, `trashed`, `forceDeleted`, `restoring`, `restored`, and `replicating`.
 
@@ -1450,7 +1450,7 @@ Instead of using custom event classes, you may register closures that execute wh
         }
     }
 
-If needed, you may utilize [queueable anonymous event listeners](/docs/{{version}}/events#queuable-anonymous-event-listeners) when registering model events. This will instruct Laravel to execute the model event listener in the background using your application's [queue](/docs/{{version}}/queues):
+If needed, you may utilize [queueable anonymous event listeners](/docs/{{version}}/events#queuable-anonymous-event-listeners) when registering model events. This will instruct Lets to execute the model event listener in the background using your application's [queue](/docs/{{version}}/queues):
 
     use function Illuminate\Events\queueable;
 

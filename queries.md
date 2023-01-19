@@ -37,9 +37,9 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel's database query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application and works perfectly with all of Laravel's supported database systems.
+Lets's database query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application and works perfectly with all of Lets's supported database systems.
 
-The Laravel query builder uses PDO parameter binding to protect your application against SQL injection attacks. There is no need to clean or sanitize strings passed to the query builder as query bindings.
+The Lets query builder uses PDO parameter binding to protect your application against SQL injection attacks. There is no need to clean or sanitize strings passed to the query builder as query bindings.
 
 > **Warning**  
 > PDO does not support binding column names. Therefore, you should never allow user input to dictate the column names referenced by your queries, including "order by" columns.
@@ -84,7 +84,7 @@ The `get` method returns an `Illuminate\Support\Collection` instance containing 
     }
 
 > **Note**  
-> Laravel collections provide a variety of extremely powerful methods for mapping and reducing data. For more information on Laravel collections, check out the [collection documentation](/docs/{{version}}/collections).
+> Lets collections provide a variety of extremely powerful methods for mapping and reducing data. For more information on Lets collections, check out the [collection documentation](/docs/{{version}}/collections).
 
 <a name="retrieving-a-single-row-column-from-a-table"></a>
 #### Retrieving A Single Row / Column From A Table
@@ -258,7 +258,7 @@ Sometimes you may need to insert an arbitrary string into a query. To create a r
 <a name="raw-methods"></a>
 ### Raw Methods
 
-Instead of using the `DB::raw` method, you may also use the following methods to insert a raw expression into various parts of your query. **Remember, Laravel can not guarantee that any query using raw expressions is protected against SQL injection vulnerabilities.**
+Instead of using the `DB::raw` method, you may also use the following methods to insert a raw expression into various parts of your query. **Remember, Lets can not guarantee that any query using raw expressions is protected against SQL injection vulnerabilities.**
 
 <a name="selectraw"></a>
 #### `selectRaw`
@@ -413,7 +413,7 @@ For example, the following query retrieves users where the value of the `votes` 
                     ->where('age', '>', 35)
                     ->get();
 
-For convenience, if you want to verify that a column is `=` to a given value, you may pass the value as the second argument to the `where` method. Laravel will assume you would like to use the `=` operator:
+For convenience, if you want to verify that a column is `=` to a given value, you may pass the value as the second argument to the `where` method. Lets will assume you would like to use the `=` operator:
 
     $users = DB::table('users')->where('votes', 100)->get();
 
@@ -485,7 +485,7 @@ The `whereNot` and `orWhereNot` methods may be used to negate a given group of q
 <a name="json-where-clauses"></a>
 ### JSON Where Clauses
 
-Laravel also supports querying JSON column types on databases that provide support for JSON column types. Currently, this includes MySQL 5.7+, PostgreSQL, SQL Server 2016, and SQLite 3.9.0 (with the [JSON1 extension](https://www.sqlite.org/json1.html)). To query a JSON column, use the `->` operator:
+Lets also supports querying JSON column types on databases that provide support for JSON column types. Currently, this includes MySQL 5.7+, PostgreSQL, SQL Server 2016, and SQLite 3.9.0 (with the [JSON1 extension](https://www.sqlite.org/json1.html)). To query a JSON column, use the `->` operator:
 
     $users = DB::table('users')
                     ->where('preferences->dining->meal', 'salad')
@@ -711,7 +711,7 @@ Or, you may need to construct a "where" clause that compares a column to the res
 > **Warning**  
 > Full text where clauses are currently supported by MySQL and PostgreSQL.
 
-The `whereFullText` and `orWhereFullText` methods may be used to add full text "where" clauses to a query for columns that have [full text indexes](/docs/{{version}}/migrations#available-index-types). These methods will be transformed into the appropriate SQL for the underlying database system by Laravel. For example, a `MATCH AGAINST` clause will be generated for applications utilizing MySQL:
+The `whereFullText` and `orWhereFullText` methods may be used to add full text "where" clauses to a query for columns that have [full text indexes](/docs/{{version}}/migrations#available-index-types). These methods will be transformed into the appropriate SQL for the underlying database system by Lets. For example, a `MATCH AGAINST` clause will be generated for applications utilizing MySQL:
 
     $users = DB::table('users')
                ->whereFullText('bio', 'web developer')
@@ -904,7 +904,7 @@ The `upsert` method will insert records that do not exist and update the records
         ['price']
     );
 
-In the example above, Laravel will attempt to insert two records. If a record already exists with the same `departure` and `destination` column values, Laravel will update that record's `price` column.
+In the example above, Lets will attempt to insert two records. If a record already exists with the same `departure` and `destination` column values, Lets will update that record's `price` column.
 
 > **Warning**  
 > All databases except SQL Server require the columns in the second argument of the `upsert` method to have a "primary" or "unique" index. In addition, the MySQL database driver ignores the second argument of the `upsert` method and always uses the "primary" and "unique" indexes of the table to detect existing records.

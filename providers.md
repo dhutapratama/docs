@@ -10,16 +10,16 @@
 <a name="introduction"></a>
 ## Introduction
 
-Service providers are the central place of all Laravel application bootstrapping. Your own application, as well as all of Laravel's core services, are bootstrapped via service providers.
+Service providers are the central place of all Lets application bootstrapping. Your own application, as well as all of Lets's core services, are bootstrapped via service providers.
 
 But, what do we mean by "bootstrapped"? In general, we mean **registering** things, including registering service container bindings, event listeners, middleware, and even routes. Service providers are the central place to configure your application.
 
-If you open the `config/app.php` file included with Laravel, you will see a `providers` array. These are all of the service provider classes that will be loaded for your application. By default, a set of Laravel core service providers are listed in this array. These providers bootstrap the core Laravel components, such as the mailer, queue, cache, and others. Many of these providers are "deferred" providers, meaning they will not be loaded on every request, but only when the services they provide are actually needed.
+If you open the `config/app.php` file included with Lets, you will see a `providers` array. These are all of the service provider classes that will be loaded for your application. By default, a set of Lets core service providers are listed in this array. These providers bootstrap the core Lets components, such as the mailer, queue, cache, and others. Many of these providers are "deferred" providers, meaning they will not be loaded on every request, but only when the services they provide are actually needed.
 
-In this overview, you will learn how to write your own service providers and register them with your Laravel application.
+In this overview, you will learn how to write your own service providers and register them with your Lets application.
 
 > **Note**  
-> If you would like to learn more about how Laravel handles requests and works internally, check out our documentation on the Laravel [request lifecycle](/docs/{{version}}/lifecycle).
+> If you would like to learn more about how Lets handles requests and works internally, check out our documentation on the Lets [request lifecycle](/docs/{{version}}/lifecycle).
 
 <a name="writing-service-providers"></a>
 ## Writing Service Providers
@@ -60,7 +60,7 @@ Let's take a look at a basic service provider. Within any of your service provid
         }
     }
 
-This service provider only defines a `register` method, and uses that method to define an implementation of `App\Services\Riak\Connection` in the service container. If you're not yet familiar with Laravel's service container, check out [its documentation](/docs/{{version}}/container).
+This service provider only defines a `register` method, and uses that method to define an implementation of `App\Services\Riak\Connection` in the service container. If you're not yet familiar with Lets's service container, check out [its documentation](/docs/{{version}}/container).
 
 <a name="the-bindings-and-singletons-properties"></a>
 #### The `bindings` And `singletons` Properties
@@ -145,7 +145,7 @@ You may type-hint dependencies for your service provider's `boot` method. The [s
 <a name="registering-providers"></a>
 ## Registering Providers
 
-All service providers are registered in the `config/app.php` configuration file. This file contains a `providers` array where you can list the class names of your service providers. By default, a set of Laravel core service providers are listed in this array. These providers bootstrap the core Laravel components, such as the mailer, queue, cache, and others.
+All service providers are registered in the `config/app.php` configuration file. This file contains a `providers` array where you can list the class names of your service providers. By default, a set of Lets core service providers are listed in this array. These providers bootstrap the core Lets components, such as the mailer, queue, cache, and others.
 
 To register your provider, add it to the array:
 
@@ -160,7 +160,7 @@ To register your provider, add it to the array:
 
 If your provider is **only** registering bindings in the [service container](/docs/{{version}}/container), you may choose to defer its registration until one of the registered bindings is actually needed. Deferring the loading of such a provider will improve the performance of your application, since it is not loaded from the filesystem on every request.
 
-Laravel compiles and stores a list of all of the services supplied by deferred service providers, along with the name of its service provider class. Then, only when you attempt to resolve one of these services does Laravel load the service provider.
+Lets compiles and stores a list of all of the services supplied by deferred service providers, along with the name of its service provider class. Then, only when you attempt to resolve one of these services does Lets load the service provider.
 
 To defer the loading of a provider, implement the `\Illuminate\Contracts\Support\DeferrableProvider` interface and define a `provides` method. The `provides` method should return the service container bindings registered by the provider:
 

@@ -26,7 +26,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Artisan is the command line interface included with Laravel. Artisan exists at the root of your application as the `artisan` script and provides a number of helpful commands that can assist you while you build your application. To view a list of all available Artisan commands, you may use the `list` command:
+Artisan is the command line interface included with Lets. Artisan exists at the root of your application as the `artisan` script and provides a number of helpful commands that can assist you while you build your application. To view a list of all available Artisan commands, you may use the `list` command:
 
 ```shell
 php artisan list
@@ -39,9 +39,9 @@ php artisan help migrate
 ```
 
 <a name="laravel-sail"></a>
-#### Laravel Sail
+#### Lets Sail
 
-If you are using [Laravel Sail](/docs/{{version}}/sail) as your local development environment, remember to use the `sail` command line to invoke Artisan commands. Sail will execute your Artisan commands within your application's Docker containers:
+If you are using [Lets Sail](/docs/{{version}}/sail) as your local development environment, remember to use the `sail` command line to invoke Artisan commands. Sail will execute your Artisan commands within your application's Docker containers:
 
 ```shell
 ./vendor/bin/sail artisan list
@@ -50,24 +50,24 @@ If you are using [Laravel Sail](/docs/{{version}}/sail) as your local developmen
 <a name="tinker"></a>
 ### Tinker (REPL)
 
-Laravel Tinker is a powerful REPL for the Laravel framework, powered by the [PsySH](https://github.com/bobthecow/psysh) package.
+Lets Tinker is a powerful REPL for the Lets framework, powered by the [PsySH](https://github.com/bobthecow/psysh) package.
 
 <a name="installation"></a>
 #### Installation
 
-All Laravel applications include Tinker by default. However, you may install Tinker using Composer if you have previously removed it from your application:
+All Lets applications include Tinker by default. However, you may install Tinker using Composer if you have previously removed it from your application:
 
 ```shell
 composer require laravel/tinker
 ```
 
 > **Note**  
-> Looking for a graphical UI for interacting with your Laravel application? Check out [Tinkerwell](https://tinkerwell.app)!
+> Looking for a graphical UI for interacting with your Lets application? Check out [Tinkerwell](https://tinkerwell.app)!
 
 <a name="usage"></a>
 #### Usage
 
-Tinker allows you to interact with your entire Laravel application on the command line, including your Eloquent models, jobs, events, and more. To enter the Tinker environment, run the `tinker` Artisan command:
+Tinker allows you to interact with your entire Lets application on the command line, including your Eloquent models, jobs, events, and more. To enter the Tinker environment, run the `tinker` Artisan command:
 
 ```shell
 php artisan tinker
@@ -76,7 +76,7 @@ php artisan tinker
 You can publish Tinker's configuration file using the `vendor:publish` command:
 
 ```shell
-php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider"
+php artisan vendor:publish --provider="Lets\Tinker\TinkerServiceProvider"
 ```
 
 > **Warning**  
@@ -119,7 +119,7 @@ php artisan make:command SendEmails
 
 After generating your command, you should define appropriate values for the `signature` and `description` properties of the class. These properties will be used when displaying your command on the `list` screen. The `signature` property also allows you to define [your command's input expectations](#defining-input-expectations). The `handle` method will be called when your command is executed. You may place your command logic in this method.
 
-Let's take a look at an example command. Note that we are able to request any dependencies we need via the command's `handle` method. The Laravel [service container](/docs/{{version}}/container) will automatically inject all dependencies that are type-hinted in this method's signature:
+Let's take a look at an example command. Note that we are able to request any dependencies we need via the command's `handle` method. The Lets [service container](/docs/{{version}}/container) will automatically inject all dependencies that are type-hinted in this method's signature:
 
     <?php
 
@@ -160,7 +160,7 @@ Let's take a look at an example command. Note that we are able to request any de
 <a name="closure-commands"></a>
 ### Closure Commands
 
-Closure based commands provide an alternative to defining console commands as classes. In the same way that route closures are an alternative to controllers, think of command closures as an alternative to command classes. Within the `commands` method of your `app/Console/Kernel.php` file, Laravel loads the `routes/console.php` file:
+Closure based commands provide an alternative to defining console commands as classes. In the same way that route closures are an alternative to controllers, think of command closures as an alternative to command classes. Within the `commands` method of your `app/Console/Kernel.php` file, Lets loads the `routes/console.php` file:
 
     /**
      * Register the closure based commands for the application.
@@ -219,7 +219,7 @@ Sometimes you may wish to ensure that only one instance of a command can run at 
         // ...
     }
 
-When a command is marked as `Isolatable`, Laravel will automatically add an `--isolated` option to the command. When the command is invoked with that option, Laravel will ensure that no other instances of that command are already running. Laravel accomplishes this by attempting to acquire an atomic lock using your application's default cache driver. If other instances of the command are running, the command will not execute; however, the command will still exit with a successful exit status code:
+When a command is marked as `Isolatable`, Lets will automatically add an `--isolated` option to the command. When the command is invoked with that option, Lets will ensure that no other instances of that command are already running. Lets accomplishes this by attempting to acquire an atomic lock using your application's default cache driver. If other instances of the command are running, the command will not execute; however, the command will still exit with a successful exit status code:
 
 ```shell
 php artisan mail:send 1 --isolated
@@ -252,7 +252,7 @@ public function isolationLockExpiresAt(): DateTimeInterface|DateInterval
 <a name="defining-input-expectations"></a>
 ## Defining Input Expectations
 
-When writing console commands, it is common to gather input from the user through arguments or options. Laravel makes it very convenient to define the input you expect from the user using the `signature` property on your commands. The `signature` property allows you to define the name, arguments, and options for the command in a single, expressive, route-like syntax.
+When writing console commands, it is common to gather input from the user through arguments or options. Lets makes it very convenient to define the input you expect from the user using the `signature` property on your commands. The `signature` property allows you to define the name, arguments, and options for the command in a single, expressive, route-like syntax.
 
 <a name="arguments"></a>
 ### Arguments
@@ -501,7 +501,7 @@ You may use the `newLine` method to display a blank line:
 <a name="tables"></a>
 #### Tables
 
-The `table` method makes it easy to correctly format multiple rows / columns of data. All you need to do is provide the column names and the data for the table and Laravel will
+The `table` method makes it easy to correctly format multiple rows / columns of data. All you need to do is provide the column names and the data for the table and Lets will
 automatically calculate the appropriate width and height of the table for you:
 
     use App\Models\User;
@@ -514,7 +514,7 @@ automatically calculate the appropriate width and height of the table for you:
 <a name="progress-bars"></a>
 #### Progress Bars
 
-For long running tasks, it can be helpful to show a progress bar that informs users how complete the task is. Using the `withProgressBar` method, Laravel will display a progress bar and advance its progress for each iteration over a given iterable value:
+For long running tasks, it can be helpful to show a progress bar that informs users how complete the task is. Using the `withProgressBar` method, Lets will display a progress bar and advance its progress for each iteration over a given iterable value:
 
     use App\Models\User;
 

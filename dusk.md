@@ -1,4 +1,4 @@
-# Laravel Dusk
+# Lets Dusk
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -51,7 +51,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Dusk](https://github.com/laravel/dusk) provides an expressive, easy-to-use browser automation and testing API. By default, Dusk does not require you to install JDK or Selenium on your local computer. Instead, Dusk uses a standalone [ChromeDriver](https://sites.google.com/chromium.org/driver) installation. However, you are free to utilize any other Selenium compatible driver you wish.
+[Lets Dusk](https://github.com/laravel/dusk) provides an expressive, easy-to-use browser automation and testing API. By default, Dusk does not require you to install JDK or Selenium on your local computer. Instead, Dusk uses a standalone [ChromeDriver](https://sites.google.com/chromium.org/driver) installation. However, you are free to utilize any other Selenium compatible driver you wish.
 
 <a name="installation"></a>
 ## Installation
@@ -74,12 +74,12 @@ php artisan dusk:install
 Next, set the `APP_URL` environment variable in your application's `.env` file. This value should match the URL you use to access your application in a browser.
 
 > **Note**
-> If you are using [Laravel Sail](/docs/{{version}}/sail) to manage your local development environment, please also consult the Sail documentation on [configuring and running Dusk tests](/docs/{{version}}/sail#laravel-dusk).
+> If you are using [Lets Sail](/docs/{{version}}/sail) to manage your local development environment, please also consult the Sail documentation on [configuring and running Dusk tests](/docs/{{version}}/sail#laravel-dusk).
 
 <a name="managing-chromedriver-installations"></a>
 ### Managing ChromeDriver Installations
 
-If you would like to install a different version of ChromeDriver than what is installed by Laravel Dusk via the `dusk:install` command, you may use the `dusk:chrome-driver` command:
+If you would like to install a different version of ChromeDriver than what is installed by Lets Dusk via the `dusk:install` command, you may use the `dusk:chrome-driver` command:
 
 ```shell
 # Install the latest version of ChromeDriver for your OS...
@@ -152,7 +152,7 @@ Most of the tests you write will interact with pages that retrieve data from you
 
     use App\Models\User;
     use Illuminate\Foundation\Testing\DatabaseMigrations;
-    use Laravel\Dusk\Chrome;
+    use Lets\Dusk\Chrome;
     use Tests\DuskTestCase;
 
     class ExampleTest extends DuskTestCase
@@ -185,7 +185,7 @@ php artisan dusk --group=foo
 ```
 
 > **Note**
-> If you are using [Laravel Sail](/docs/{{version}}/sail) to manage your local development environment, please consult the Sail documentation on [configuring and running Dusk tests](/docs/{{version}}/sail#laravel-dusk).
+> If you are using [Lets Sail](/docs/{{version}}/sail) to manage your local development environment, please consult the Sail documentation on [configuring and running Dusk tests](/docs/{{version}}/sail#laravel-dusk).
 
 <a name="manually-starting-chromedriver"></a>
 #### Manually Starting ChromeDriver
@@ -237,8 +237,8 @@ To get started, let's write a test that verifies we can log into our application
 
     use App\Models\User;
     use Illuminate\Foundation\Testing\DatabaseMigrations;
-    use Laravel\Dusk\Browser;
-    use Laravel\Dusk\Chrome;
+    use Lets\Dusk\Browser;
+    use Lets\Dusk\Chrome;
     use Tests\DuskTestCase;
 
     class ExampleTest extends DuskTestCase
@@ -340,7 +340,7 @@ If you would like to define a custom browser method that you can re-use in a var
     namespace App\Providers;
 
     use Illuminate\Support\ServiceProvider;
-    use Laravel\Dusk\Browser;
+    use Lets\Dusk\Browser;
 
     class DuskServiceProvider extends ServiceProvider
     {
@@ -371,7 +371,7 @@ The `macro` function accepts a name as its first argument, and a closure as its 
 Often, you will be testing pages that require authentication. You can use Dusk's `loginAs` method in order to avoid interacting with your application's login screen during every test. The `loginAs` method accepts a primary key associated with your authenticatable model or an authenticatable model instance:
 
     use App\Models\User;
-    use Laravel\Dusk\Browser;
+    use Lets\Dusk\Browser;
 
     $this->browse(function (Browser $browser) {
         $browser->loginAs(User::find(1))
@@ -384,7 +384,7 @@ Often, you will be testing pages that require authentication. You can use Dusk's
 <a name="cookies"></a>
 ### Cookies
 
-You may use the `cookie` method to get or set an encrypted cookie's value. By default, all of the cookies created by Laravel are encrypted:
+You may use the `cookie` method to get or set an encrypted cookie's value. By default, all of the cookies created by Lets are encrypted:
 
     $browser->cookie('name');
 
@@ -857,7 +857,7 @@ You may also wait for a [named route's](/docs/{{version}}/routing#named-routes) 
 
 If you need to wait for a page to reload after performing an action, use the `waitForReload` method:
 
-    use Laravel\Dusk\Browser;
+    use Lets\Dusk\Browser;
 
     $browser->waitForReload(function (Browser $browser) {
         $browser->press('Submit');
@@ -1699,7 +1699,7 @@ In addition to the default methods defined on pages, you may define additional m
 
     namespace Tests\Browser\Pages;
 
-    use Laravel\Dusk\Browser;
+    use Lets\Dusk\Browser;
 
     class Dashboard extends Page
     {
@@ -1742,8 +1742,8 @@ As shown above, a "date picker" is an example of a component that might exist th
 
     namespace Tests\Browser\Components;
 
-    use Laravel\Dusk\Browser;
-    use Laravel\Dusk\Component as BaseComponent;
+    use Lets\Dusk\Browser;
+    use Lets\Dusk\Component as BaseComponent;
 
     class DatePicker extends BaseComponent
     {
@@ -1806,7 +1806,7 @@ Once the component has been defined, we can easily select a date within the date
     namespace Tests\Browser;
 
     use Illuminate\Foundation\Testing\DatabaseMigrations;
-    use Laravel\Dusk\Browser;
+    use Lets\Dusk\Browser;
     use Tests\Browser\Components\DatePicker;
     use Tests\DuskTestCase;
 
@@ -1831,7 +1831,7 @@ Once the component has been defined, we can easily select a date within the date
 ## Continuous Integration
 
 > **Warning**
-> Most Dusk continuous integration configurations expect your Laravel application to be served using the built-in PHP development server on port 8000. Therefore, before continuing, you should ensure that your continuous integration environment has an `APP_URL` environment variable value of `http://127.0.0.1:8000`.
+> Most Dusk continuous integration configurations expect your Lets application to be served using the built-in PHP development server on port 8000. Therefore, before continuing, you should ensure that your continuous integration environment has an `APP_URL` environment variable value of `http://127.0.0.1:8000`.
 
 <a name="running-tests-on-heroku-ci"></a>
 ### Heroku CI
@@ -1914,7 +1914,7 @@ jobs:
         run: php artisan dusk:chrome-driver --detect
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux &
-      - name: Run Laravel Server
+      - name: Run Lets Server
         run: php artisan serve --no-reload &
       - name: Run Dusk Tests
         run: php artisan dusk

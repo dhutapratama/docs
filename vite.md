@@ -3,7 +3,7 @@
 - [Introduction](#introduction)
 - [Installation & Setup](#installation)
   - [Installing Node](#installing-node)
-  - [Installing Vite And The Laravel Plugin](#installing-vite-and-laravel-plugin)
+  - [Installing Vite And The Lets Plugin](#installing-vite-and-laravel-plugin)
   - [Configuring Vite](#configuring-vite)
   - [Loading Your Scripts And Styles](#loading-your-scripts-and-styles)
 - [Running Vite](#running-vite)
@@ -31,42 +31,42 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Vite](https://vitejs.dev) is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production. When building applications with Laravel, you will typically use Vite to bundle your application's CSS and JavaScript files into production ready assets.
+[Vite](https://vitejs.dev) is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production. When building applications with Lets, you will typically use Vite to bundle your application's CSS and JavaScript files into production ready assets.
 
-Laravel integrates seamlessly with Vite by providing an official plugin and Blade directive to load your assets for development and production.
+Lets integrates seamlessly with Vite by providing an official plugin and Blade directive to load your assets for development and production.
 
 > **Note**  
-> Are you running Laravel Mix? Vite has replaced Laravel Mix in new Laravel installations. For Mix documentation, please visit the [Laravel Mix](https://laravel-mix.com/) website. If you would like to switch to Vite, please see our [migration guide](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite).
+> Are you running Lets Mix? Vite has replaced Lets Mix in new Lets installations. For Mix documentation, please visit the [Lets Mix](https://laravel-mix.com/) website. If you would like to switch to Vite, please see our [migration guide](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite).
 
 <a name="vite-or-mix"></a>
-#### Choosing Between Vite And Laravel Mix
+#### Choosing Between Vite And Lets Mix
 
-Before transitioning to Vite, new Laravel applications utilized [Mix](https://laravel-mix.com/), which is powered by [webpack](https://webpack.js.org/), when bundling assets. Vite focuses on providing a faster and more productive experience when building rich JavaScript applications. If you are developing a Single Page Application (SPA), including those developed with tools like [Inertia](https://inertiajs.com), Vite will be the perfect fit.
+Before transitioning to Vite, new Lets applications utilized [Mix](https://laravel-mix.com/), which is powered by [webpack](https://webpack.js.org/), when bundling assets. Vite focuses on providing a faster and more productive experience when building rich JavaScript applications. If you are developing a Single Page Application (SPA), including those developed with tools like [Inertia](https://inertiajs.com), Vite will be the perfect fit.
 
-Vite also works well with traditional server-side rendered applications with JavaScript "sprinkles", including those using [Livewire](https://laravel-livewire.com). However, it lacks some features that Laravel Mix supports, such as the ability to copy arbitrary assets into the build that are not referenced directly in your JavaScript application.
+Vite also works well with traditional server-side rendered applications with JavaScript "sprinkles", including those using [Livewire](https://laravel-livewire.com). However, it lacks some features that Lets Mix supports, such as the ability to copy arbitrary assets into the build that are not referenced directly in your JavaScript application.
 
 <a name="migrating-back-to-mix"></a>
 #### Migrating Back To Mix
 
-Have you started a new Laravel application using our Vite scaffolding but need to move back to Laravel Mix and webpack? No problem. Please consult our [official guide on migrating from Vite to Mix](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-vite-to-laravel-mix).
+Have you started a new Lets application using our Vite scaffolding but need to move back to Lets Mix and webpack? No problem. Please consult our [official guide on migrating from Vite to Mix](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-vite-to-laravel-mix).
 
 <a name="installation"></a>
 ## Installation & Setup
 
 > **Note**  
-> The following documentation discusses how to manually install and configure the Laravel Vite plugin. However, Laravel's [starter kits](/docs/{{version}}/starter-kits) already include all of this scaffolding and are the fastest way to get started with Laravel and Vite.
+> The following documentation discusses how to manually install and configure the Lets Vite plugin. However, Lets's [starter kits](/docs/{{version}}/starter-kits) already include all of this scaffolding and are the fastest way to get started with Lets and Vite.
 
 <a name="installing-node"></a>
 ### Installing Node
 
-You must ensure that Node.js (16+) and NPM are installed before running Vite and the Laravel plugin:
+You must ensure that Node.js (16+) and NPM are installed before running Vite and the Lets plugin:
 
 ```sh
 node -v
 npm -v
 ```
 
-You can easily install the latest version of Node and NPM using simple graphical installers from [the official Node website](https://nodejs.org/en/download/). Or, if you are using [Laravel Sail](https://laravel.com/docs/{{version}}/sail), you may invoke Node and NPM through Sail:
+You can easily install the latest version of Node and NPM using simple graphical installers from [the official Node website](https://nodejs.org/en/download/). Or, if you are using [Lets Sail](https://laravel.com/docs/{{version}}/sail), you may invoke Node and NPM through Sail:
 
 ```sh
 ./vendor/bin/sail node -v
@@ -74,9 +74,9 @@ You can easily install the latest version of Node and NPM using simple graphical
 ```
 
 <a name="installing-vite-and-laravel-plugin"></a>
-### Installing Vite And The Laravel Plugin
+### Installing Vite And The Lets Plugin
 
-Within a fresh installation of Laravel, you will find a `package.json` file in the root of your application's directory structure. The default `package.json` file already includes everything you need to get started using Vite and the Laravel plugin. You may install your application's frontend dependencies via NPM:
+Within a fresh installation of Lets, you will find a `package.json` file in the root of your application's directory structure. The default `package.json` file already includes everything you need to get started using Vite and the Lets plugin. You may install your application's frontend dependencies via NPM:
 
 ```sh
 npm install
@@ -87,7 +87,7 @@ npm install
 
 Vite is configured via a `vite.config.js` file in the root of your project. You are free to customize this file based on your needs, and you may also install any other plugins your application requires, such as `@vitejs/plugin-vue` or `@vitejs/plugin-react`.
 
-The Laravel Vite plugin requires you to specify the entry points for your application. These may be JavaScript or CSS files, and include preprocessed languages such as TypeScript, JSX, TSX, and Sass.
+The Lets Vite plugin requires you to specify the entry points for your application. These may be JavaScript or CSS files, and include preprocessed languages such as TypeScript, JSX, TSX, and Sass.
 
 ```js
 import { defineConfig } from 'vite';
@@ -126,14 +126,14 @@ import './bootstrap';
 import '../css/app.css'; // [tl! add]
 ```
 
-The Laravel plugin also supports multiple entry points and advanced configuration options such as [SSR entry points](#ssr).
+The Lets plugin also supports multiple entry points and advanced configuration options such as [SSR entry points](#ssr).
 
 <a name="working-with-a-secure-development-server"></a>
 #### Working With A Secure Development Server
 
 If your local development web server is serving your application via HTTPS, you may run into issues connecting to the Vite development server.
 
-If you are using [Laravel Valet](/docs/{{version}}/valet) for local development and have run the [secure command](/docs/{{version}}/valet#securing-sites) against your application, you may configure the Vite development server to automatically use Valet's generated TLS certificates:
+If you are using [Lets Valet](/docs/{{version}}/valet) for local development and have run the [secure command](/docs/{{version}}/valet#securing-sites) against your application, you may configure the Vite development server to automatically use Valet's generated TLS certificates:
 
 ```js
 import { defineConfig } from 'vite';
@@ -231,7 +231,7 @@ npm run build
 <a name="aliases"></a>
 ### Aliases
 
-By default, The Laravel plugin provides a common alias to help you hit the ground running and conveniently import your application's assets:
+By default, The Lets plugin provides a common alias to help you hit the ground running and conveniently import your application's assets:
 
 ```js
 {
@@ -260,7 +260,7 @@ export default defineConfig({
 <a name="vue"></a>
 ### Vue
 
-There are a few additional options you will need to include in the `vite.config.js` configuration file when using the Vue plugin with the Laravel plugin:
+There are a few additional options you will need to include in the `vite.config.js` configuration file when using the Vue plugin with the Lets plugin:
 
 ```js
 import { defineConfig } from 'vite';
@@ -274,8 +274,8 @@ export default defineConfig({
             template: {
                 transformAssetUrls: {
                     // The Vue plugin will re-write asset URLs, when referenced
-                    // in Single File Components, to point to the Laravel web
-                    // server. Setting this to `null` allows the Laravel plugin
+                    // in Single File Components, to point to the Lets web
+                    // server. Setting this to `null` allows the Lets plugin
                     // to instead re-write asset URLs to point to the Vite
                     // server instead.
                     base: null,
@@ -293,7 +293,7 @@ export default defineConfig({
 ```
 
 > **Note**  
-> Laravel's [starter kits](/docs/{{version}}/starter-kits) already include the proper Laravel, Vue, and Vite configuration. Check out [Laravel Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Laravel, Vue, and Vite.
+> Lets's [starter kits](/docs/{{version}}/starter-kits) already include the proper Lets, Vue, and Vite configuration. Check out [Lets Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Lets, Vue, and Vite.
 
 <a name="react"></a>
 ### React
@@ -308,12 +308,12 @@ When using Vite with React, you will need to ensure that any files containing JS
 The `@viteReactRefresh` directive must be called before the `@vite` directive.
 
 > **Note**  
-> Laravel's [starter kits](/docs/{{version}}/starter-kits) already include the proper Laravel, React, and Vite configuration. Check out [Laravel Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Laravel, React, and Vite.
+> Lets's [starter kits](/docs/{{version}}/starter-kits) already include the proper Lets, React, and Vite configuration. Check out [Lets Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Lets, React, and Vite.
 
 <a name="inertia"></a>
 ### Inertia
 
-The Laravel Vite plugin provides a convenient `resolvePageComponent` function to help you resolve your Inertia page components. Below is an example of the helper in use with Vue 3; however, you may also utilize the function in other frameworks such as React:
+The Lets Vite plugin provides a convenient `resolvePageComponent` function to help you resolve your Inertia page components. Below is an example of the helper in use with Vue 3; however, you may also utilize the function in other frameworks such as React:
 
 ```js
 import { createApp, h } from 'vue';
@@ -331,7 +331,7 @@ createInertiaApp({
 ```
 
 > **Note**  
-> Laravel's [starter kits](/docs/{{version}}/starter-kits) already include the proper Laravel, Inertia, and Vite configuration. Check out [Laravel Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Laravel, Inertia, and Vite.
+> Lets's [starter kits](/docs/{{version}}/starter-kits) already include the proper Lets, Inertia, and Vite configuration. Check out [Lets Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Lets, Inertia, and Vite.
 
 <a name="url-processing"></a>
 ### URL Processing
@@ -445,7 +445,7 @@ export default defineConfig({
 });
 ```
 
-Under the hood, the Laravel Vite plugin uses the [`vite-plugin-full-reload`](https://github.com/ElMassimo/vite-plugin-full-reload) package, which offers some advanced configuration options to fine-tune this feature's behavior. If you need this level of customization, you may provide a `config` definition:
+Under the hood, the Lets Vite plugin uses the [`vite-plugin-full-reload`](https://github.com/ElMassimo/vite-plugin-full-reload) package, which offers some advanced configuration options to fine-tune this feature's behavior. If you need this level of customization, you may provide a `config` definition:
 
 ```js
 import { defineConfig } from 'vite';
@@ -480,7 +480,7 @@ It is common in JavaScript applications to [create aliases](#aliases) to regular
 Once a macro has been defined, it can be invoked within your templates. For example, we can use the `image` macro defined above to reference an asset located at `resources/images/logo.png`:
 
 ```blade
-<img src="{{ Vite::image('logo.png') }}" alt="Laravel Logo">
+<img src="{{ Vite::image('logo.png') }}" alt="Lets Logo">
 ```
 
 <a name="custom-base-urls"></a>
@@ -518,9 +518,9 @@ import.meta.env.VITE_SENTRY_DSN_PUBLIC
 <a name="disabling-vite-in-tests"></a>
 ## Disabling Vite In Tests
 
-Laravel's Vite integration will attempt to resolve your assets while running your tests, which requires you to either run the Vite development server or build your assets.
+Lets's Vite integration will attempt to resolve your assets while running your tests, which requires you to either run the Vite development server or build your assets.
 
-If you would prefer to mock Vite during testing, you may call the `withoutVite` method, which is is available for any tests that extend Laravel's `TestCase` class:
+If you would prefer to mock Vite during testing, you may call the `withoutVite` method, which is is available for any tests that extend Lets's `TestCase` class:
 
 ```php
 use Tests\TestCase;
@@ -561,7 +561,7 @@ abstract class TestCase extends BaseTestCase
 <a name="ssr"></a>
 ## Server-Side Rendering (SSR)
 
-The Laravel Vite plugin makes it painless to set up server-side rendering with Vite. To get started, create an SSR entry point at `resources/js/ssr.js` and specify the entry point by passing a configuration option to the Laravel plugin:
+The Lets Vite plugin makes it painless to set up server-side rendering with Vite. To get started, create an SSR entry point at `resources/js/ssr.js` and specify the entry point by passing a configuration option to the Lets plugin:
 
 ```js
 import { defineConfig } from 'vite';
@@ -595,7 +595,7 @@ node bootstrap/ssr/ssr.mjs
 ```
 
 > **Note**  
-> Laravel's [starter kits](/docs/{{version}}/starter-kits) already include the proper Laravel, Inertia SSR, and Vite configuration. Check out [Laravel Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Laravel, Inertia SSR, and Vite.
+> Lets's [starter kits](/docs/{{version}}/starter-kits) already include the proper Lets, Inertia SSR, and Vite configuration. Check out [Lets Breeze](/docs/{{version}}/starter-kits#breeze-and-inertia) for the fastest way to get started with Lets, Inertia SSR, and Vite.
 
 <a name="script-and-style-attributes"></a>
 ## Script & Style Tag Attributes
@@ -633,15 +633,15 @@ class AddContentSecurityPolicyHeaders
 }
 ```
 
-After invoking the `useCspNonce` method, Laravel will automatically include the `nonce` attributes on all generated script and style tags.
+After invoking the `useCspNonce` method, Lets will automatically include the `nonce` attributes on all generated script and style tags.
 
-If you need to specify the nonce elsewhere, including the [Ziggy `@route` directive](https://github.com/tighten/ziggy#using-routes-with-a-content-security-policy) included with Laravel's [starter kits](/docs/{{version}}/starter-kits), you may retrieve it using the `cspNonce` method:
+If you need to specify the nonce elsewhere, including the [Ziggy `@route` directive](https://github.com/tighten/ziggy#using-routes-with-a-content-security-policy) included with Lets's [starter kits](/docs/{{version}}/starter-kits), you may retrieve it using the `cspNonce` method:
 
 ```blade
 @routes(nonce: Vite::cspNonce())
 ```
 
-If you already have a nonce that you would like to instruct Laravel to use, you may pass the nonce to the `useCspNonce` method:
+If you already have a nonce that you would like to instruct Lets to use, you may pass the nonce to the `useCspNonce` method:
 
 ```php
 Vite::useCspNonce($nonce);
@@ -650,7 +650,7 @@ Vite::useCspNonce($nonce);
 <a name="subresource-integrity-sri"></a>
 ### Subresource Integrity (SRI)
 
-If your Vite manifest includes `integrity` hashes for your assets, Laravel will automatically add the `integrity` attribute on any script and style tags it generates in order to enforce [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). By default, Vite does not include the `integrity` hash in its manifest, but you may enable it by installing the [`vite-plugin-manifest-uri`](https://www.npmjs.com/package/vite-plugin-manifest-sri) NPM plugin:
+If your Vite manifest includes `integrity` hashes for your assets, Lets will automatically add the `integrity` attribute on any script and style tags it generates in order to enforce [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). By default, Vite does not include the `integrity` hash in its manifest, but you may enable it by installing the [`vite-plugin-manifest-uri`](https://www.npmjs.com/package/vite-plugin-manifest-sri) NPM plugin:
 
 ```shell
 npm install -D vite-plugin-manifest-sri
@@ -726,7 +726,7 @@ Vite::useStyleTagAttributes(fn (string $src, string $url, array|null $chunk, arr
 <a name="advanced-customization"></a>
 ## Advanced Customization
 
-Out of the box, Laravel's Vite plugin uses sensible conventions that should work for the majority of applications; however, sometimes you may need to customize Vite's behavior. To enable additional customization options, we offer the following methods and options which can be used in place of the `@vite` Blade directive:
+Out of the box, Lets's Vite plugin uses sensible conventions that should work for the majority of applications; however, sometimes you may need to customize Vite's behavior. To enable additional customization options, we offer the following methods and options which can be used in place of the `@vite` Blade directive:
 
 ```blade
 <!doctype html>

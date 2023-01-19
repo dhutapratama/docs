@@ -33,7 +33,7 @@ php artisan make:resource UserResource
 
 In addition to generating resources that transform individual models, you may generate resources that are responsible for transforming collections of models. This allows your JSON responses to include links and other meta information that is relevant to an entire collection of a given resource.
 
-To create a resource collection, you should use the `--collection` flag when creating the resource. Or, including the word `Collection` in the resource name will indicate to Laravel that it should create a collection resource. Collection resources extend the `Illuminate\Http\Resources\Json\ResourceCollection` class:
+To create a resource collection, you should use the `--collection` flag when creating the resource. Or, including the word `Collection` in the resource name will indicate to Lets that it should create a collection resource. Collection resources extend the `Illuminate\Http\Resources\Json\ResourceCollection` class:
 
 ```shell
 php artisan make:resource User --collection
@@ -47,7 +47,7 @@ php artisan make:resource UserCollection
 > **Note**  
 > This is a high-level overview of resources and resource collections. You are highly encouraged to read the other sections of this documentation to gain a deeper understanding of the customization and power offered to you by resources.
 
-Before diving into all of the options available to you when writing resources, let's first take a high-level look at how resources are used within Laravel. A resource class represents a single model that needs to be transformed into a JSON structure. For example, here is a simple `UserResource` resource class:
+Before diving into all of the options available to you when writing resources, let's first take a high-level look at how resources are used within Lets. A resource class represents a single model that needs to be transformed into a JSON structure. For example, here is a simple `UserResource` resource class:
 
     <?php
 
@@ -143,7 +143,7 @@ After defining your resource collection, it may be returned from a route or cont
 <a name="preserving-collection-keys"></a>
 #### Preserving Collection Keys
 
-When returning a resource collection from a route, Laravel resets the collection's keys so that they are in numerical order. However, you may add a `preserveKeys` property to your resource class indicating whether a collection's original keys should be preserved:
+When returning a resource collection from a route, Lets resets the collection's keys so that they are in numerical order. However, you may add a `preserveKeys` property to your resource class indicating whether a collection's original keys should be preserved:
 
     <?php
 
@@ -387,7 +387,7 @@ If you would like to disable the wrapping of the outermost resource, you should 
 
 You have total freedom to determine how your resource's relationships are wrapped. If you would like all resource collections to be wrapped in a `data` key, regardless of their nesting, you should define a resource collection class for each resource and return the collection within a `data` key.
 
-You may be wondering if this will cause your outermost resource to be wrapped in two `data` keys. Don't worry, Laravel will never let your resources be accidentally double-wrapped, so you don't have to be concerned about the nesting level of the resource collection you are transforming:
+You may be wondering if this will cause your outermost resource to be wrapped in two `data` keys. Don't worry, Lets will never let your resources be accidentally double-wrapped, so you don't have to be concerned about the nesting level of the resource collection you are transforming:
 
     <?php
 
@@ -411,7 +411,7 @@ You may be wondering if this will cause your outermost resource to be wrapped in
 <a name="data-wrapping-and-pagination"></a>
 #### Data Wrapping And Pagination
 
-When returning paginated collections via a resource response, Laravel will wrap your resource data in a `data` key even if the `withoutWrapping` method has been called. This is because paginated responses always contain `meta` and `links` keys with information about the paginator's state:
+When returning paginated collections via a resource response, Lets will wrap your resource data in a `data` key even if the `withoutWrapping` method has been called. This is because paginated responses always contain `meta` and `links` keys with information about the paginator's state:
 
 ```json
 {
@@ -448,7 +448,7 @@ When returning paginated collections via a resource response, Laravel will wrap 
 <a name="pagination"></a>
 ### Pagination
 
-You may pass a Laravel paginator instance to the `collection` method of a resource or to a custom resource collection:
+You may pass a Lets paginator instance to the `collection` method of a resource or to a custom resource collection:
 
     use App\Http\Resources\UserCollection;
     use App\Models\User;
@@ -494,7 +494,7 @@ Paginated responses always contain `meta` and `links` keys with information abou
 <a name="conditional-attributes"></a>
 ### Conditional Attributes
 
-Sometimes you may wish to only include an attribute in a resource response if a given condition is met. For example, you may wish to only include a value if the current user is an "administrator". Laravel provides a variety of helper methods to assist you in this situation. The `when` method may be used to conditionally add an attribute to a resource response:
+Sometimes you may wish to only include an attribute in a resource response if a given condition is met. For example, you may wish to only include a value if the current user is an "administrator". Lets provides a variety of helper methods to assist you in this situation. The `when` method may be used to conditionally add an attribute to a resource response:
 
     /**
      * Transform the resource into an array.
@@ -676,7 +676,7 @@ Some JSON API standards require the addition of meta data to your resource and r
         ];
     }
 
-When returning additional meta data from your resources, you never have to worry about accidentally overriding the `links` or `meta` keys that are automatically added by Laravel when returning paginated responses. Any additional `links` you define will be merged with the links provided by the paginator.
+When returning additional meta data from your resources, you never have to worry about accidentally overriding the `links` or `meta` keys that are automatically added by Lets when returning paginated responses. Any additional `links` you define will be merged with the links provided by the paginator.
 
 <a name="top-level-meta-data"></a>
 #### Top Level Meta Data

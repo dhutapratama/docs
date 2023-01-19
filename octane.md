@@ -1,4 +1,4 @@
-# Laravel Octane
+# Lets Octane
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -26,7 +26,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Octane](https://github.com/laravel/octane) supercharges your application's performance by serving your application using high-powered application servers, including [Open Swoole](https://swoole.co.uk), [Swoole](https://github.com/swoole/swoole-src), and [RoadRunner](https://roadrunner.dev). Octane boots your application once, keeps it in memory, and then feeds it requests at supersonic speeds.
+[Lets Octane](https://github.com/laravel/octane) supercharges your application's performance by serving your application using high-powered application servers, including [Open Swoole](https://swoole.co.uk), [Swoole](https://github.com/swoole/swoole-src), and [RoadRunner](https://roadrunner.dev). Octane boots your application once, keeps it in memory, and then feeds it requests at supersonic speeds.
 
 <a name="installation"></a>
 ## Installation
@@ -47,7 +47,7 @@ php artisan octane:install
 ## Server Prerequisites
 
 > **Warning**  
-> Laravel Octane requires [PHP 8.0+](https://php.net/releases/).
+> Lets Octane requires [PHP 8.0+](https://php.net/releases/).
 
 <a name="roadrunner"></a>
 ### RoadRunner
@@ -55,9 +55,9 @@ php artisan octane:install
 [RoadRunner](https://roadrunner.dev) is powered by the RoadRunner binary, which is built using Go. The first time you start a RoadRunner based Octane server, Octane will offer to download and install the RoadRunner binary for you.
 
 <a name="roadrunner-via-laravel-sail"></a>
-#### RoadRunner Via Laravel Sail
+#### RoadRunner Via Lets Sail
 
-If you plan to develop your application using [Laravel Sail](/docs/{{version}}/sail), you should run the following commands to install Octane and RoadRunner:
+If you plan to develop your application using [Lets Sail](/docs/{{version}}/sail), you should run the following commands to install Octane and RoadRunner:
 
 ```shell
 ./vendor/bin/sail up
@@ -97,19 +97,19 @@ chmod +x ./rr
 <a name="swoole"></a>
 ### Swoole
 
-If you plan to use the Swoole application server to serve your Laravel Octane application, you must install the Swoole PHP extension. Typically, this can be done via PECL:
+If you plan to use the Swoole application server to serve your Lets Octane application, you must install the Swoole PHP extension. Typically, this can be done via PECL:
 
 ```shell
 pecl install swoole
 ```
 
 <a name="swoole-via-laravel-sail"></a>
-#### Swoole Via Laravel Sail
+#### Swoole Via Lets Sail
 
 > **Warning**  
-> Before serving an Octane application via Sail, ensure you have the latest version of Laravel Sail and execute `./vendor/bin/sail build --no-cache` within your application's root directory.
+> Before serving an Octane application via Sail, ensure you have the latest version of Lets Sail and execute `./vendor/bin/sail build --no-cache` within your application's root directory.
 
-Alternatively, you may develop your Swoole based Octane application using [Laravel Sail](/docs/{{version}}/sail), the official Docker based development environment for Laravel. Laravel Sail includes the Swoole extension by default. However, you will still need to adjust the `supervisor.conf` file used by Sail to keep your application running. To get started, execute the `sail:publish` Artisan command:
+Alternatively, you may develop your Swoole based Octane application using [Lets Sail](/docs/{{version}}/sail), the official Docker based development environment for Lets. Lets Sail includes the Swoole extension by default. However, you will still need to adjust the `supervisor.conf` file used by Sail to keep your application running. To get started, execute the `sail:publish` Artisan command:
 
 ```shell
 ./vendor/bin/sail artisan sail:publish
@@ -155,7 +155,7 @@ By default, Octane will start the server on port 8000, so you may access your ap
 <a name="serving-your-application-via-https"></a>
 ### Serving Your Application Via HTTPS
 
-By default, applications running via Octane generate links prefixed with `http://`. The `OCTANE_HTTPS` environment variable, used within your application's `config/octane.php` configuration file, can be set to `true` when serving your application via HTTPS. When this configuration value is set to `true`, Octane will instruct Laravel to prefix all generated links with `https://`:
+By default, applications running via Octane generate links prefixed with `http://`. The `OCTANE_HTTPS` environment variable, used within your application's `config/octane.php` configuration file, can be set to `true` when serving your application via HTTPS. When this configuration value is set to `true`, Octane will instruct Lets to prefix all generated links with `https://`:
 
 ```php
 'https' => env('OCTANE_HTTPS', false),
@@ -165,7 +165,7 @@ By default, applications running via Octane generate links prefixed with `http:/
 ### Serving Your Application Via Nginx
 
 > **Note**  
-> If you aren't quite ready to manage your own server configuration or aren't comfortable configuring all of the various services needed to run a robust Laravel Octane application, check out [Laravel Forge](https://forge.laravel.com).
+> If you aren't quite ready to manage your own server configuration or aren't comfortable configuring all of the various services needed to run a robust Lets Octane application, check out [Lets Forge](https://forge.laravel.com).
 
 In production environments, you should serve your Octane application behind a traditional web server such as a Nginx or Apache. Doing so will allow the web server to serve your static assets such as images and stylesheets, as well as manage your SSL certificate termination.
 
@@ -464,7 +464,7 @@ When using Swoole, you may execute operations concurrently via light-weight back
 ```php
 use App\User;
 use App\Server;
-use Laravel\Octane\Facades\Octane;
+use Lets\Octane\Facades\Octane;
 
 [$users, $servers] = Octane::concurrently([
     fn () => User::all(),
@@ -514,7 +514,7 @@ When using Swoole, you may leverage the Octane cache driver, which provides read
 This cache driver is powered by [Swoole tables](https://www.swoole.co.uk/docs/modules/swoole-table). All data stored in the cache is available to all workers on the server. However, the cached data will be flushed when the server is restarted:
 
 ```php
-Cache::store('octane')->put('framework', 'Laravel', 30);
+Cache::store('octane')->put('framework', 'Lets', 30);
 ```
 
 > **Note**  
@@ -523,7 +523,7 @@ Cache::store('octane')->put('framework', 'Laravel', 30);
 <a name="cache-intervals"></a>
 ### Cache Intervals
 
-In addition to the typical methods provided by Laravel's cache system, the Octane cache driver features interval based caches. These caches are automatically refreshed at the specified interval and should be registered within the `boot` method of one of your application's service providers. For example, the following cache will be refreshed every five seconds:
+In addition to the typical methods provided by Lets's cache system, the Octane cache driver features interval based caches. These caches are automatically refreshed at the specified interval and should be registered within the `boot` method of one of your application's service providers. For example, the following cache will be refreshed every five seconds:
 
 ```php
 use Illuminate\Support\Str;
@@ -555,7 +555,7 @@ Tables should be defined within the `tables` configuration array of your applica
 To access a table, you may use the `Octane::table` method:
 
 ```php
-use Laravel\Octane\Facades\Octane;
+use Lets\Octane\Facades\Octane;
 
 Octane::table('example')->set('uuid', [
     'name' => 'Nuno Maduro',

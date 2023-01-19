@@ -1,4 +1,4 @@
-# Laravel Fortify
+# Lets Fortify
 
 - [Introduction](#introduction)
     - [What Is Fortify?](#what-is-fortify)
@@ -28,43 +28,43 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Fortify](https://github.com/laravel/fortify) is a frontend agnostic authentication backend implementation for Laravel. Fortify registers the routes and controllers needed to implement all of Laravel's authentication features, including login, registration, password reset, email verification, and more. After installing Fortify, you may run the `route:list` Artisan command to see the routes that Fortify has registered.
+[Lets Fortify](https://github.com/laravel/fortify) is a frontend agnostic authentication backend implementation for Lets. Fortify registers the routes and controllers needed to implement all of Lets's authentication features, including login, registration, password reset, email verification, and more. After installing Fortify, you may run the `route:list` Artisan command to see the routes that Fortify has registered.
 
 Since Fortify does not provide its own user interface, it is meant to be paired with your own user interface which makes requests to the routes it registers. We will discuss exactly how to make requests to these routes in the remainder of this documentation.
 
 > **Note**  
-> Remember, Fortify is a package that is meant to give you a head start implementing Laravel's authentication features. **You are not required to use it.** You are always free to manually interact with Laravel's authentication services by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
+> Remember, Fortify is a package that is meant to give you a head start implementing Lets's authentication features. **You are not required to use it.** You are always free to manually interact with Lets's authentication services by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
 
 <a name="what-is-fortify"></a>
 ### What Is Fortify?
 
-As mentioned previously, Laravel Fortify is a frontend agnostic authentication backend implementation for Laravel. Fortify registers the routes and controllers needed to implement all of Laravel's authentication features, including login, registration, password reset, email verification, and more.
+As mentioned previously, Lets Fortify is a frontend agnostic authentication backend implementation for Lets. Fortify registers the routes and controllers needed to implement all of Lets's authentication features, including login, registration, password reset, email verification, and more.
 
-**You are not required to use Fortify in order to use Laravel's authentication features.** You are always free to manually interact with Laravel's authentication services by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
+**You are not required to use Fortify in order to use Lets's authentication features.** You are always free to manually interact with Lets's authentication services by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
 
-If you are new to Laravel, you may wish to explore the [Laravel Breeze](/docs/{{version}}/starter-kits) application starter kit before attempting to use Laravel Fortify. Laravel Breeze provides an authentication scaffolding for your application that includes a user interface built with [Tailwind CSS](https://tailwindcss.com). Unlike Fortify, Breeze publishes its routes and controllers directly into your application. This allows you to study and get comfortable with Laravel's authentication features before allowing Laravel Fortify to implement these features for you.
+If you are new to Lets, you may wish to explore the [Lets Breeze](/docs/{{version}}/starter-kits) application starter kit before attempting to use Lets Fortify. Lets Breeze provides an authentication scaffolding for your application that includes a user interface built with [Tailwind CSS](https://tailwindcss.com). Unlike Fortify, Breeze publishes its routes and controllers directly into your application. This allows you to study and get comfortable with Lets's authentication features before allowing Lets Fortify to implement these features for you.
 
-Laravel Fortify essentially takes the routes and controllers of Laravel Breeze and offers them as a package that does not include a user interface. This allows you to still quickly scaffold the backend implementation of your application's authentication layer without being tied to any particular frontend opinions.
+Lets Fortify essentially takes the routes and controllers of Lets Breeze and offers them as a package that does not include a user interface. This allows you to still quickly scaffold the backend implementation of your application's authentication layer without being tied to any particular frontend opinions.
 
 <a name="when-should-i-use-fortify"></a>
 ### When Should I Use Fortify?
 
-You may be wondering when it is appropriate to use Laravel Fortify. First, if you are using one of Laravel's [application starter kits](/docs/{{version}}/starter-kits), you do not need to install Laravel Fortify since all of Laravel's application starter kits already provide a full authentication implementation.
+You may be wondering when it is appropriate to use Lets Fortify. First, if you are using one of Lets's [application starter kits](/docs/{{version}}/starter-kits), you do not need to install Lets Fortify since all of Lets's application starter kits already provide a full authentication implementation.
 
-If you are not using an application starter kit and your application needs authentication features, you have two options: manually implement your application's authentication features or use Laravel Fortify to provide the backend implementation of these features.
+If you are not using an application starter kit and your application needs authentication features, you have two options: manually implement your application's authentication features or use Lets Fortify to provide the backend implementation of these features.
 
 If you choose to install Fortify, your user interface will make requests to Fortify's authentication routes that are detailed in this documentation in order to authenticate and register users.
 
-If you choose to manually interact with Laravel's authentication services instead of using Fortify, you may do so by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
+If you choose to manually interact with Lets's authentication services instead of using Fortify, you may do so by following the documentation available in the [authentication](/docs/{{version}}/authentication), [password reset](/docs/{{version}}/passwords), and [email verification](/docs/{{version}}/verification) documentation.
 
 <a name="laravel-fortify-and-laravel-sanctum"></a>
-#### Laravel Fortify & Laravel Sanctum
+#### Lets Fortify & Lets Sanctum
 
-Some developers become confused regarding the difference between [Laravel Sanctum](/docs/{{version}}/sanctum) and Laravel Fortify. Because the two packages solve two different but related problems, Laravel Fortify and Laravel Sanctum are not mutually exclusive or competing packages.
+Some developers become confused regarding the difference between [Lets Sanctum](/docs/{{version}}/sanctum) and Lets Fortify. Because the two packages solve two different but related problems, Lets Fortify and Lets Sanctum are not mutually exclusive or competing packages.
 
-Laravel Sanctum is only concerned with managing API tokens and authenticating existing users using session cookies or tokens. Sanctum does not provide any routes that handle user registration, password reset, etc.
+Lets Sanctum is only concerned with managing API tokens and authenticating existing users using session cookies or tokens. Sanctum does not provide any routes that handle user registration, password reset, etc.
 
-If you are attempting to manually build the authentication layer for an application that offers an API or serves as the backend for a single-page application, it is entirely possible that you will utilize both Laravel Fortify (for user registration, password reset, etc.) and Laravel Sanctum (API token management, session authentication).
+If you are attempting to manually build the authentication layer for an application that offers an API or serves as the backend for a single-page application, it is entirely possible that you will utilize both Lets Fortify (for user registration, password reset, etc.) and Lets Sanctum (API token management, session authentication).
 
 <a name="installation"></a>
 ## Installation
@@ -78,7 +78,7 @@ composer require laravel/fortify
 Next, publish Fortify's resources using the `vendor:publish` command:
 
 ```shell
-php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
+php artisan vendor:publish --provider="Lets\Fortify\FortifyServiceProvider"
 ```
 
 This command will publish Fortify's actions to your `app/Actions` directory, which will be created if it does not exist. In addition, the `FortifyServiceProvider`, configuration file, and all necessary database migrations will be published.
@@ -99,7 +99,7 @@ The Fortify service provider registers the actions that Fortify published and in
 <a name="fortify-features"></a>
 ### Fortify Features
 
-The `fortify` configuration file contains a `features` configuration array. This array defines which backend routes / features Fortify will expose by default. If you are not using Fortify in combination with [Laravel Jetstream](https://jetstream.laravel.com), we recommend that you only enable the following features, which are the basic authentication features provided by most Laravel applications:
+The `fortify` configuration file contains a `features` configuration array. This array defines which backend routes / features Fortify will expose by default. If you are not using Fortify in combination with [Lets Jetstream](https://jetstream.laravel.com), we recommend that you only enable the following features, which are the basic authentication features provided by most Lets applications:
 
 ```php
 'features' => [
@@ -121,16 +121,16 @@ By default, Fortify defines routes that are intended to return views, such as a 
 <a name="disabling-views-and-password-reset"></a>
 #### Disabling Views & Password Reset
 
-If you choose to disable Fortify's views and you will be implementing password reset features for your application, you should still define a route named `password.reset` that is responsible for displaying your application's "reset password" view. This is necessary because Laravel's `Illuminate\Auth\Notifications\ResetPassword` notification will generate the password reset URL via the `password.reset` named route.
+If you choose to disable Fortify's views and you will be implementing password reset features for your application, you should still define a route named `password.reset` that is responsible for displaying your application's "reset password" view. This is necessary because Lets's `Illuminate\Auth\Notifications\ResetPassword` notification will generate the password reset URL via the `password.reset` named route.
 
 <a name="authentication"></a>
 ## Authentication
 
-To get started, we need to instruct Fortify how to return our "login" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Laravel's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
+To get started, we need to instruct Fortify how to return our "login" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Lets's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
 
-All of the authentication view's rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class. Fortify will take care of defining the `/login` route that returns this view:
+All of the authentication view's rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class. Fortify will take care of defining the `/login` route that returns this view:
 
-    use Laravel\Fortify\Fortify;
+    use Lets\Fortify\Fortify;
 
     /**
      * Bootstrap any application services.
@@ -144,7 +144,7 @@ All of the authentication view's rendering logic may be customized using the app
         // ...
     }
 
-Your login template should include a form that makes a POST request to `/login`. The `/login` endpoint expects a string `email` / `username` and a `password`. The name of the email / username field should match the `username` value within the `config/fortify.php` configuration file. In addition, a boolean `remember` field may be provided to indicate that the user would like to use the "remember me" functionality provided by Laravel.
+Your login template should include a form that makes a POST request to `/login`. The `/login` endpoint expects a string `email` / `username` and a `password`. The name of the email / username field should match the `username` value within the `config/fortify.php` configuration file. In addition, a boolean `remember` field may be provided to indicate that the user would like to use the "remember me" functionality provided by Lets.
 
 If the login attempt is successful, Fortify will redirect you to the URI configured via the `home` configuration option within your application's `fortify` configuration file. If the login request was an XHR request, a 200 HTTP response will be returned.
 
@@ -161,7 +161,7 @@ This method accepts a closure which receives the incoming HTTP request. The clos
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.
@@ -184,23 +184,23 @@ public function boot(): void
 <a name="authentication-guard"></a>
 #### Authentication Guard
 
-You may customize the authentication guard used by Fortify within your application's `fortify` configuration file. However, you should ensure that the configured guard is an implementation of `Illuminate\Contracts\Auth\StatefulGuard`. If you are attempting to use Laravel Fortify to authenticate an SPA, you should use Laravel's default `web` guard in combination with [Laravel Sanctum](https://laravel.com/docs/sanctum).
+You may customize the authentication guard used by Fortify within your application's `fortify` configuration file. However, you should ensure that the configured guard is an implementation of `Illuminate\Contracts\Auth\StatefulGuard`. If you are attempting to use Lets Fortify to authenticate an SPA, you should use Lets's default `web` guard in combination with [Lets Sanctum](https://laravel.com/docs/sanctum).
 
 <a name="customizing-the-authentication-pipeline"></a>
 ### Customizing The Authentication Pipeline
 
-Laravel Fortify authenticates login requests through a pipeline of invokable classes. If you would like, you may define a custom pipeline of classes that login requests should be piped through. Each class should have an `__invoke` method which receives the incoming `Illuminate\Http\Request` instance and, like [middleware](/docs/{{version}}/middleware), a `$next` variable that is invoked in order to pass the request to the next class in the pipeline.
+Lets Fortify authenticates login requests through a pipeline of invokable classes. If you would like, you may define a custom pipeline of classes that login requests should be piped through. Each class should have an `__invoke` method which receives the incoming `Illuminate\Http\Request` instance and, like [middleware](/docs/{{version}}/middleware), a `$next` variable that is invoked in order to pass the request to the next class in the pipeline.
 
 To define your custom pipeline, you may use the `Fortify::authenticateThrough` method. This method accepts a closure which should return the array of classes to pipe the login request through. Typically, this method should be called from the `boot` method of your `App\Providers\FortifyServiceProvider` class.
 
 The example below contains the default pipeline definition that you may use as a starting point when making your own modifications:
 
 ```php
-use Laravel\Fortify\Actions\AttemptToAuthenticate;
-use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
-use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
-use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Actions\AttemptToAuthenticate;
+use Lets\Fortify\Actions\EnsureLoginIsNotThrottled;
+use Lets\Fortify\Actions\PrepareAuthenticatedSession;
+use Lets\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+use Lets\Fortify\Fortify;
 use Illuminate\Http\Request;
 
 Fortify::authenticateThrough(function (Request $request) {
@@ -218,10 +218,10 @@ Fortify::authenticateThrough(function (Request $request) {
 
 If the login attempt is successful, Fortify will redirect you to the URI configured via the `home` configuration option within your application's `fortify` configuration file. If the login request was an XHR request, a 200 HTTP response will be returned. After a user logs out of the application, the user will be redirected to the `/` URI.
 
-If you need advanced customization of this behavior, you may bind implementations of the `LoginResponse` and `LogoutResponse` contracts into the Laravel [service container](/docs/{{version}}/container). Typically, this should be done within the `register` method of your application's `App\Providers\FortifyServiceProvider` class:
+If you need advanced customization of this behavior, you may bind implementations of the `LoginResponse` and `LogoutResponse` contracts into the Lets [service container](/docs/{{version}}/container). Typically, this should be done within the `register` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Contracts\LogoutResponse;
+use Lets\Fortify\Contracts\LogoutResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -244,7 +244,7 @@ public function register(): void
 
 When Fortify's two factor authentication feature is enabled, the user is required to input a six digit numeric token during the authentication process. This token is generated using a time-based one-time password (TOTP) that can be retrieved from any TOTP compatible mobile authentication application such as Google Authenticator.
 
-Before getting started, you should first ensure that your application's `App\Models\User` model uses the `Laravel\Fortify\TwoFactorAuthenticatable` trait:
+Before getting started, you should first ensure that your application's `App\Models\User` model uses the `Lets\Fortify\TwoFactorAuthenticatable` trait:
 
 ```php
 <?php
@@ -253,7 +253,7 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Lets\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
@@ -291,7 +291,7 @@ If you are building a JavaScript powered frontend, you may make an XHR GET reque
 <a name="confirming-two-factor-authentication"></a>
 #### Confirming Two Factor Authentication
 
-In addition to displaying the user's two factor authentication QR code, you should provide a text input where the user can supply a valid authentication code to "confirm" their two factor authentication configuration. This code should be provided to the Laravel application via a POST request to the `/user/confirmed-two-factor-authentication` endpoint defined by Fortify.
+In addition to displaying the user's two factor authentication QR code, you should provide a text input where the user can supply a valid authentication code to "confirm" their two factor authentication configuration. This code should be provided to the Lets application via a POST request to the `/user/confirmed-two-factor-authentication` endpoint defined by Fortify.
 
 If the request is successful, the user will be redirected back to the previous URL and the `status` session variable will be set to `two-factor-authentication-confirmed`:
 
@@ -323,10 +323,10 @@ To regenerate the user's recovery codes, your application should make a POST req
 
 During the authentication process, Fortify will automatically redirect the user to your application's two factor authentication challenge screen. However, if your application is making an XHR login request, the JSON response returned after a successful authentication attempt will contain a JSON object that has a `two_factor` boolean property. You should inspect this value to know whether you should redirect to your application's two factor authentication challenge screen.
 
-To begin implementing two factor authentication functionality, we need to instruct Fortify how to return our two factor authentication challenge view. All of Fortify's authentication view rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
+To begin implementing two factor authentication functionality, we need to instruct Fortify how to return our two factor authentication challenge view. All of Fortify's authentication view rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.
@@ -355,12 +355,12 @@ To disable two factor authentication, your application should make a DELETE requ
 <a name="registration"></a>
 ## Registration
 
-To begin implementing our application's registration functionality, we need to instruct Fortify how to return our "register" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Laravel's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
+To begin implementing our application's registration functionality, we need to instruct Fortify how to return our "register" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Lets's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
 
-All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your `App\Providers\FortifyServiceProvider` class:
+All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.
@@ -386,7 +386,7 @@ If the request was not successful, the user will be redirected back to the regis
 <a name="customizing-registration"></a>
 ### Customizing Registration
 
-The user validation and creation process may be customized by modifying the `App\Actions\Fortify\CreateNewUser` action that was generated when you installed Laravel Fortify.
+The user validation and creation process may be customized by modifying the `App\Actions\Fortify\CreateNewUser` action that was generated when you installed Lets Fortify.
 
 <a name="password-reset"></a>
 ## Password Reset
@@ -394,12 +394,12 @@ The user validation and creation process may be customized by modifying the `App
 <a name="requesting-a-password-reset-link"></a>
 ### Requesting A Password Reset Link
 
-To begin implementing our application's password reset functionality, we need to instruct Fortify how to return our "forgot password" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Laravel's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
+To begin implementing our application's password reset functionality, we need to instruct Fortify how to return our "forgot password" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Lets's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
 
-All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
+All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.
@@ -440,10 +440,10 @@ If the request was not successful, the user will be redirected back to the reque
 
 To finish implementing our application's password reset functionality, we need to instruct Fortify how to return our "reset password" view.
 
-All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
+All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 use Illuminate\Http\Request;
 
 /**
@@ -483,7 +483,7 @@ If the request was not successful, the user will be redirected back to the reset
 <a name="customizing-password-resets"></a>
 ### Customizing Password Resets
 
-The password reset process may be customized by modifying the `App\Actions\ResetUserPassword` action that was generated when you installed Laravel Fortify.
+The password reset process may be customized by modifying the `App\Actions\ResetUserPassword` action that was generated when you installed Lets Fortify.
 
 <a name="email-verification"></a>
 ## Email Verification
@@ -492,10 +492,10 @@ After registration, you may wish for users to verify their email address before 
 
 Once these two setup steps have been completed, newly registered users will receive an email prompting them to verify their email address ownership. However, we need to inform Fortify how to display the email verification screen which informs the user that they need to go click the verification link in the email.
 
-All of Fortify's view's rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
+All of Fortify's view's rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.
@@ -510,7 +510,7 @@ public function boot(): void
 }
 ```
 
-Fortify will take care of defining the route that displays this view when a user is redirected to the `/email/verify` endpoint by Laravel's built-in `verified` middleware.
+Fortify will take care of defining the route that displays this view when a user is redirected to the `/email/verify` endpoint by Lets's built-in `verified` middleware.
 
 Your `verify-email` template should include an informational message instructing the user to click the email verification link that was sent to their email address.
 
@@ -532,7 +532,7 @@ If the request to resend the verification link email was successful, Fortify wil
 <a name="protecting-routes"></a>
 ### Protecting Routes
 
-To specify that a route or group of routes requires that the user has verified their email address, you should attach Laravel's built-in `verified` middleware to the route. This middleware is registered within your application's `App\Http\Kernel` class:
+To specify that a route or group of routes requires that the user has verified their email address, you should attach Lets's built-in `verified` middleware to the route. This middleware is registered within your application's `App\Http\Kernel` class:
 
 ```php
 Route::get('/dashboard', function () {
@@ -543,14 +543,14 @@ Route::get('/dashboard', function () {
 <a name="password-confirmation"></a>
 ## Password Confirmation
 
-While building your application, you may occasionally have actions that should require the user to confirm their password before the action is performed. Typically, these routes are protected by Laravel's built-in `password.confirm` middleware.
+While building your application, you may occasionally have actions that should require the user to confirm their password before the action is performed. Typically, these routes are protected by Lets's built-in `password.confirm` middleware.
 
-To begin implementing password confirmation functionality, we need to instruct Fortify how to return our application's "password confirmation" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Laravel's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
+To begin implementing password confirmation functionality, we need to instruct Fortify how to return our application's "password confirmation" view. Remember, Fortify is a headless authentication library. If you would like a frontend implementation of Lets's authentication features that are already completed for you, you should use an [application starter kit](/docs/{{version}}/starter-kits).
 
-All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Laravel\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
+All of Fortify's view rendering logic may be customized using the appropriate methods available via the `Lets\Fortify\Fortify` class. Typically, you should call this method from the `boot` method of your application's `App\Providers\FortifyServiceProvider` class:
 
 ```php
-use Laravel\Fortify\Fortify;
+use Lets\Fortify\Fortify;
 
 /**
  * Bootstrap any application services.

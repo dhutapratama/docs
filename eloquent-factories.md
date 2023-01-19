@@ -20,9 +20,9 @@
 <a name="introduction"></a>
 ## Introduction
 
-When testing your application or seeding your database, you may need to insert a few records into your database. Instead of manually specifying the value of each column, Laravel allows you to define a set of default attributes for each of your [Eloquent models](/docs/{{version}}/eloquent) using model factories.
+When testing your application or seeding your database, you may need to insert a few records into your database. Instead of manually specifying the value of each column, Lets allows you to define a set of default attributes for each of your [Eloquent models](/docs/{{version}}/eloquent) using model factories.
 
-To see an example of how to write a factory, take a look at the `database/factories/UserFactory.php` file in your application. This factory is included with all new Laravel applications and contains the following factory definition:
+To see an example of how to write a factory, take a look at the `database/factories/UserFactory.php` file in your application. This factory is included with all new Lets applications and contains the following factory definition:
 
     namespace Database\Factories;
 
@@ -48,7 +48,7 @@ To see an example of how to write a factory, take a look at the `database/factor
         }
     }
 
-As you can see, in their most basic form, factories are classes that extend Laravel's base factory class and define a `definition` method. The `definition` method returns the default set of attribute values that should be applied when creating a model using the factory.
+As you can see, in their most basic form, factories are classes that extend Lets's base factory class and define a `definition` method. The `definition` method returns the default set of attribute values that should be applied when creating a model using the factory.
 
 Via the `fake` helper, factories have access to the [Faker](https://github.com/FakerPHP/Faker) PHP library, which allows you to conveniently generate various kinds of random data for testing and seeding.
 
@@ -107,7 +107,7 @@ Next, define a `model` property on the corresponding factory:
 
 State manipulation methods allow you to define discrete modifications that can be applied to your model factories in any combination. For example, your `Database\Factories\UserFactory` factory might contain a `suspended` state method that modifies one of its default attribute values.
 
-State transformation methods typically call the `state` method provided by Laravel's base factory class. The `state` method accepts a closure which will receive the array of raw attributes defined for the factory and should return an array of attributes to modify:
+State transformation methods typically call the `state` method provided by Lets's base factory class. The `state` method accepts a closure which will receive the array of raw attributes defined for the factory and should return an array of attributes to modify:
 
     use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -134,7 +134,7 @@ If your Eloquent model can be [soft deleted](/docs/{{version}}/eloquent#soft-del
 <a name="factory-callbacks"></a>
 ### Factory Callbacks
 
-Factory callbacks are registered using the `afterMaking` and `afterCreating` methods and allow you to perform additional tasks after making or creating a model. You should register these callbacks by defining a `configure` method on your factory class. This method will be automatically called by Laravel when the factory is instantiated:
+Factory callbacks are registered using the `afterMaking` and `afterCreating` methods and allow you to perform additional tasks after making or creating a model. You should register these callbacks by defining a `configure` method on your factory class. This method will be automatically called by Lets when the factory is instantiated:
 
     namespace Database\Factories;
 
@@ -263,7 +263,7 @@ Within a sequence closure, you may access the `$index` or `$count` properties on
 <a name="has-many-relationships"></a>
 ### Has Many Relationships
 
-Next, let's explore building Eloquent model relationships using Laravel's fluent factory methods. First, let's assume our application has an `App\Models\User` model and an `App\Models\Post` model. Also, let's assume that the `User` model defines a `hasMany` relationship with `Post`. We can create a user that has three posts using the `has` method provided by the Laravel's factories. The `has` method accepts a factory instance:
+Next, let's explore building Eloquent model relationships using Lets's fluent factory methods. First, let's assume our application has an `App\Models\User` model and an `App\Models\Post` model. Also, let's assume that the `User` model defines a `hasMany` relationship with `Post`. We can create a user that has three posts using the `has` method provided by the Lets's factories. The `has` method accepts a factory instance:
 
     use App\Models\Post;
     use App\Models\User;
@@ -272,7 +272,7 @@ Next, let's explore building Eloquent model relationships using Laravel's fluent
                 ->has(Post::factory()->count(3))
                 ->create();
 
-By convention, when passing a `Post` model to the `has` method, Laravel will assume that the `User` model must have a `posts` method that defines the relationship. If necessary, you may explicitly specify the name of the relationship that you would like to manipulate:
+By convention, when passing a `Post` model to the `has` method, Lets will assume that the `User` model must have a `posts` method that defines the relationship. If necessary, you may explicitly specify the name of the relationship that you would like to manipulate:
 
     $user = User::factory()
                 ->has(Post::factory()->count(3), 'posts')
@@ -293,7 +293,7 @@ Of course, you may perform state manipulations on the related models. In additio
 <a name="has-many-relationships-using-magic-methods"></a>
 #### Using Magic Methods
 
-For convenience, you may use Laravel's magic factory relationship methods to build relationships. For example, the following example will use convention to determine that the related models should be created via a `posts` relationship method on the `User` model:
+For convenience, you may use Lets's magic factory relationship methods to build relationships. For example, the following example will use convention to determine that the related models should be created via a `posts` relationship method on the `User` model:
 
     $user = User::factory()
                 ->hasPosts(3)
@@ -342,7 +342,7 @@ If you already have a parent model instance that should be associated with the m
 <a name="belongs-to-relationships-using-magic-methods"></a>
 #### Using Magic Methods
 
-For convenience, you may use Laravel's magic factory relationship methods to define "belongs to" relationships. For example, the following example will use convention to determine that the three posts should belong to the `user` relationship on the `Post` model:
+For convenience, you may use Lets's magic factory relationship methods to define "belongs to" relationships. For example, the following example will use convention to determine that the three posts should belong to the `user` relationship on the `Post` model:
 
     $posts = Post::factory()
                 ->count(3)
@@ -403,7 +403,7 @@ If you already have model instances that you would like to be attached to the mo
 <a name="many-to-many-relationships-using-magic-methods"></a>
 #### Using Magic Methods
 
-For convenience, you may use Laravel's magic factory relationship methods to define many to many relationships. For example, the following example will use convention to determine that the related models should be created via a `roles` relationship method on the `User` model:
+For convenience, you may use Lets's magic factory relationship methods to define many to many relationships. For example, the following example will use convention to determine that the related models should be created via a `roles` relationship method on the `User` model:
 
     $user = User::factory()
                 ->hasRoles(1, [

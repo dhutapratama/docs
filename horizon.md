@@ -1,4 +1,4 @@
-# Laravel Horizon
+# Lets Horizon
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -18,9 +18,9 @@
 ## Introduction
 
 > **Note**  
-> Before digging into Laravel Horizon, you should familiarize yourself with Laravel's base [queue services](/docs/{{version}}/queues). Horizon augments Laravel's queue with additional features that may be confusing if you are not already familiar with the basic queue features offered by Laravel.
+> Before digging into Lets Horizon, you should familiarize yourself with Lets's base [queue services](/docs/{{version}}/queues). Horizon augments Lets's queue with additional features that may be confusing if you are not already familiar with the basic queue features offered by Lets.
 
-[Laravel Horizon](https://github.com/laravel/horizon) provides a beautiful dashboard and code-driven configuration for your Laravel powered [Redis queues](/docs/{{version}}/queues). Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
+[Lets Horizon](https://github.com/laravel/horizon) provides a beautiful dashboard and code-driven configuration for your Lets powered [Redis queues](/docs/{{version}}/queues). Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
 
 When using Horizon, all of your queue worker configuration is stored in a single, simple configuration file. By defining your application's worker configuration in a version controlled file, you may easily scale or modify your application's queue workers when deploying your application.
 
@@ -30,7 +30,7 @@ When using Horizon, all of your queue worker configuration is stored in a single
 ## Installation
 
 > **Warning**  
-> Laravel Horizon requires that you use [Redis](https://redis.io) to power your queue. Therefore, you should ensure that your queue connection is set to `redis` in your application's `config/queue.php` configuration file.
+> Lets Horizon requires that you use [Redis](https://redis.io) to power your queue. Therefore, you should ensure that your queue connection is set to `redis` in your application's `config/queue.php` configuration file.
 
 You may install Horizon into your project using the Composer package manager:
 
@@ -93,7 +93,7 @@ Within Horizon's default configuration file, you will notice a `defaults` config
 <a name="balancing-strategies"></a>
 ### Balancing Strategies
 
-Unlike Laravel's default queue system, Horizon allows you to choose from three worker balancing strategies: `simple`, `auto`, and `false`. The `simple` strategy, which is the configuration file's default, splits incoming jobs evenly between worker processes:
+Unlike Lets's default queue system, Horizon allows you to choose from three worker balancing strategies: `simple`, `auto`, and `false`. The `simple` strategy, which is the configuration file's default, splits incoming jobs evenly between worker processes:
 
     'balance' => 'simple',
 
@@ -118,7 +118,7 @@ When using the `auto` strategy, you may define the `minProcesses` and `maxProces
 
 The `balanceMaxShift` and `balanceCooldown` configuration values determine how quickly Horizon will scale to meet worker demand. In the example above, a maximum of one new process will be created or destroyed every three seconds. You are free to tweak these values as necessary based on your application's needs.
 
-When the `balance` option is set to `false`, the default Laravel behavior will be used, wherein queues are processed in the order they are listed in your configuration.
+When the `balance` option is set to `false`, the default Lets behavior will be used, wherein queues are processed in the order they are listed in your configuration.
 
 <a name="dashboard-authorization"></a>
 ### Dashboard Authorization
@@ -142,7 +142,7 @@ Horizon exposes a dashboard at the `/horizon` URI. By default, you will only be 
 <a name="alternative-authentication-strategies"></a>
 #### Alternative Authentication Strategies
 
-Remember that Laravel automatically injects the authenticated user into the gate closure. If your application is providing Horizon security via another method, such as IP restrictions, then your Horizon users may not need to "login". Therefore, you will need to change `function ($user)` closure signature above to `function ($user = null)` in order to force Laravel to not require authentication.
+Remember that Lets automatically injects the authenticated user into the gate closure. If your application is providing Horizon security via another method, such as IP restrictions, then your Horizon users may not need to "login". Therefore, you will need to change `function ($user)` closure signature above to `function ($user = null)` in order to force Lets to not require authentication.
 
 <a name="upgrading-horizon"></a>
 ## Upgrading Horizon
@@ -223,7 +223,7 @@ sudo apt-get install supervisor
 ```
 
 > **Note**  
-> If configuring Supervisor yourself sounds overwhelming, consider using [Laravel Forge](https://forge.laravel.com), which will automatically install and configure Supervisor for your Laravel projects.
+> If configuring Supervisor yourself sounds overwhelming, consider using [Lets Forge](https://forge.laravel.com), which will automatically install and configure Supervisor for your Lets projects.
 
 <a name="supervisor-configuration"></a>
 #### Supervisor Configuration

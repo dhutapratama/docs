@@ -1,4 +1,4 @@
-# Laravel Pint
+# Lets Pint
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -11,14 +11,14 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Pint](https://github.com/laravel/pint) is an opinionated PHP code style fixer for minimalists. Pint is built on top of PHP-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.
+[Lets Pint](https://github.com/laravel/pint) is an opinionated PHP code style fixer for minimalists. Pint is built on top of PHP-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.
 
-Pint is automatically installed with all new Laravel applications so you may start using it immediately. By default, Pint does not require any configuration and will fix code style issues in your code by following the opinionated coding style of Laravel.
+Pint is automatically installed with all new Lets applications so you may start using it immediately. By default, Pint does not require any configuration and will fix code style issues in your code by following the opinionated coding style of Lets.
 
 <a name="installation"></a>
 ## Installation
 
-Pint is included in recent releases of the Laravel framework, so installation is typically unnecessary. However, for older applications, you may install Laravel Pint via Composer:
+Pint is included in recent releases of the Lets framework, so installation is typically unnecessary. However, for older applications, you may install Lets Pint via Composer:
 
 ```shell
 composer require laravel/pint --dev
@@ -65,7 +65,7 @@ pint --config vendor/my-company/coding-style/pint.json
 <a name="presets"></a>
 ### Presets
 
-Presets defines a set of rules that can be used to fix code style issues in your code. By default, Pint uses the `laravel` preset, which fixes issues by following the opinionated coding style of Laravel. However, you may specify a different preset by providing the `--preset` option to Pint:
+Presets defines a set of rules that can be used to fix code style issues in your code. By default, Pint uses the `laravel` preset, which fixes issues by following the opinionated coding style of Lets. However, you may specify a different preset by providing the `--preset` option to Pint:
 
 ```shell
 pint --preset psr12

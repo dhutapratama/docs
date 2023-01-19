@@ -1,4 +1,4 @@
-# Laravel Socialite
+# Lets Socialite
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -14,7 +14,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-In addition to typical, form based authentication, Laravel also provides a simple, convenient way to authenticate with OAuth providers using [Laravel Socialite](https://github.com/laravel/socialite). Socialite currently supports authentication via Facebook, Twitter, LinkedIn, Google, GitHub, GitLab, and Bitbucket.
+In addition to typical, form based authentication, Lets also provides a simple, convenient way to authenticate with OAuth providers using [Lets Socialite](https://github.com/laravel/socialite). Socialite currently supports authentication via Facebook, Twitter, LinkedIn, Google, GitHub, GitLab, and Bitbucket.
 
 > **Note**  
 > Adapters for other platforms are available via the community driven [Socialite Providers](https://socialiteproviders.com/) website.
@@ -57,7 +57,7 @@ These credentials should be placed in your application's `config/services.php` c
 
 To authenticate users using an OAuth provider, you will need two routes: one for redirecting the user to the OAuth provider, and another for receiving the callback from the provider after authentication. The example routes below demonstrate the implementation of both routes:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     Route::get('/auth/redirect', function () {
         return Socialite::driver('github')->redirect();
@@ -78,7 +78,7 @@ Once the user has been retrieved from the OAuth provider, you may determine if t
 
     use App\Models\User;
     use Illuminate\Support\Facades\Auth;
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     Route::get('/auth/callback', function () {
         $githubUser = Socialite::driver('github')->user();
@@ -105,7 +105,7 @@ Once the user has been retrieved from the OAuth provider, you may determine if t
 
 Before redirecting the user, you may use the `scopes` method to specify the "scopes" that should be included in the authentication request. This method will merge all previously specified scopes with the scopes that you specify:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     return Socialite::driver('github')
         ->scopes(['read:user', 'public_repo'])
@@ -122,7 +122,7 @@ You can overwrite all existing scopes on the authentication request using the `s
 
 A number of OAuth providers support other optional parameters on the redirect request. To include any optional parameters in the request, call the `with` method with an associative array:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     return Socialite::driver('google')
         ->with(['hd' => 'example.com'])
@@ -138,7 +138,7 @@ After the user is redirected back to your application's authentication callback 
 
 Differing properties and methods may be available on this object depending on whether the OAuth provider you are authenticating with supports OAuth 1.0 or OAuth 2.0:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     Route::get('/auth/callback', function () {
         $user = Socialite::driver('github')->user();
@@ -165,7 +165,7 @@ Differing properties and methods may be available on this object depending on wh
 
 If you already have a valid access token for a user, you can retrieve their user details using Socialite's `userFromToken` method:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     $user = Socialite::driver('github')->userFromToken($token);
 
@@ -174,7 +174,7 @@ If you already have a valid access token for a user, you can retrieve their user
 
 If you already have a valid token and secret for a user, you can retrieve their user details using Socialite's `userFromTokenAndSecret` method:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     $user = Socialite::driver('twitter')->userFromTokenAndSecret($token, $secret);
 
@@ -183,7 +183,7 @@ If you already have a valid token and secret for a user, you can retrieve their 
 
 The `stateless` method may be used to disable session state verification. This is useful when adding social authentication to a stateless API that does not utilize cookie based sessions:
 
-    use Laravel\Socialite\Facades\Socialite;
+    use Lets\Socialite\Facades\Socialite;
 
     return Socialite::driver('google')->stateless()->user();
 

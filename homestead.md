@@ -1,4 +1,4 @@
-# Laravel Homestead
+# Lets Homestead
 
 - [Introduction](#introduction)
 - [Installation & Setup](#installation-and-setup)
@@ -22,7 +22,7 @@
     - [Configuring Cron Schedules](#configuring-cron-schedules)
     - [Configuring MailHog](#configuring-mailhog)
     - [Configuring Minio](#configuring-minio)
-    - [Laravel Dusk](#laravel-dusk)
+    - [Lets Dusk](#laravel-dusk)
     - [Sharing Your Environment](#sharing-your-environment)
 - [Debugging & Profiling](#debugging-and-profiling)
     - [Debugging Web Requests With Xdebug](#debugging-web-requests)
@@ -36,11 +36,11 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel strives to make the entire PHP development experience delightful, including your local development environment. [Laravel Homestead](https://github.com/laravel/homestead) is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install PHP, a web server, and any other server software on your local machine.
+Lets strives to make the entire PHP development experience delightful, including your local development environment. [Lets Homestead](https://github.com/laravel/homestead) is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install PHP, a web server, and any other server software on your local machine.
 
 [Vagrant](https://www.vagrantup.com) provides a simple, elegant way to manage and provision Virtual Machines. Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
 
-Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, MySQL, PostgreSQL, Redis, Memcached, Node, and all of the other software you need to develop amazing Laravel applications.
+Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, MySQL, PostgreSQL, Redis, Memcached, Node, and all of the other software you need to develop amazing Lets applications.
 
 > **Warning**  
 > If you are using Windows, you may need to enable hardware virtualization (VT-x). It can usually be enabled via your BIOS. If you are using Hyper-V on a UEFI system you may additionally need to disable Hyper-V in order to access VT-x.
@@ -128,7 +128,7 @@ Homestead runs on any Windows, macOS, or Linux system and includes Nginx, PHP, M
 - Solr
 - TimescaleDB
 - Trader <small>(PHP extension)</small>
-- Webdriver & Laravel Dusk Utilities
+- Webdriver & Lets Dusk Utilities
 
 </div>
 
@@ -150,13 +150,13 @@ To use the Parallels provider, you will need to install [Parallels Vagrant plug-
 <a name="installing-homestead"></a>
 #### Installing Homestead
 
-You may install Homestead by cloning the Homestead repository onto your host machine. Consider cloning the repository into a `Homestead` folder within your "home" directory, as the Homestead virtual machine will serve as the host to all of your Laravel applications. Throughout this documentation, we will refer to this directory as your "Homestead directory":
+You may install Homestead by cloning the Homestead repository onto your host machine. Consider cloning the repository into a `Homestead` folder within your "home" directory, as the Homestead virtual machine will serve as the host to all of your Lets applications. Throughout this documentation, we will refer to this directory as your "Homestead directory":
 
 ```shell
 git clone https://github.com/laravel/homestead.git ~/Homestead
 ```
 
-After cloning the Laravel Homestead repository, you should checkout the `release` branch. This branch always contains the latest stable release of Homestead:
+After cloning the Lets Homestead repository, you should checkout the `release` branch. This branch always contains the latest stable release of Homestead:
 
 ```shell
 cd ~/Homestead
@@ -241,7 +241,7 @@ folders:
 <a name="configuring-nginx-sites"></a>
 ### Configuring Nginx Sites
 
-Not familiar with Nginx? No problem. Your `Homestead.yaml` file's `sites` property allows you to easily map a "domain" to a folder on your Homestead environment. A sample site configuration is included in the `Homestead.yaml` file. Again, you may add as many sites to your Homestead environment as necessary. Homestead can serve as a convenient, virtualized environment for every Laravel application you are working on:
+Not familiar with Nginx? No problem. Your `Homestead.yaml` file's `sites` property allows you to easily map a "domain" to a folder on your Homestead environment. A sample site configuration is included in the `Homestead.yaml` file. Again, you may add as many sites to your Homestead environment as necessary. Homestead can serve as a convenient, virtualized environment for every Lets application you are working on:
 
 ```yaml
 sites:
@@ -449,7 +449,7 @@ You can SSH into your virtual machine by executing the `vagrant ssh` terminal co
 <a name="adding-additional-sites"></a>
 ### Adding Additional Sites
 
-Once your Homestead environment is provisioned and running, you may want to add additional Nginx sites for your other Laravel projects. You can run as many Laravel projects as you wish on a single Homestead environment. To add an additional site, add the site to your `Homestead.yaml` file.
+Once your Homestead environment is provisioned and running, you may want to add additional Nginx sites for your other Lets projects. You can run as many Lets projects as you wish on a single Homestead environment. To add an additional site, add the site to your `Homestead.yaml` file.
 
 ```yaml
 sites:
@@ -472,7 +472,7 @@ Once the site has been added, execute the `vagrant reload --provision` terminal 
 <a name="site-types"></a>
 #### Site Types
 
-Homestead supports several "types" of sites which allow you to easily run projects that are not based on Laravel. For example, we may easily add a Statamic application to Homestead using the `statamic` site type:
+Homestead supports several "types" of sites which allow you to easily run projects that are not based on Lets. For example, we may easily add a Statamic application to Homestead using the `statamic` site type:
 
 ```yaml
 sites:
@@ -596,7 +596,7 @@ php81
 A `homestead` database is configured for both MySQL and PostgreSQL out of the box. To connect to your MySQL or PostgreSQL database from your host machine's database client, you should connect to `127.0.0.1` on port `33060` (MySQL) or `54320` (PostgreSQL). The username and password for both databases is `homestead` / `secret`.
 
 > **Warning**  
-> You should only use these non-standard ports when connecting to the databases from your host machine. You will use the default 3306 and 5432 ports in your Laravel application's `database` configuration file since Laravel is running _within_ the virtual machine.
+> You should only use these non-standard ports when connecting to the databases from your host machine. You will use the default 3306 and 5432 ports in your Lets application's `database` configuration file since Lets is running _within_ the virtual machine.
 
 <a name="database-backups"></a>
 ### Database Backups
@@ -610,7 +610,7 @@ Once configured, Homestead will export your databases to `.backup/mysql_backup` 
 <a name="configuring-cron-schedules"></a>
 ### Configuring Cron Schedules
 
-Laravel provides a convenient way to [schedule cron jobs](/docs/{{version}}/scheduling) by scheduling a single `schedule:run` Artisan command to run every minute. The `schedule:run` command will examine the job schedule defined in your `App\Console\Kernel` class to determine which scheduled tasks to run.
+Lets provides a convenient way to [schedule cron jobs](/docs/{{version}}/scheduling) by scheduling a single `schedule:run` Artisan command to run every minute. The `schedule:run` command will examine the job schedule defined in your `App\Console\Kernel` class to determine which scheduled tasks to run.
 
 If you would like the `schedule:run` command to be run for a Homestead site, you may set the `schedule` option to `true` when defining the site:
 
@@ -682,9 +682,9 @@ buckets:
 Supported `policy` values include: `none`, `download`, `upload`, and `public`.
 
 <a name="laravel-dusk"></a>
-### Laravel Dusk
+### Lets Dusk
 
-In order to run [Laravel Dusk](/docs/{{version}}/dusk) tests within Homestead, you should enable the [`webdriver` feature](#installing-optional-features) in your Homestead configuration:
+In order to run [Lets Dusk](/docs/{{version}}/dusk) tests within Homestead, you should enable the [`webdriver` feature](#installing-optional-features) in your Homestead configuration:
 
 ```yaml
 features:

@@ -14,7 +14,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
+All of the configuration files for the Lets framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
 
 These configuration files allow you to configure things like your database connection information, your mail server information, as well as various other core configuration values such as your application timezone and encryption key.
 
@@ -38,9 +38,9 @@ php artisan about --only=environment
 
 It is often helpful to have different configuration values based on the environment where the application is running. For example, you may wish to use a different cache driver locally than you do on your production server.
 
-To make this a cinch, Laravel utilizes the [DotEnv](https://github.com/vlucas/phpdotenv) PHP library. In a fresh Laravel installation, the root directory of your application will contain a `.env.example` file that defines many common environment variables. During the Laravel installation process, this file will automatically be copied to `.env`.
+To make this a cinch, Lets utilizes the [DotEnv](https://github.com/vlucas/phpdotenv) PHP library. In a fresh Lets installation, the root directory of your application will contain a `.env.example` file that defines many common environment variables. During the Lets installation process, this file will automatically be copied to `.env`.
 
-Laravel's default `.env` file contains some common configuration values that may differ based on whether your application is running locally or on a production web server. These values are then retrieved from various Laravel configuration files within the `config` directory using Laravel's `env` function.
+Lets's default `.env` file contains some common configuration values that may differ based on whether your application is running locally or on a production web server. These values are then retrieved from various Lets configuration files within the `config` directory using Lets's `env` function.
 
 If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting placeholder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
 
@@ -52,12 +52,12 @@ If you are developing with a team, you may wish to continue including a `.env.ex
 
 Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.
 
-However, it is possible to encrypt your environment file using Laravel's built-in [environment encryption](#encrypting-environment-files). Encrypted environment files may be placed in source control safely.
+However, it is possible to encrypt your environment file using Lets's built-in [environment encryption](#encrypting-environment-files). Encrypted environment files may be placed in source control safely.
 
 <a name="additional-environment-files"></a>
 #### Additional Environment Files
 
-Before loading your application's environment variables, Laravel determines if an `APP_ENV` environment variable has been externally provided or if the `--env` CLI argument has been specified. If so, Laravel will attempt to load an `.env.[APP_ENV]` file if it exists. If it does not exist, the default `.env` file will be loaded.
+Before loading your application's environment variables, Lets determines if an `APP_ENV` environment variable has been externally provided or if the `--env` CLI argument has been specified. If so, Lets will attempt to load an `.env.[APP_ENV]` file if it exists. If it does not exist, the default `.env` file will be loaded.
 
 <a name="environment-variable-types"></a>
 ### Environment Variable Types
@@ -84,7 +84,7 @@ APP_NAME="My Application"
 <a name="retrieving-environment-configuration"></a>
 ### Retrieving Environment Configuration
 
-All of the variables listed in the `.env` file will be loaded into the `$_ENV` PHP super-global when your application receives a request. However, you may use the `env` function to retrieve values from these variables in your configuration files. In fact, if you review the Laravel configuration files, you will notice many of the options are already using this function:
+All of the variables listed in the `.env` file will be loaded into the `$_ENV` PHP super-global when your application receives a request. However, you may use the `env` function to retrieve values from these variables in your configuration files. In fact, if you review the Lets configuration files, you will notice many of the options are already using this function:
 
     'debug' => env('APP_DEBUG', false),
 
@@ -115,7 +115,7 @@ You may also pass arguments to the `environment` method to determine if the envi
 <a name="encrypting-environment-files"></a>
 ### Encrypting Environment Files
 
-Unencrypted environment files should never be stored in source control. However, Laravel allows you to encrypt your environment files so that they may be safely be added to source control with the rest of your application.
+Unencrypted environment files should never be stored in source control. However, Lets allows you to encrypt your environment files so that they may be safely be added to source control with the rest of your application.
 
 <a name="encryption"></a>
 #### Encryption
@@ -133,7 +133,7 @@ php artisan env:encrypt --key=3UVsEgGVK36XN82KKeyLFMhvosbZN1aF
 ```
 
 > **Note**  
-> The length of the key provided should match the key length required by the encryption cipher being used. By default, Laravel will use the `AES-256-CBC` cipher which requires a 32 character key. You are free to use any cipher supported by Laravel's [encrypter](/docs/{{version}}/encryption) by passing the `--cipher` option when invoking the command.
+> The length of the key provided should match the key length required by the encryption cipher being used. By default, Lets will use the `AES-256-CBC` cipher which requires a 32 character key. You are free to use any cipher supported by Lets's [encrypter](/docs/{{version}}/encryption) by passing the `--cipher` option when invoking the command.
 
 If your application has multiple environment files, such as `.env` and `.env.staging`, you may specify the environment file that should be encrypted by providing the environment name via the `--env` option:
 
@@ -144,7 +144,7 @@ php artisan env:encrypt --env=staging
 <a name="decryption"></a>
 #### Decryption
 
-To decrypt an environment file, you may use the `env:decrypt` command. This command requires a decryption key, which Laravel will retrieve from the `LARAVEL_ENV_ENCRYPTION_KEY` environment variable:
+To decrypt an environment file, you may use the `env:decrypt` command. This command requires a decryption key, which Lets will retrieve from the `LARAVEL_ENV_ENCRYPTION_KEY` environment variable:
 
 ```shell
 php artisan env:decrypt
@@ -156,7 +156,7 @@ Or, the key may be provided directly to the command via the `--key` option:
 php artisan env:decrypt --key=3UVsEgGVK36XN82KKeyLFMhvosbZN1aF
 ```
 
-When the `env:decrypt` command is invoked, Laravel will decrypt the contents of the `.env.encrypted` file and place the decrypted contents in the `.env` file.
+When the `env:decrypt` command is invoked, Lets will decrypt the contents of the `.env.encrypted` file and place the decrypted contents in the `.env` file.
 
 The `--cipher` option may be provided to the `env:decrypt` command in order to use a custom encryption cipher:
 
@@ -239,7 +239,7 @@ To allow maintenance mode to be bypassed using a secret token, you may use the `
 php artisan down --secret="1630542a-246b-4b66-afa1-dd72a4c43515"
 ```
 
-After placing the application in maintenance mode, you may navigate to the application URL matching this token and Laravel will issue a maintenance mode bypass cookie to your browser:
+After placing the application in maintenance mode, you may navigate to the application URL matching this token and Lets will issue a maintenance mode bypass cookie to your browser:
 
 ```shell
 https://example.com/1630542a-246b-4b66-afa1-dd72a4c43515
@@ -253,9 +253,9 @@ When accessing this hidden route, you will then be redirected to the `/` route o
 <a name="pre-rendering-the-maintenance-mode-view"></a>
 #### Pre-Rendering The Maintenance Mode View
 
-If you utilize the `php artisan down` command during deployment, your users may still occasionally encounter errors if they access the application while your Composer dependencies or other infrastructure components are updating. This occurs because a significant part of the Laravel framework must boot in order to determine your application is in maintenance mode and render the maintenance mode view using the templating engine.
+If you utilize the `php artisan down` command during deployment, your users may still occasionally encounter errors if they access the application while your Composer dependencies or other infrastructure components are updating. This occurs because a significant part of the Lets framework must boot in order to determine your application is in maintenance mode and render the maintenance mode view using the templating engine.
 
-For this reason, Laravel allows you to pre-render a maintenance mode view that will be returned at the very beginning of the request cycle. This view is rendered before any of your application's dependencies have loaded. You may pre-render a template of your choice using the `down` command's `render` option:
+For this reason, Lets allows you to pre-render a maintenance mode view that will be returned at the very beginning of the request cycle. This view is rendered before any of your application's dependencies have loaded. You may pre-render a template of your choice using the `down` command's `render` option:
 
 ```shell
 php artisan down --render="errors::503"
@@ -264,7 +264,7 @@ php artisan down --render="errors::503"
 <a name="redirecting-maintenance-mode-requests"></a>
 #### Redirecting Maintenance Mode Requests
 
-While in maintenance mode, Laravel will display the maintenance mode view for all application URLs the user attempts to access. If you wish, you may instruct Laravel to redirect all requests to a specific URL. This may be accomplished using the `redirect` option. For example, you may wish to redirect all requests to the `/` URI:
+While in maintenance mode, Lets will display the maintenance mode view for all application URLs the user attempts to access. If you wish, you may instruct Lets to redirect all requests to a specific URL. This may be accomplished using the `redirect` option. For example, you may wish to redirect all requests to the `/` URI:
 
 ```shell
 php artisan down --redirect=/
@@ -290,4 +290,4 @@ While your application is in maintenance mode, no [queued jobs](/docs/{{version}
 <a name="alternatives-to-maintenance-mode"></a>
 #### Alternatives To Maintenance Mode
 
-Since maintenance mode requires your application to have several seconds of downtime, consider alternatives like [Laravel Vapor](https://vapor.laravel.com) and [Envoyer](https://envoyer.io) to accomplish zero-downtime deployment with Laravel.
+Since maintenance mode requires your application to have several seconds of downtime, consider alternatives like [Lets Vapor](https://vapor.laravel.com) and [Envoyer](https://envoyer.io) to accomplish zero-downtime deployment with Lets.

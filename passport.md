@@ -1,4 +1,4 @@
-# Laravel Passport
+# Lets Passport
 
 - [Introduction](#introduction)
     - [Passport Or Sanctum?](#passport-or-sanctum)
@@ -47,7 +47,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Passport](https://github.com/laravel/passport) provides a full OAuth2 server implementation for your Laravel application in a matter of minutes. Passport is built on top of the [League OAuth2 server](https://github.com/thephpleague/oauth2-server) that is maintained by Andy Millington and Simon Hamp.
+[Lets Passport](https://github.com/laravel/passport) provides a full OAuth2 server implementation for your Lets application in a matter of minutes. Passport is built on top of the [League OAuth2 server](https://github.com/thephpleague/oauth2-server) that is maintained by Andy Millington and Simon Hamp.
 
 > **Warning**  
 > This documentation assumes you are already familiar with OAuth2. If you do not know anything about OAuth2, consider familiarizing yourself with the general [terminology](https://oauth2.thephpleague.com/terminology/) and features of OAuth2 before continuing.
@@ -55,9 +55,9 @@
 <a name="passport-or-sanctum"></a>
 ### Passport Or Sanctum?
 
-Before getting started, you may wish to determine if your application would be better served by Laravel Passport or [Laravel Sanctum](/docs/{{version}}/sanctum). If your application absolutely needs to support OAuth2, then you should use Laravel Passport.
+Before getting started, you may wish to determine if your application would be better served by Lets Passport or [Lets Sanctum](/docs/{{version}}/sanctum). If your application absolutely needs to support OAuth2, then you should use Lets Passport.
 
-However, if you are attempting to authenticate a single-page application, mobile application, or issue API tokens, you should use [Laravel Sanctum](/docs/{{version}}/sanctum). Laravel Sanctum does not support OAuth2; however, it provides a much simpler API authentication development experience.
+However, if you are attempting to authenticate a single-page application, mobile application, or issue API tokens, you should use [Lets Sanctum](/docs/{{version}}/sanctum). Lets Sanctum does not support OAuth2; however, it provides a much simpler API authentication development experience.
 
 <a name="installation"></a>
 ## Installation
@@ -83,7 +83,7 @@ php artisan passport:install
 > **Note**  
 > If you would like to use UUIDs as the primary key value of the Passport `Client` model instead of auto-incrementing integers, please install Passport using [the `uuids` option](#client-uuids).
 
-After running the `passport:install` command, add the `Laravel\Passport\HasApiTokens` trait to your `App\Models\User` model. This trait will provide a few helper methods to your model which allow you to inspect the authenticated user's token and scopes. If your model is already using the `Laravel\Sanctum\HasApiTokens` trait, you may remove that trait:
+After running the `passport:install` command, add the `Lets\Passport\HasApiTokens` trait to your `App\Models\User` model. This trait will provide a few helper methods to your model which allow you to inspect the authenticated user's token and scopes. If your model is already using the `Lets\Sanctum\HasApiTokens` trait, you may remove that trait:
 
     <?php
 
@@ -92,7 +92,7 @@ After running the `passport:install` command, add the `Laravel\Passport\HasApiTo
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
-    use Laravel\Passport\HasApiTokens;
+    use Lets\Passport\HasApiTokens;
 
     class User extends Authenticatable
     {
@@ -186,7 +186,7 @@ When upgrading to a new major version of Passport, it's important that you caref
 
 If you would like your client's secrets to be hashed when stored in your database, you should call the `Passport::hashClientSecrets` method in the `boot` method of your `App\Providers\AuthServiceProvider` class:
 
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Passport;
 
     Passport::hashClientSecrets();
 
@@ -217,14 +217,14 @@ By default, Passport issues long-lived access tokens that expire after one year.
 
 You are free to extend the models used internally by Passport by defining your own model and extending the corresponding Passport model:
 
-    use Laravel\Passport\Client as PassportClient;
+    use Lets\Passport\Client as PassportClient;
 
     class Client extends PassportClient
     {
         // ...
     }
 
-After defining your model, you may instruct Passport to use your custom model via the `Laravel\Passport\Passport` class. Typically, you should inform Passport about your custom models in the `boot` method of your application's `App\Providers\AuthServiceProvider` class:
+After defining your model, you may instruct Passport to use your custom model via the `Lets\Passport\Passport` class. Typically, you should inform Passport about your custom models in the `boot` method of your application's `App\Providers\AuthServiceProvider` class:
 
     use App\Models\Passport\AuthCode;
     use App\Models\Passport\Client;
@@ -249,7 +249,7 @@ After defining your model, you may instruct Passport to use your custom model vi
 
 Sometimes you may wish to customize the routes defined by Passport. To achieve this, you first need to ignore the routes registered by Passport by adding `Passport::ignoreRoutes` to the `register` method of your application's `AppServiceProvider`:
 
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Passport;
 
     /**
      * Register any application services.
@@ -266,7 +266,7 @@ Then, you may copy the routes defined by Passport in [its routes file](https://g
     Route::group([
         'as' => 'passport.',
         'prefix' => config('passport.path', 'oauth'),
-        'namespace' => 'Laravel\Passport\Http\Controllers',
+        'namespace' => 'Lets\Passport\Http\Controllers',
     ], function () {
         // Passport routes...
     });
@@ -425,7 +425,7 @@ Sometimes you may wish to skip the authorization prompt, such as when authorizin
 
     namespace App\Models\Passport;
 
-    use Laravel\Passport\Client as BaseClient;
+    use Lets\Passport\Client as BaseClient;
 
     class Client extends BaseClient
     {
@@ -518,10 +518,10 @@ This `/oauth/token` route will return a JSON response containing `access_token`,
 <a name="revoking-tokens"></a>
 ### Revoking Tokens
 
-You may revoke a token by using the `revokeAccessToken` method on the `Laravel\Passport\TokenRepository`. You may revoke a token's refresh tokens using the `revokeRefreshTokensByAccessTokenId` method on the `Laravel\Passport\RefreshTokenRepository`. These classes may be resolved using Laravel's [service container](/docs/{{version}}/container):
+You may revoke a token by using the `revokeAccessToken` method on the `Lets\Passport\TokenRepository`. You may revoke a token's refresh tokens using the `revokeRefreshTokensByAccessTokenId` method on the `Lets\Passport\RefreshTokenRepository`. These classes may be resolved using Lets's [service container](/docs/{{version}}/container):
 
-    use Laravel\Passport\TokenRepository;
-    use Laravel\Passport\RefreshTokenRepository;
+    use Lets\Passport\TokenRepository;
+    use Lets\Passport\RefreshTokenRepository;
 
     $tokenRepository = app(TokenRepository::class);
     $refreshTokenRepository = app(RefreshTokenRepository::class);
@@ -722,7 +722,7 @@ When authenticating using the password grant, Passport will use the `email` attr
 
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
-    use Laravel\Passport\HasApiTokens;
+    use Lets\Passport\HasApiTokens;
 
     class User extends Authenticatable
     {
@@ -749,7 +749,7 @@ When authenticating using the password grant, Passport will use the `password` a
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Support\Facades\Hash;
-    use Laravel\Passport\HasApiTokens;
+    use Lets\Passport\HasApiTokens;
 
     class User extends Authenticatable
     {
@@ -817,7 +817,7 @@ php artisan passport:client --client
 
 Next, to use this grant type, you need to add the `CheckClientCredentials` middleware to the `$routeMiddleware` property of your `app/Http/Kernel.php` file:
 
-    use Laravel\Passport\Http\Middleware\CheckClientCredentials;
+    use Lets\Passport\Http\Middleware\CheckClientCredentials;
 
     protected $routeMiddleware = [
         'client' => CheckClientCredentials::class,
@@ -857,7 +857,7 @@ To retrieve a token using this grant type, make a request to the `oauth/token` e
 Sometimes, your users may want to issue access tokens to themselves without going through the typical authorization code redirect flow. Allowing users to issue tokens to themselves via your application's UI can be useful for allowing users to experiment with your API or may serve as a simpler approach to issuing access tokens in general.
 
 > **Note**  
-> If your application is primarily using Passport to issue personal access tokens, consider using [Laravel Sanctum](/docs/{{version}}/sanctum), Laravel's light-weight first-party library for issuing API access tokens.
+> If your application is primarily using Passport to issue personal access tokens, consider using [Lets Sanctum](/docs/{{version}}/sanctum), Lets's light-weight first-party library for issuing API access tokens.
 
 <a name="creating-a-personal-access-client"></a>
 ### Creating A Personal Access Client
@@ -1031,7 +1031,7 @@ You may define your API's scopes using the `Passport::tokensCan` method in the `
 
 If a client does not request any specific scopes, you may configure your Passport server to attach default scope(s) to the token using the `setDefaultScope` method. Typically, you should call this method from the `boot` method of your application's `App\Providers\AuthServiceProvider` class:
 
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Passport;
 
     Passport::tokensCan([
         'place-orders' => 'Place orders',
@@ -1077,8 +1077,8 @@ If you are issuing personal access tokens using the `App\Models\User` model's `c
 
 Passport includes two middleware that may be used to verify that an incoming request is authenticated with a token that has been granted a given scope. To get started, add the following middleware to the `$routeMiddleware` property of your `app/Http/Kernel.php` file:
 
-    'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
-    'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
+    'scopes' => \Lets\Passport\Http\Middleware\CheckScopes::class,
+    'scope' => \Lets\Passport\Http\Middleware\CheckForAnyScope::class,
 
 <a name="check-for-all-scopes"></a>
 #### Check For All Scopes
@@ -1116,15 +1116,15 @@ Once an access token authenticated request has entered your application, you may
 
 The `scopeIds` method will return an array of all defined IDs / names:
 
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Passport;
 
     Passport::scopeIds();
 
-The `scopes` method will return an array of all defined scopes as instances of `Laravel\Passport\Scope`:
+The `scopes` method will return an array of all defined scopes as instances of `Lets\Passport\Scope`:
 
     Passport::scopes();
 
-The `scopesFor` method will return an array of `Laravel\Passport\Scope` instances matching the given IDs / names:
+The `scopesFor` method will return an array of `Lets\Passport\Scope` instances matching the given IDs / names:
 
     Passport::scopesFor(['place-orders', 'check-status']);
 
@@ -1141,7 +1141,7 @@ Typically, if you want to consume your API from your JavaScript application, you
 
     'web' => [
         // Other middleware...
-        \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+        \Lets\Passport\Http\Middleware\CreateFreshApiToken::class,
     ],
 
 > **Warning**  
@@ -1172,7 +1172,7 @@ If needed, you can customize the `laravel_token` cookie's name using the `Passpo
 <a name="csrf-protection"></a>
 #### CSRF Protection
 
-When using this method of authentication, you will need to ensure a valid CSRF token header is included in your requests. The default Laravel JavaScript scaffolding includes an Axios instance, which will automatically use the encrypted `XSRF-TOKEN` cookie value to send an `X-XSRF-TOKEN` header on same-origin requests.
+When using this method of authentication, you will need to ensure a valid CSRF token header is included in your requests. The default Lets JavaScript scaffolding includes an Axios instance, which will automatically use the encrypted `XSRF-TOKEN` cookie value to send an `X-XSRF-TOKEN` header on same-origin requests.
 
 > **Note**  
 > If you choose to send the `X-CSRF-TOKEN` header instead of `X-XSRF-TOKEN`, you will need to use the unencrypted token provided by `csrf_token()`.
@@ -1188,11 +1188,11 @@ Passport raises events when issuing access tokens and refresh tokens. You may us
      * @var array
      */
     protected $listen = [
-        'Laravel\Passport\Events\AccessTokenCreated' => [
+        'Lets\Passport\Events\AccessTokenCreated' => [
             'App\Listeners\RevokeOldTokens',
         ],
 
-        'Laravel\Passport\Events\RefreshTokenCreated' => [
+        'Lets\Passport\Events\RefreshTokenCreated' => [
             'App\Listeners\PruneOldTokens',
         ],
     ];
@@ -1203,7 +1203,7 @@ Passport raises events when issuing access tokens and refresh tokens. You may us
 Passport's `actingAs` method may be used to specify the currently authenticated user as well as its scopes. The first argument given to the `actingAs` method is the user instance and the second is an array of scopes that should be granted to the user's token:
 
     use App\Models\User;
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Passport;
 
     public function test_servers_can_be_created(): void
     {
@@ -1219,8 +1219,8 @@ Passport's `actingAs` method may be used to specify the currently authenticated 
 
 Passport's `actingAsClient` method may be used to specify the currently authenticated client as well as its scopes. The first argument given to the `actingAsClient` method is the client instance and the second is an array of scopes that should be granted to the client's token:
 
-    use Laravel\Passport\Client;
-    use Laravel\Passport\Passport;
+    use Lets\Passport\Client;
+    use Lets\Passport\Passport;
 
     public function test_orders_can_be_retrieved(): void
     {

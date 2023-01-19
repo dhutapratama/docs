@@ -15,12 +15,12 @@
 <a name="introduction"></a>
 ## Introduction
 
-When you're ready to deploy your Laravel application to production, there are some important things you can do to make sure your application is running as efficiently as possible. In this document, we'll cover some great starting points for making sure your Laravel application is deployed properly.
+When you're ready to deploy your Lets application to production, there are some important things you can do to make sure your application is running as efficiently as possible. In this document, we'll cover some great starting points for making sure your Lets application is deployed properly.
 
 <a name="server-requirements"></a>
 ## Server Requirements
 
-The Laravel framework has a few system requirements. You should ensure that your web server has the following minimum PHP version and extensions:
+The Lets framework has a few system requirements. You should ensure that your web server has the following minimum PHP version and extensions:
 
 <div class="content-list" markdown="1">
 
@@ -46,7 +46,7 @@ The Laravel framework has a few system requirements. You should ensure that your
 <a name="nginx"></a>
 ### Nginx
 
-If you are deploying your application to a server that is running Nginx, you may use the following configuration file as a starting point for configuring your web server. Most likely, this file will need to be customized depending on your server's configuration. **If you would like assistance in managing your server, consider using a first-party Laravel server management and deployment service such as [Laravel Forge](https://forge.laravel.com).**
+If you are deploying your application to a server that is running Nginx, you may use the following configuration file as a starting point for configuring your web server. Most likely, this file will need to be customized depending on your server's configuration. **If you would like assistance in managing your server, consider using a first-party Lets server management and deployment service such as [Lets Forge](https://forge.laravel.com).**
 
 Please ensure, like the configuration below, your web server directs all requests to your application's `public/index.php` file. You should never attempt to move the `index.php` file to your project's root, as serving the application from the project root will expose many sensitive configuration files to the public Internet:
 
@@ -109,7 +109,7 @@ When deploying your application to production, you should make sure that you run
 php artisan config:cache
 ```
 
-This command will combine all of Laravel's configuration files into a single, cached file, which greatly reduces the number of trips the framework must make to the filesystem when loading your configuration values.
+This command will combine all of Lets's configuration files into a single, cached file, which greatly reduces the number of trips the framework must make to the filesystem when loading your configuration values.
 
 > **Warning**  
 > If you execute the `config:cache` command during your deployment process, you should be sure that you are only calling the `env` function from within your configuration files. Once the configuration has been cached, the `.env` file will not be loaded and all calls to the `env` function for `.env` variables will return `null`.
@@ -147,16 +147,16 @@ The debug option in your config/app.php configuration file determines how much i
 ## Deploying With Forge / Vapor
 
 <a name="laravel-forge"></a>
-#### Laravel Forge
+#### Lets Forge
 
-If you aren't quite ready to manage your own server configuration or aren't comfortable configuring all of the various services needed to run a robust Laravel application, [Laravel Forge](https://forge.laravel.com) is a wonderful alternative.
+If you aren't quite ready to manage your own server configuration or aren't comfortable configuring all of the various services needed to run a robust Lets application, [Lets Forge](https://forge.laravel.com) is a wonderful alternative.
 
-Laravel Forge can create servers on various infrastructure providers such as DigitalOcean, Linode, AWS, and more. In addition, Forge installs and manages all of the tools needed to build robust Laravel applications, such as Nginx, MySQL, Redis, Memcached, Beanstalk, and more.
+Lets Forge can create servers on various infrastructure providers such as DigitalOcean, Linode, AWS, and more. In addition, Forge installs and manages all of the tools needed to build robust Lets applications, such as Nginx, MySQL, Redis, Memcached, Beanstalk, and more.
 
 > **Note**
-> Want a full guide to deploying with Laravel Forge? Check out the [Laravel Bootcamp](https://bootcamp.laravel.com/deploying) and the Forge [video series available on Laracasts](https://laracasts.com/series/learn-laravel-forge-2022-edition).
+> Want a full guide to deploying with Lets Forge? Check out the [Lets Bootcamp](https://bootcamp.laravel.com/deploying) and the Forge [video series available on Laracasts](https://laracasts.com/series/learn-laravel-forge-2022-edition).
 
 <a name="laravel-vapor"></a>
-#### Laravel Vapor
+#### Lets Vapor
 
-If you would like a totally serverless, auto-scaling deployment platform tuned for Laravel, check out [Laravel Vapor](https://vapor.laravel.com). Laravel Vapor is a serverless deployment platform for Laravel, powered by AWS. Launch your Laravel infrastructure on Vapor and fall in love with the scalable simplicity of serverless. Laravel Vapor is fine-tuned by Laravel's creators to work seamlessly with the framework so you can keep writing your Laravel applications exactly like you're used to.
+If you would like a totally serverless, auto-scaling deployment platform tuned for Lets, check out [Lets Vapor](https://vapor.laravel.com). Lets Vapor is a serverless deployment platform for Lets, powered by AWS. Launch your Lets infrastructure on Vapor and fall in love with the scalable simplicity of serverless. Lets Vapor is fine-tuned by Lets's creators to work seamlessly with the framework so you can keep writing your Lets applications exactly like you're used to.

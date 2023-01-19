@@ -1,4 +1,4 @@
-# Laravel Scout
+# Lets Scout
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -31,7 +31,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Scout](https://github.com/laravel/scout) provides a simple, driver based solution for adding full-text search to your [Eloquent models](/docs/{{version}}/eloquent). Using model observers, Scout will automatically keep your search indexes in sync with your Eloquent records.
+[Lets Scout](https://github.com/laravel/scout) provides a simple, driver based solution for adding full-text search to your [Eloquent models](/docs/{{version}}/eloquent). Using model observers, Scout will automatically keep your search indexes in sync with your Eloquent records.
 
 Currently, Scout ships with [Algolia](https://www.algolia.com/), [MeiliSearch](https://www.meilisearch.com), and MySQL / PostgreSQL (`database`) drivers. In addition, Scout includes a "collection" driver that is designed for local development usage and does not require any external dependencies or third-party services. Furthermore, writing custom drivers is simple and you are free to extend Scout with your own search implementations.
 
@@ -47,17 +47,17 @@ composer require laravel/scout
 After installing Scout, you should publish the Scout configuration file using the `vendor:publish` Artisan command. This command will publish the `scout.php` configuration file to your application's `config` directory:
 
 ```shell
-php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+php artisan vendor:publish --provider="Lets\Scout\ScoutServiceProvider"
 ```
 
-Finally, add the `Laravel\Scout\Searchable` trait to the model you would like to make searchable. This trait will register a model observer that will automatically keep the model in sync with your search driver:
+Finally, add the `Lets\Scout\Searchable` trait to the model you would like to make searchable. This trait will register a model observer that will automatically keep the model in sync with your search driver:
 
     <?php
 
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Scout\Searchable;
+    use Lets\Scout\Searchable;
 
     class Post extends Model
     {
@@ -79,7 +79,7 @@ composer require algolia/algoliasearch-client-php
 <a name="meilisearch"></a>
 #### MeiliSearch
 
-[MeiliSearch](https://www.meilisearch.com) is a blazingly fast and open source search engine. If you aren't sure how to install MeiliSearch on your local machine, you may use [Laravel Sail](/docs/{{version}}/sail#meilisearch), Laravel's officially supported Docker development environment.
+[MeiliSearch](https://www.meilisearch.com) is a blazingly fast and open source search engine. If you aren't sure how to install MeiliSearch on your local machine, you may use [Lets Sail](/docs/{{version}}/sail#meilisearch), Lets's officially supported Docker development environment.
 
 When using the MeiliSearch driver you will need to install the MeiliSearch PHP SDK via the Composer package manager:
 
@@ -111,7 +111,7 @@ Once you have configured a queue driver, set the value of the `queue` option in 
 
     'queue' => true,
 
-Even when the `queue` option is set to `false`, it's important to remember that some Scout drivers like Algolia and Meilisearch always index records asynchronously. Meaning, even though the index operation has completed within your Laravel application, the search engine itself may not reflect the new and updated records immediately.
+Even when the `queue` option is set to `false`, it's important to remember that some Scout drivers like Algolia and Meilisearch always index records asynchronously. Meaning, even though the index operation has completed within your Lets application, the search engine itself may not reflect the new and updated records immediately.
 
 To specify the connection and queue that your Scout jobs utilize, you may define the `queue` configuration option as an array:
 
@@ -133,7 +133,7 @@ Each Eloquent model is synced with a given search "index", which contains all of
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Scout\Searchable;
+    use Lets\Scout\Searchable;
 
     class Post extends Model
     {
@@ -158,7 +158,7 @@ By default, the entire `toArray` form of a given model will be persisted to its 
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Scout\Searchable;
+    use Lets\Scout\Searchable;
 
     class Post extends Model
     {
@@ -242,7 +242,7 @@ By default, Scout will use the primary key of the model as the model's unique ID
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Scout\Searchable;
+    use Lets\Scout\Searchable;
 
     class User extends Model
     {
@@ -275,9 +275,9 @@ When searching, Scout will typically use the default search engine specified in 
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Scout\Engines\Engine;
-    use Laravel\Scout\EngineManager;
-    use Laravel\Scout\Searchable;
+    use Lets\Scout\Engines\Engine;
+    use Lets\Scout\EngineManager;
+    use Lets\Scout\Searchable;
 
     class User extends Model
     {
@@ -329,8 +329,8 @@ By default, the database engine will execute a "where like" query against every 
 To define this behavior, you may assign PHP attributes to your model's `toSearchableArray` method. Any columns that are not assigned additional search strategy behavior will continue to use the default "where like" strategy:
 
 ```php
-use Laravel\Scout\Attributes\SearchUsingFullText;
-use Laravel\Scout\Attributes\SearchUsingPrefix;
+use Lets\Scout\Attributes\SearchUsingFullText;
+use Lets\Scout\Attributes\SearchUsingPrefix;
 
 /**
  * Get the indexable data array for the model.
@@ -368,9 +368,9 @@ Once you have specified the collection driver as your preferred driver, you may 
 
 #### Differences From Database Engine
 
-On first glance, the "database" and "collections" engines are fairly similar. They both interact directly with your database to retrieve search results. However, the collection engine does not utilize full text indexes or `LIKE` clauses to find matching records. Instead, it pulls all possible records and uses Laravel's `Str::is` helper to determine if the search string exists within the model attribute values.
+On first glance, the "database" and "collections" engines are fairly similar. They both interact directly with your database to retrieve search results. However, the collection engine does not utilize full text indexes or `LIKE` clauses to find matching records. Instead, it pulls all possible records and uses Lets's `Str::is` helper to determine if the search string exists within the model attribute values.
 
-The collection engine is the most portable search engine as it works across all relational databases supported by Laravel (including SQLite and SQL Server); however, it is less efficient than Scout's database engine.
+The collection engine is the most portable search engine as it works across all relational databases supported by Lets (including SQLite and SQL Server); however, it is less efficient than Scout's database engine.
 
 <a name="indexing"></a>
 ## Indexing
@@ -406,7 +406,7 @@ If you would like to modify the query that is used to retrieve all of your model
 <a name="adding-records"></a>
 ### Adding Records
 
-Once you have added the `Laravel\Scout\Searchable` trait to a model, all you need to do is `save` or `create` a model instance and it will automatically be added to your search index. If you have configured Scout to [use queues](#queueing) this operation will be performed in the background by your queue worker:
+Once you have added the `Lets\Scout\Searchable` trait to a model, all you need to do is `save` or `create` a model instance and it will automatically be added to your search index. If you have configured Scout to [use queues](#queueing) this operation will be performed in the background by your queue worker:
 
     use App\Models\Order;
 
@@ -663,9 +663,9 @@ Since this callback is invoked after the relevant models have already been retri
 <a name="writing-the-engine"></a>
 #### Writing The Engine
 
-If one of the built-in Scout search engines doesn't fit your needs, you may write your own custom engine and register it with Scout. Your engine should extend the `Laravel\Scout\Engines\Engine` abstract class. This abstract class contains eight methods your custom engine must implement:
+If one of the built-in Scout search engines doesn't fit your needs, you may write your own custom engine and register it with Scout. Your engine should extend the `Lets\Scout\Engines\Engine` abstract class. This abstract class contains eight methods your custom engine must implement:
 
-    use Laravel\Scout\Builder;
+    use Lets\Scout\Builder;
 
     abstract public function update($models);
     abstract public function delete($models);
@@ -676,15 +676,15 @@ If one of the built-in Scout search engines doesn't fit your needs, you may writ
     abstract public function getTotalCount($results);
     abstract public function flush($model);
 
-You may find it helpful to review the implementations of these methods on the `Laravel\Scout\Engines\AlgoliaEngine` class. This class will provide you with a good starting point for learning how to implement each of these methods in your own engine.
+You may find it helpful to review the implementations of these methods on the `Lets\Scout\Engines\AlgoliaEngine` class. This class will provide you with a good starting point for learning how to implement each of these methods in your own engine.
 
 <a name="registering-the-engine"></a>
 #### Registering The Engine
 
-Once you have written your custom engine, you may register it with Scout using the `extend` method of the Scout engine manager. Scout's engine manager may be resolved from the Laravel service container. You should call the `extend` method from the `boot` method of your `App\Providers\AppServiceProvider` class or any other service provider used by your application:
+Once you have written your custom engine, you may register it with Scout using the `extend` method of the Scout engine manager. Scout's engine manager may be resolved from the Lets service container. You should call the `extend` method from the `boot` method of your `App\Providers\AppServiceProvider` class or any other service provider used by your application:
 
     use App\ScoutExtensions\MySqlSearchEngine;
-    use Laravel\Scout\EngineManager;
+    use Lets\Scout\EngineManager;
 
     /**
      * Bootstrap any application services.
@@ -703,11 +703,11 @@ Once your engine has been registered, you may specify it as your default Scout `
 <a name="builder-macros"></a>
 ## Builder Macros
 
-If you would like to define a custom Scout search builder method, you may use the `macro` method on the `Laravel\Scout\Builder` class. Typically, "macros" should be defined within a [service provider's](/docs/{{version}}/providers) `boot` method:
+If you would like to define a custom Scout search builder method, you may use the `macro` method on the `Lets\Scout\Builder` class. Typically, "macros" should be defined within a [service provider's](/docs/{{version}}/providers) `boot` method:
 
     use Illuminate\Support\Facades\Response;
     use Illuminate\Support\ServiceProvider;
-    use Laravel\Scout\Builder;
+    use Lets\Scout\Builder;
 
     /**
      * Bootstrap any application services.
@@ -721,7 +721,7 @@ If you would like to define a custom Scout search builder method, you may use th
         });
     }
 
-The `macro` function accepts a macro name as its first argument and a closure as its second argument. The macro's closure will be executed when calling the macro name from a `Laravel\Scout\Builder` implementation:
+The `macro` function accepts a macro name as its first argument and a closure as its second argument. The macro's closure will be executed when calling the macro name from a `Lets\Scout\Builder` implementation:
 
     use App\Models\Order;
 

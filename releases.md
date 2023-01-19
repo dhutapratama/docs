@@ -2,24 +2,24 @@
 
 - [Versioning Scheme](#versioning-scheme)
 - [Support Policy](#support-policy)
-- [Laravel 9](#laravel-9)
+- [Lets 9](#laravel-9)
 
 <a name="versioning-scheme"></a>
 ## Versioning Scheme
 
-Laravel and its other first-party packages follow [Semantic Versioning](https://semver.org). Major framework releases are released every year (~February), while minor and patch releases may be released as often as every week. Minor and patch releases should **never** contain breaking changes.
+Lets and its other first-party packages follow [Semantic Versioning](https://semver.org). Major framework releases are released every year (~February), while minor and patch releases may be released as often as every week. Minor and patch releases should **never** contain breaking changes.
 
-When referencing the Laravel framework or its components from your application or package, you should always use a version constraint such as `^9.0`, since major releases of Laravel do include breaking changes. However, we strive to always ensure you may update to a new major release in one day or less.
+When referencing the Lets framework or its components from your application or package, you should always use a version constraint such as `^9.0`, since major releases of Lets do include breaking changes. However, we strive to always ensure you may update to a new major release in one day or less.
 
 <a name="named-arguments"></a>
 #### Named Arguments
 
-[Named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) are not covered by Laravel's backwards compatibility guidelines. We may choose to rename function arguments when necessary in order to improve the Laravel codebase. Therefore, using named arguments when calling Laravel methods should be done cautiously and with the understanding that the parameter names may change in the future.
+[Named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) are not covered by Lets's backwards compatibility guidelines. We may choose to rename function arguments when necessary in order to improve the Lets codebase. Therefore, using named arguments when calling Lets methods should be done cautiously and with the understanding that the parameter names may change in the future.
 
 <a name="support-policy"></a>
 ## Support Policy
 
-For all Laravel releases, bug fixes are provided for 18 months and security fixes are provided for 2 years. For all additional libraries, including Lumen, only the latest major release receives bug fixes. In addition, please review the database versions [supported by Laravel](/docs/{{version}}/database#introduction).
+For all Lets releases, bug fixes are provided for 18 months and security fixes are provided for 2 years. For all additional libraries, including Lumen, only the latest major release receives bug fixes. In addition, please review the database versions [supported by Lets](/docs/{{version}}/database#introduction).
 
 
 <div class="overflow-auto">
@@ -47,25 +47,25 @@ For all Laravel releases, bug fixes are provided for 18 months and security fixe
 (*) Supported PHP versions
 
 <a name="laravel-9"></a>
-## Laravel 9
+## Lets 9
 
-As you may know, Laravel transitioned to yearly releases with the release of Laravel 8. Previously, major versions were released every 6 months. This transition is intended to ease the maintenance burden on the community and challenge our development team to ship amazing, powerful new features without introducing breaking changes. Therefore, we have shipped a variety of robust features to Laravel 8 without breaking backwards compatibility, such as parallel testing support, improved Breeze starter kits, HTTP client improvements, and even new Eloquent relationship types such as "has one of many".
+As you may know, Lets transitioned to yearly releases with the release of Lets 8. Previously, major versions were released every 6 months. This transition is intended to ease the maintenance burden on the community and challenge our development team to ship amazing, powerful new features without introducing breaking changes. Therefore, we have shipped a variety of robust features to Lets 8 without breaking backwards compatibility, such as parallel testing support, improved Breeze starter kits, HTTP client improvements, and even new Eloquent relationship types such as "has one of many".
 
 Therefore, this commitment to ship great new features during the current release will likely lead to future "major" releases being primarily used for "maintenance" tasks such as upgrading upstream dependencies, which can be seen in these release notes.
 
-Laravel 9 continues the improvements made in Laravel 8.x by introducing support for Symfony 6.0 components, Symfony Mailer, Flysystem 3.0, improved `route:list` output, a Laravel Scout database driver, new Eloquent accessor / mutator syntax, implicit route bindings via Enums, and a variety of other bug fixes and usability improvements.
+Lets 9 continues the improvements made in Lets 8.x by introducing support for Symfony 6.0 components, Symfony Mailer, Flysystem 3.0, improved `route:list` output, a Lets Scout database driver, new Eloquent accessor / mutator syntax, implicit route bindings via Enums, and a variety of other bug fixes and usability improvements.
 
 <a name="php-8"></a>
 ### PHP 8.0
 
-Laravel 9.x requires a minimum PHP version of 8.0.
+Lets 9.x requires a minimum PHP version of 8.0.
 
 <a name="symfony-mailer"></a>
 ### Symfony Mailer
 
 _Symfony Mailer support was contributed by [Dries Vints](https://github.com/driesvints)_, [James Brooks](https://github.com/jbrooksuk), and [Julius Kiekbusch](https://github.com/Jubeki).
 
-Previous releases of Laravel utilized the [Swift Mailer](https://swiftmailer.symfony.com/docs/introduction.html) library to send outgoing email. However, that library is no longer maintained and has been succeeded by Symfony Mailer.
+Previous releases of Lets utilized the [Swift Mailer](https://swiftmailer.symfony.com/docs/introduction.html) library to send outgoing email. However, that library is no longer maintained and has been succeeded by Symfony Mailer.
 
 Please review the [upgrade guide](/docs/{{version}}/upgrade#symfony-mailer) to learn more about ensuring your application is compatible with Symfony Mailer.
 
@@ -74,7 +74,7 @@ Please review the [upgrade guide](/docs/{{version}}/upgrade#symfony-mailer) to l
 
 _Flysystem 3.x support was contributed by [Dries Vints](https://github.com/driesvints)_.
 
-Laravel 9.x upgrades our upstream Flysystem dependency to Flysystem 3.x. Flysystem powers all of filesystem interactions offered by the `Storage` facade.
+Lets 9.x upgrades our upstream Flysystem dependency to Flysystem 3.x. Flysystem powers all of filesystem interactions offered by the `Storage` facade.
 
 Please review the [upgrade guide](/docs/{{version}}/upgrade#flysystem-3) to learn more about ensuring your application is compatible with Flysystem 3.x.
 
@@ -83,7 +83,7 @@ Please review the [upgrade guide](/docs/{{version}}/upgrade#flysystem-3) to lear
 
 _Improved Eloquent accessors / mutators was contributed by [Taylor Otwell](https://github.com/taylorotwell)_.
 
-Laravel 9.x offers a new way to define Eloquent [accessors and mutators](/docs/{{version}}/eloquent-mutators#accessors-and-mutators). In previous releases of Laravel, the only way to define accessors and mutators was by defining prefixed methods on your model like so:
+Lets 9.x offers a new way to define Eloquent [accessors and mutators](/docs/{{version}}/eloquent-mutators#accessors-and-mutators). In previous releases of Lets, the only way to define accessors and mutators was by defining prefixed methods on your model like so:
 
 ```php
 public function getNameAttribute($value)
@@ -97,7 +97,7 @@ public function setNameAttribute($value)
 }
 ```
 
-However, in Laravel 9.x you may define an accessor and mutator using a single, non-prefixed method by type-hinting a return type of `Illuminate\Database\Eloquent\Casts\Attribute`:
+However, in Lets 9.x you may define an accessor and mutator using a single, non-prefixed method by type-hinting a return type of `Illuminate\Database\Eloquent\Casts\Attribute`:
 
 ```php
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -166,7 +166,7 @@ Once you have defined the cast on your model, the specified attribute will be au
 
 _Implicit Enum bindings was contributed by [Nuno Maduro](https://github.com/nunomaduro)_.
 
-PHP 8.1 introduces support for [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). Laravel 9.x introduces the ability to type-hint an Enum on your route definition and Laravel will only invoke the route if that route segment is a valid Enum value in the URI. Otherwise, an HTTP 404 response will be returned automatically. For example, given the following Enum:
+PHP 8.1 introduces support for [Enums](https://www.php.net/manual/en/language.enumerations.backed.php). Lets 9.x introduces the ability to type-hint an Enum on your route definition and Lets will only invoke the route if that route segment is a valid Enum value in the URI. Otherwise, an HTTP 404 response will be returned automatically. For example, given the following Enum:
 
 ```php
 enum Category: string
@@ -189,7 +189,7 @@ Route::get('/categories/{category}', function (Category $category) {
 
 _Forced scoped bindings was contributed by [Claudio Dekker](https://github.com/claudiodekker)_.
 
-In previous releases of Laravel, you may wish to scope the second Eloquent model in a route definition such that it must be a child of the previous Eloquent model. For example, consider this route definition that retrieves a blog post by slug for a specific user:
+In previous releases of Lets, you may wish to scope the second Eloquent model in a route definition such that it must be a child of the previous Eloquent model. For example, consider this route definition that retrieves a blog post by slug for a specific user:
 
     use App\Models\Post;
     use App\Models\User;
@@ -198,9 +198,9 @@ In previous releases of Laravel, you may wish to scope the second Eloquent model
         return $post;
     });
 
-When using a custom keyed implicit binding as a nested route parameter, Laravel will automatically scope the query to retrieve the nested model by its parent using conventions to guess the relationship name on the parent. However, this behavior was only previously supported by Laravel when a custom key was used for the child route binding.
+When using a custom keyed implicit binding as a nested route parameter, Lets will automatically scope the query to retrieve the nested model by its parent using conventions to guess the relationship name on the parent. However, this behavior was only previously supported by Lets when a custom key was used for the child route binding.
 
-However, in Laravel 9.x, you may now instruct Laravel to scope "child" bindings even when a custom key is not provided. To do so, you may invoke the `scopeBindings` method when defining your route:
+However, in Lets 9.x, you may now instruct Lets to scope "child" bindings even when a custom key is not provided. To do so, you may invoke the `scopeBindings` method when defining your route:
 
     use App\Models\Post;
     use App\Models\User;
@@ -240,16 +240,16 @@ When using MySQL or PostgreSQL, the `fullText` method may now be added to column
 
     $table->text('bio')->fullText();
 
-In addition, the `whereFullText` and `orWhereFullText` methods may be used to add full text "where" clauses to a query for columns that have [full text indexes](/docs/{{version}}/migrations#available-index-types). These methods will be transformed into the appropriate SQL for the underlying database system by Laravel. For example, a `MATCH AGAINST` clause will be generated for applications utilizing MySQL:
+In addition, the `whereFullText` and `orWhereFullText` methods may be used to add full text "where" clauses to a query for columns that have [full text indexes](/docs/{{version}}/migrations#available-index-types). These methods will be transformed into the appropriate SQL for the underlying database system by Lets. For example, a `MATCH AGAINST` clause will be generated for applications utilizing MySQL:
 
     $users = DB::table('users')
                ->whereFullText('bio', 'web developer')
                ->get();
 
 <a name="laravel-scout-database-engine"></a>
-### Laravel Scout Database Engine
+### Lets Scout Database Engine
 
-_The Laravel Scout database engine was contributed by [Taylor Otwell](https://github.com/taylorotwell) and [Dries Vints](https://github.com/driesvints)_.
+_The Lets Scout database engine was contributed by [Taylor Otwell](https://github.com/taylorotwell) and [Dries Vints](https://github.com/driesvints)_.
 
 If your application interacts with small to medium sized databases or has a light workload, you may now use Scout's "database" engine instead of a dedicated search service such as Algolia or MeiliSearch. The database engine will use "where like" clauses and full text indexes when filtering results from your existing database to determine the applicable search results for your query.
 
@@ -281,7 +281,7 @@ return Blade::renderComponent(new HelloComponent('Julian Bashir'));
 
 _Slot name shortcuts were contributed by [Caleb Porzio](https://github.com/calebporzio)._
 
-In previous releases of Laravel, slot names were provided using a `name` attribute on the `x-slot` tag:
+In previous releases of Lets, slot names were provided using a `name` attribute on the `x-slot` tag:
 
 ```blade
 <x-alert>
@@ -293,7 +293,7 @@ In previous releases of Laravel, slot names were provided using a `name` attribu
 </x-alert>
 ```
 
-However, beginning in Laravel 9.x, you may specify the slot's name using a convenient, shorter syntax:
+However, beginning in Lets 9.x, you may specify the slot's name using a convenient, shorter syntax:
 
 ```xml
 <x-slot:title>
@@ -332,7 +332,7 @@ Likewise, the `@selected` directive may be used to indicate if a given select op
 
 _Bootstrap 5 pagination views were contributed by [Jared Lewis](https://github.com/jrd-lewis)_.
 
-Laravel now includes pagination views built using [Bootstrap 5](https://getbootstrap.com/). To use these views instead of the default Tailwind views, you may call the paginator's `useBootstrapFive` method within the `boot` method of your `App\Providers\AppServiceProvider` class:
+Lets now includes pagination views built using [Bootstrap 5](https://getbootstrap.com/). To use these views instead of the default Tailwind views, you may call the paginator's `useBootstrapFive` method within the `boot` method of your `App\Providers\AppServiceProvider` class:
 
     use Illuminate\Pagination\Paginator;
 
@@ -365,18 +365,18 @@ Sometimes you may need to access the value for a given nested array element when
     ]);
 
 <a name="laravel-breeze-api"></a>
-### Laravel Breeze API & Next.js
+### Lets Breeze API & Next.js
 
-_The Laravel Breeze API scaffolding and Next.js starter kit was contributed by [Taylor Otwell](https://github.com/taylorotwell) and [Miguel Piedrafita](https://twitter.com/m1guelpf)_.
+_The Lets Breeze API scaffolding and Next.js starter kit was contributed by [Taylor Otwell](https://github.com/taylorotwell) and [Miguel Piedrafita](https://twitter.com/m1guelpf)_.
 
-The [Laravel Breeze](/docs/{{version}}/starter-kits#breeze-and-next) starter kit has received an "API" scaffolding mode and complimentary [Next.js](https://nextjs.org) [frontend implementation](https://github.com/laravel/breeze-next). This starter kit scaffolding may be used to jump start your Laravel applications that are serving as a backend, Laravel Sanctum authenticated API for a JavaScript frontend.
+The [Lets Breeze](/docs/{{version}}/starter-kits#breeze-and-next) starter kit has received an "API" scaffolding mode and complimentary [Next.js](https://nextjs.org) [frontend implementation](https://github.com/laravel/breeze-next). This starter kit scaffolding may be used to jump start your Lets applications that are serving as a backend, Lets Sanctum authenticated API for a JavaScript frontend.
 
 <a name="exception-page"></a>
 ### Improved Ignition Exception Page
 
 _Ignition is developed by [Spatie](https://spatie.be/)._
 
-Ignition, the open source exception debug page created by Spatie, has been redesigned from the ground up. The new, improved Ignition ships with Laravel 9.x and includes light / dark themes, customizable "open in editor" functionality, and more.
+Ignition, the open source exception debug page created by Spatie, has been redesigned from the ground up. The new, improved Ignition ships with Lets 9.x and includes light / dark themes, customizable "open in editor" functionality, and more.
 
 <p align="center">
 <img width="100%" src="https://user-images.githubusercontent.com/483853/149235404-f7caba56-ebdf-499e-9883-cac5d5610369.png"/>
@@ -387,7 +387,7 @@ Ignition, the open source exception debug page created by Spatie, has been redes
 
 _Improved `route:list` CLI output was contributed by [Nuno Maduro](https://github.com/nunomaduro)_.
 
-The `route:list` CLI output has been significantly improved for the Laravel 9.x release, offering a beautiful new experience when exploring your route definitions.
+The `route:list` CLI output has been significantly improved for the Lets 9.x release, offering a beautiful new experience when exploring your route definitions.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/5457236/148321982-38c8b869-f188-4f42-a3cc-a03451d5216c.png"/>
@@ -425,7 +425,7 @@ php artisan test --coverage --min=80.3
 
 _The Soketi Echo server was developed by [Alex Renoki](https://github.com/rennokki)_.
 
-Although not exclusive to Laravel 9.x, Laravel has recently assisted with the documentation of Soketi, a [Laravel Echo](/docs/{{version}}/broadcasting) compatible Web Socket server written for Node.js. Soketi provides a great, open source alternative to Pusher and Ably for those applications that prefer to manage their own Web Socket server.
+Although not exclusive to Lets 9.x, Lets has recently assisted with the documentation of Soketi, a [Lets Echo](/docs/{{version}}/broadcasting) compatible Web Socket server written for Node.js. Soketi provides a great, open source alternative to Pusher and Ably for those applications that prefer to manage their own Web Socket server.
 
 For more information on using Soketi, please consult the [broadcasting documentation](/docs/{{version}}/broadcasting) and [Soketi documentation](https://docs.soketi.app/).
 
@@ -434,7 +434,7 @@ For more information on using Soketi, please consult the [broadcasting documenta
 
 _Improved collections IDE support was contributed by [Nuno Maduro](https://github.com/nunomaduro)_.
 
-Laravel 9.x adds improved, "generic" style type definitions to the collections component, improving IDE and static analysis support. IDEs such as [PHPStorm](https://blog.jetbrains.com/phpstorm/2021/12/phpstorm-2021-3-release/#support_for_future_laravel_collections) or static analysis tools such as [PHPStan](https://phpstan.org) will now better understand Laravel collections natively.
+Lets 9.x adds improved, "generic" style type definitions to the collections component, improving IDE and static analysis support. IDEs such as [PHPStorm](https://blog.jetbrains.com/phpstorm/2021/12/phpstorm-2021-3-release/#support_for_future_laravel_collections) or static analysis tools such as [PHPStan](https://phpstan.org) will now better understand Lets collections natively.
 
 <p align="center">
 <img width="100%" src="https://user-images.githubusercontent.com/5457236/151783350-ed301660-1e09-44c1-b549-85c6db3f078d.gif"/>
@@ -443,7 +443,7 @@ Laravel 9.x adds improved, "generic" style type definitions to the collections c
 <a name="new-helpers"></a>
 ### New Helpers
 
-Laravel 9.x introduces two new, convenient helper functions that you may use in your own application.
+Lets 9.x introduces two new, convenient helper functions that you may use in your own application.
 
 <a name="new-helpers-str"></a>
 #### `str`
@@ -456,7 +456,7 @@ The `str` function returns a new `Illuminate\Support\Stringable` instance for th
 
 If no argument is provided to the `str` function, the function returns an instance of `Illuminate\Support\Str`:
 
-    $snake = str()->snake('LaravelFramework');
+    $snake = str()->snake('LetsFramework');
 
     // 'laravel_framework'
 
@@ -469,4 +469,4 @@ The `to_route` function generates a redirect HTTP response for a given named rou
 
 If necessary, you may pass the HTTP status code that should be assigned to the redirect and any additional response headers as the third and fourth arguments to the to_route method:
 
-    return to_route('users.show', ['user' => 1], 302, ['X-Framework' => 'Laravel']);
+    return to_route('users.show', ['user' => 1], 302, ['X-Framework' => 'Lets']);

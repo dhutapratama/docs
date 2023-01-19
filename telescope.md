@@ -1,4 +1,4 @@
-# Laravel Telescope
+# Lets Telescope
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -35,14 +35,14 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Telescope](https://github.com/laravel/telescope) makes a wonderful companion to your local Laravel development environment. Telescope provides insight into the requests coming into your application, exceptions, log entries, database queries, queued jobs, mail, notifications, cache operations, scheduled tasks, variable dumps, and more.
+[Lets Telescope](https://github.com/laravel/telescope) makes a wonderful companion to your local Lets development environment. Telescope provides insight into the requests coming into your application, exceptions, log entries, database queries, queued jobs, mail, notifications, cache operations, scheduled tasks, variable dumps, and more.
 
 <img src="https://laravel.com/img/docs/telescope-example.png">
 
 <a name="installation"></a>
 ## Installation
 
-You may use the Composer package manager to install Telescope into your Laravel project:
+You may use the Composer package manager to install Telescope into your Lets project:
 
 ```shell
 composer require laravel/telescope
@@ -82,7 +82,7 @@ After running `telescope:install`, you should remove the `TelescopeServiceProvid
     public function register(): void
     {
         if ($this->app->environment('local')) {
-            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(\Lets\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
     }
@@ -174,8 +174,8 @@ To keep the assets up-to-date and avoid issues in future updates, you may add th
 
 You may filter the data that is recorded by Telescope via the `filter` closure that is defined in your `App\Providers\TelescopeServiceProvider` class. By default, this closure records all data in the `local` environment and exceptions, failed jobs, scheduled tasks, and data with monitored tags in all other environments:
 
-    use Laravel\Telescope\IncomingEntry;
-    use Laravel\Telescope\Telescope;
+    use Lets\Telescope\IncomingEntry;
+    use Lets\Telescope\Telescope;
 
     /**
      * Register any application services.
@@ -203,8 +203,8 @@ You may filter the data that is recorded by Telescope via the `filter` closure t
 While the `filter` closure filters data for individual entries, you may use the `filterBatch` method to register a closure that filters all data for a given request or console command. If the closure returns `true`, all of the entries are recorded by Telescope:
 
     use Illuminate\Support\Collection;
-    use Laravel\Telescope\IncomingEntry;
-    use Laravel\Telescope\Telescope;
+    use Lets\Telescope\IncomingEntry;
+    use Lets\Telescope\Telescope;
 
     /**
      * Register any application services.
@@ -233,8 +233,8 @@ While the `filter` closure filters data for individual entries, you may use the 
 
 Telescope allows you to search entries by "tag". Often, tags are Eloquent model class names or authenticated user IDs which Telescope automatically adds to entries. Occasionally, you may want to attach your own custom tags to entries. To accomplish this, you may use the `Telescope::tag` method. The `tag` method accepts a closure which should return an array of tags. The tags returned by the closure will be merged with any tags Telescope would automatically attach to the entry. Typically, you should call the `tag` method within the `register` method of your `App\Providers\TelescopeServiceProvider` class:
 
-    use Laravel\Telescope\IncomingEntry;
-    use Laravel\Telescope\Telescope;
+    use Lets\Telescope\IncomingEntry;
+    use Lets\Telescope\Telescope;
 
     /**
      * Register any application services.
@@ -297,12 +297,12 @@ The command watcher records the arguments, options, exit code, and output whenev
 <a name="dump-watcher"></a>
 ### Dump Watcher
 
-The dump watcher records and displays your variable dumps in Telescope. When using Laravel, variables may be dumped using the global `dump` function. The dump watcher tab must be open in a browser for the dump to be recorded, otherwise, the dumps will be ignored by the watcher.
+The dump watcher records and displays your variable dumps in Telescope. When using Lets, variables may be dumped using the global `dump` function. The dump watcher tab must be open in a browser for the dump to be recorded, otherwise, the dumps will be ignored by the watcher.
 
 <a name="event-watcher"></a>
 ### Event Watcher
 
-The event watcher records the payload, listeners, and broadcast data for any [events](/docs/{{version}}/events) dispatched by your application. The Laravel framework's internal events are ignored by the Event watcher.
+The event watcher records the payload, listeners, and broadcast data for any [events](/docs/{{version}}/events) dispatched by your application. The Lets framework's internal events are ignored by the Event watcher.
 
 <a name="exception-watcher"></a>
 ### Exception Watcher
@@ -418,7 +418,7 @@ The view watcher records the [view](/docs/{{version}}/views) name, path, data, a
 The Telescope dashboard displays the user avatar for the user that was authenticated when a given entry was saved. By default, Telescope will retrieve avatars using the Gravatar web service. However, you may customize the avatar URL by registering a callback in your `App\Providers\TelescopeServiceProvider` class. The callback will receive the user's ID and email address and should return the user's avatar image URL:
 
     use App\Models\User;
-    use Laravel\Telescope\Telescope;
+    use Lets\Telescope\Telescope;
 
     /**
      * Register any application services.

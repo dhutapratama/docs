@@ -1,4 +1,4 @@
-# Laravel Cashier (Paddle)
+# Lets Cashier (Paddle)
 
 - [Introduction](#introduction)
 - [Upgrading Cashier](#upgrading-cashier)
@@ -46,7 +46,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Cashier Paddle](https://github.com/laravel/cashier-paddle) provides an expressive, fluent interface to [Paddle's](https://paddle.com) subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading. In addition to basic subscription management, Cashier can handle: coupons, swapping subscription, subscription "quantities", cancellation grace periods, and more.
+[Lets Cashier Paddle](https://github.com/laravel/cashier-paddle) provides an expressive, fluent interface to [Paddle's](https://paddle.com) subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading. In addition to basic subscription management, Cashier can handle: coupons, swapping subscription, subscription "quantities", cancellation grace periods, and more.
 
 While working with Cashier we recommend you also review Paddle's [user guides](https://developer.paddle.com/guides) and [API documentation](https://developer.paddle.com/api-reference/intro).
 
@@ -97,7 +97,7 @@ php artisan vendor:publish --tag="cashier-migrations"
 
 If you would like to prevent Cashier's migrations from running entirely, you may use the `ignoreMigrations` provided by Cashier. Typically, this method should be called in the `register` method of your `AppServiceProvider`:
 
-    use Laravel\Paddle\Cashier;
+    use Lets\Paddle\Cashier;
 
     /**
      * Register any application services.
@@ -115,7 +115,7 @@ If you would like to prevent Cashier's migrations from running entirely, you may
 
 Before using Cashier, you must add the `Billable` trait to your user model definition. This trait provides various methods to allow you to perform common billing tasks, such as creating subscriptions, applying coupons and updating payment method information:
 
-    use Laravel\Paddle\Billable;
+    use Lets\Paddle\Billable;
 
     class User extends Authenticatable
     {
@@ -125,7 +125,7 @@ Before using Cashier, you must add the `Billable` trait to your user model defin
 If you have billable entities that are not users, you may also add the trait to those classes:
 
     use Illuminate\Database\Eloquent\Model;
-    use Laravel\Paddle\Billable;
+    use Lets\Paddle\Billable;
 
     class Team extends Model
     {
@@ -182,14 +182,14 @@ CASHIER_CURRENCY_LOCALE=nl_BE
 
 You are free to extend the models used internally by Cashier by defining your own model and extending the corresponding Cashier model:
 
-    use Laravel\Paddle\Subscription as CashierSubscription;
+    use Lets\Paddle\Subscription as CashierSubscription;
 
     class Subscription extends CashierSubscription
     {
         // ...
     }
 
-After defining your model, you may instruct Cashier to use your custom model via the `Laravel\Paddle\Cashier` class. Typically, you should inform Cashier about your custom models in the `boot` method of your application's `App\Providers\AppServiceProvider` class:
+After defining your model, you may instruct Cashier to use your custom model via the `Lets\Paddle\Cashier` class. Typically, you should inform Cashier about your custom models in the `boot` method of your application's `App\Providers\AppServiceProvider` class:
 
     use App\Models\Cashier\Receipt;
     use App\Models\Cashier\Subscription;
@@ -248,7 +248,7 @@ For more information on pay links, you may review [the Paddle API documentation 
 <a name="manually-rendering-pay-links"></a>
 #### Manually Rendering Pay Links
 
-You may also manually render a pay link without using Laravel's built-in Blade components. To get started, generate the pay link URL as demonstrated in previous examples:
+You may also manually render a pay link without using Lets's built-in Blade components. To get started, generate the pay link URL as demonstrated in previous examples:
 
     $payLink = $request->user()->newSubscription('default', $premium = 34567)
         ->returnTo(route('home'))
@@ -306,7 +306,7 @@ Please consult Paddle's [guide on Inline Checkout](https://developer.paddle.com/
 <a name="manually-rendering-an-inline-checkout"></a>
 #### Manually Rendering An Inline Checkout
 
-You may also manually render an inline checkout without using Laravel's built-in Blade components. To get started, generate the pay link URL [as demonstrated in previous examples](#pay-links).
+You may also manually render an inline checkout without using Lets's built-in Blade components. To get started, generate the pay link URL [as demonstrated in previous examples](#pay-links).
 
 Next, you may use Paddle.js to initialize the checkout. To keep this example simple, we will demonstrate this using [Alpine.js](https://github.com/alpinejs/alpine); however, you are free to translate this example to your own frontend stack:
 
@@ -330,7 +330,7 @@ In contrast to Stripe, Paddle users are unique across all of Paddle, not unique 
 
 In light of this behavior, there are some important things to keep in mind when using Cashier and Paddle. First, you should be aware that even though subscriptions in Cashier are tied to the same application user, **they could be tied to different users within Paddle's internal systems**. Secondly, each subscription has its own connected payment method information and could also have different email addresses within Paddle's internal systems (depending on which email was assigned to the user when the subscription was created).
 
-Therefore, when displaying subscriptions you should always inform the user which email address or payment method information is connected to the subscription on a per-subscription basis. Retrieving this information can be done with the following methods provided by the `Laravel\Paddle\Subscription` model:
+Therefore, when displaying subscriptions you should always inform the user which email address or payment method information is connected to the subscription on a per-subscription basis. Retrieving this information can be done with the following methods provided by the `Lets\Paddle\Subscription` model:
 
     $subscription = $user->subscription('default');
 
@@ -347,13 +347,13 @@ There is currently no way to modify a user's email address through the Paddle AP
 
 Paddle allows you to customize prices per currency, essentially allowing you to configure different prices for different countries. Cashier Paddle allows you to retrieve all of the prices for a given product using the `productPrices` method. This method accepts the product IDs of the products you wish to retrieve prices for:
 
-    use Laravel\Paddle\Cashier;
+    use Lets\Paddle\Cashier;
 
     $prices = Cashier::productPrices([123, 456]);
 
 The currency will be determined based on the IP address of the request; however, you may optionally provide a specific country to retrieve prices for:
 
-    use Laravel\Paddle\Cashier;
+    use Lets\Paddle\Cashier;
 
     $prices = Cashier::productPrices([123, 456], ['customer_country' => 'BE']);
 
@@ -405,7 +405,7 @@ Internally, Cashier will use the user's [`paddleCountry` method](#customer-defau
 
 You may also choose to display prices after a coupon reduction. When calling the `productPrices` method, coupons may be passed as a comma delimited string:
 
-    use Laravel\Paddle\Cashier;
+    use Lets\Paddle\Cashier;
 
     $prices = Cashier::productPrices([123, 456], [
         'coupons' => 'SUMMERSALE,20PERCENTOFF'
@@ -635,7 +635,7 @@ When a subscription is past due, you should instruct the user to [update their p
 
 If you would like subscriptions to still be considered active when they are `past_due`, you may use the `keepPastDueSubscriptionsActive` method provided by Cashier. Typically, this method should be called in the `register` method of your `AppServiceProvider`:
 
-    use Laravel\Paddle\Cashier;
+    use Lets\Paddle\Cashier;
 
     /**
      * Register any application services.
@@ -797,7 +797,7 @@ You may retrieve a list of all modifiers for a subscription via the `modifiers` 
 <a name="deleting-modifiers"></a>
 #### Deleting Modifiers
 
-Modifiers may be deleted by invoking the `delete` method on a `Laravel\Paddle\Modifier` instance:
+Modifiers may be deleted by invoking the `delete` method on a `Lets\Paddle\Modifier` instance:
 
     $modifier->delete();
 
@@ -966,7 +966,7 @@ To ensure your application can handle Paddle webhooks, be sure to [configure the
 <a name="webhooks-csrf-protection"></a>
 #### Webhooks & CSRF Protection
 
-Since Paddle webhooks need to bypass Laravel's [CSRF protection](/docs/{{version}}/csrf), be sure to list the URI as an exception in your `App\Http\Middleware\VerifyCsrfToken` middleware or list the route outside of the `web` middleware group:
+Since Paddle webhooks need to bypass Lets's [CSRF protection](/docs/{{version}}/csrf), be sure to list the URI as an exception in your `App\Http\Middleware\VerifyCsrfToken` middleware or list the route outside of the `web` middleware group:
 
     protected $except = [
         'paddle/*',
@@ -975,15 +975,15 @@ Since Paddle webhooks need to bypass Laravel's [CSRF protection](/docs/{{version
 <a name="webhooks-local-development"></a>
 #### Webhooks & Local Development
 
-For Paddle to be able to send your application webhooks during local development, you will need to expose your application via a site sharing service such as [Ngrok](https://ngrok.com/) or [Expose](https://expose.dev/docs/introduction). If you are developing your application locally using [Laravel Sail](/docs/{{version}}/sail), you may use Sail's [site sharing command](/docs/{{version}}/sail#sharing-your-site).
+For Paddle to be able to send your application webhooks during local development, you will need to expose your application via a site sharing service such as [Ngrok](https://ngrok.com/) or [Expose](https://expose.dev/docs/introduction). If you are developing your application locally using [Lets Sail](/docs/{{version}}/sail), you may use Sail's [site sharing command](/docs/{{version}}/sail#sharing-your-site).
 
 <a name="defining-webhook-event-handlers"></a>
 ### Defining Webhook Event Handlers
 
 Cashier automatically handles subscription cancellation on failed charges and other common Paddle webhooks. However, if you have additional webhook events you would like to handle, you may do so by listening to the following events that are dispatched by Cashier:
 
-- `Laravel\Paddle\Events\WebhookReceived`
-- `Laravel\Paddle\Events\WebhookHandled`
+- `Lets\Paddle\Events\WebhookReceived`
+- `Lets\Paddle\Events\WebhookHandled`
 
 Both events contain the full payload of the Paddle webhook. For example, if you wish to handle the `invoice.payment_succeeded` webhook, you may register a [listener](/docs/{{version}}/events#defining-listeners) that will handle the event:
 
@@ -991,7 +991,7 @@ Both events contain the full payload of the Paddle webhook. For example, if you 
 
     namespace App\Listeners;
 
-    use Laravel\Paddle\Events\WebhookReceived;
+    use Lets\Paddle\Events\WebhookReceived;
 
     class PaddleEventListener
     {
@@ -1014,7 +1014,7 @@ Once your listener has been defined, you may register it within your application
 
     use App\Listeners\PaddleEventListener;
     use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-    use Laravel\Paddle\Events\WebhookReceived;
+    use Lets\Paddle\Events\WebhookReceived;
 
     class EventServiceProvider extends ServiceProvider
     {
@@ -1029,11 +1029,11 @@ Cashier also emit events dedicated to the type of the received webhook. In addit
 
 <div class="content-list" markdown="1">
 
-- `Laravel\Paddle\Events\PaymentSucceeded`
-- `Laravel\Paddle\Events\SubscriptionPaymentSucceeded`
-- `Laravel\Paddle\Events\SubscriptionCreated`
-- `Laravel\Paddle\Events\SubscriptionUpdated`
-- `Laravel\Paddle\Events\SubscriptionCancelled`
+- `Lets\Paddle\Events\PaymentSucceeded`
+- `Lets\Paddle\Events\SubscriptionPaymentSucceeded`
+- `Lets\Paddle\Events\SubscriptionCreated`
+- `Lets\Paddle\Events\SubscriptionUpdated`
+- `Lets\Paddle\Events\SubscriptionCancelled`
 
 </div>
 
@@ -1183,7 +1183,7 @@ You may use the `lastPayment` and `nextPayment` methods to retrieve and display 
     $lastPayment = $subscription->lastPayment();
     $nextPayment = $subscription->nextPayment();
 
-Both of these methods will return an instance of `Laravel\Paddle\Payment`; however, `nextPayment` will return `null` when the billing cycle has ended (such as when a subscription has been cancelled):
+Both of these methods will return an instance of `Lets\Paddle\Payment`; however, `nextPayment` will return `null` when the billing cycle has ended (such as when a subscription has been cancelled):
 
 ```blade
 Next payment: {{ $nextPayment->amount() }} due on {{ $nextPayment->date()->format('d/m/Y') }}
@@ -1200,7 +1200,7 @@ Alternatively, you can perform more precise customization by catching the [`subs
 
     namespace App\Http\Controllers;
 
-    use Laravel\Paddle\Http\Controllers\WebhookController as CashierController;
+    use Lets\Paddle\Http\Controllers\WebhookController as CashierController;
 
     class WebhookController extends CashierController
     {
@@ -1218,4 +1218,4 @@ Alternatively, you can perform more precise customization by catching the [`subs
 
 While testing, you should manually test your billing flow to make sure your integration works as expected.
 
-For automated tests, including those executed within a CI environment, you may use [Laravel's HTTP Client](/docs/{{version}}/http-client#testing) to fake HTTP calls made to Paddle. Although this does not test the actual responses from Paddle, it does provide a way to test your application without actually calling Paddle's API.
+For automated tests, including those executed within a CI environment, you may use [Lets's HTTP Client](/docs/{{version}}/http-client#testing) to fake HTTP calls made to Paddle. Although this does not test the actual responses from Paddle, it does provide a way to test your application without actually calling Paddle's API.

@@ -1,4 +1,4 @@
-# Laravel Valet
+# Lets Valet
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -24,9 +24,9 @@
 <a name="introduction"></a>
 ## Introduction
 
-[Laravel Valet](https://github.com/laravel/valet) is a development environment for macOS minimalists. Laravel Valet configures your Mac to always run [Nginx](https://www.nginx.com/) in the background when your machine starts. Then, using [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq), Valet proxies all requests on the `*.test` domain to point to sites installed on your local machine.
+[Lets Valet](https://github.com/laravel/valet) is a development environment for macOS minimalists. Lets Valet configures your Mac to always run [Nginx](https://www.nginx.com/) in the background when your machine starts. Then, using [DnsMasq](https://en.wikipedia.org/wiki/Dnsmasq), Valet proxies all requests on the `*.test` domain to point to sites installed on your local machine.
 
-In other words, Valet is a blazing fast Laravel development environment that uses roughly 7 MB of RAM. Valet isn't a complete replacement for [Sail](/docs/{{version}}/sail) or [Homestead](/docs/{{version}}/homestead), but provides a great alternative if you want flexible basics, prefer extreme speed, or are working on a machine with a limited amount of RAM.
+In other words, Valet is a blazing fast Lets development environment that uses roughly 7 MB of RAM. Valet isn't a complete replacement for [Sail](/docs/{{version}}/sail) or [Homestead](/docs/{{version}}/homestead), but provides a great alternative if you want flexible basics, prefer extreme speed, or are working on a machine with a limited amount of RAM.
 
 Out of the box, Valet support includes, but is not limited to:
 
@@ -39,7 +39,7 @@ Out of the box, Valet support includes, but is not limited to:
 
 <div id="valet-support" markdown="1">
 
-- [Laravel](https://laravel.com)
+- [Lets](https://laravel.com)
 - [Bedrock](https://roots.io/bedrock/)
 - [CakePHP 3](https://cakephp.org)
 - [ConcreteCMS](https://www.concretecms.com/)
@@ -83,7 +83,7 @@ Next, you should use Homebrew to install PHP:
 brew install php
 ```
 
-After installing PHP, you are ready to install the [Composer package manager](https://getcomposer.org). In addition, you should make sure the `~/.composer/vendor/bin` directory is in your system's "PATH". After Composer has been installed, you may install Laravel Valet as a global Composer package:
+After installing PHP, you are ready to install the [Composer package manager](https://getcomposer.org). In addition, you should make sure the `~/.composer/vendor/bin` directory is in your system's "PATH". After Composer has been installed, you may install Lets Valet as a global Composer package:
 
 ```shell
 composer global require laravel/valet
@@ -139,7 +139,7 @@ You may update your Valet installation by executing the `composer global update`
 <a name="serving-sites"></a>
 ## Serving Sites
 
-Once Valet is installed, you're ready to start serving your Laravel applications. Valet provides two commands to help you serve your applications: `park` and `link`.
+Once Valet is installed, you're ready to start serving your Lets applications. Valet provides two commands to help you serve your applications: `park` and `link`.
 
 <a name="the-park-command"></a>
 ### The `park` Command
@@ -157,7 +157,7 @@ That's all there is to it. Now, any application you create within your "parked" 
 <a name="the-link-command"></a>
 ### The `link` Command
 
-The `link` command can also be used to serve your Laravel applications. This command is useful if you want to serve a single site in a directory and not the entire directory:
+The `link` command can also be used to serve your Lets applications. This command is useful if you want to serve a single site in a directory and not the entire directory:
 
 ```shell
 cd ~/Sites/laravel
@@ -422,11 +422,11 @@ The `frontControllerPath` method should return the fully qualified path to your 
 <a name="local-drivers"></a>
 ### Local Drivers
 
-If you would like to define a custom Valet driver for a single application, create a `LocalValetDriver.php` file in the application's root directory. Your custom driver may extend the base `ValetDriver` class or extend an existing application specific driver such as the `LaravelValetDriver`:
+If you would like to define a custom Valet driver for a single application, create a `LocalValetDriver.php` file in the application's root directory. Your custom driver may extend the base `ValetDriver` class or extend an existing application specific driver such as the `LetsValetDriver`:
 
-    use Valet\Drivers\LaravelValetDriver;
+    use Valet\Drivers\LetsValetDriver;
 
-    class LocalValetDriver extends LaravelValetDriver
+    class LocalValetDriver extends LetsValetDriver
     {
         /**
          * Determine if the driver serves the request.

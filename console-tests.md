@@ -7,7 +7,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-In addition to simplifying HTTP testing, Laravel provides a simple API for testing your application's [custom console commands](/docs/{{version}}/artisan).
+In addition to simplifying HTTP testing, Lets provides a simple API for testing your application's [custom console commands](/docs/{{version}}/artisan).
 
 <a name="success-failure-expectations"></a>
 ## Success / Failure Expectations
@@ -35,7 +35,7 @@ Of course, all terminal commands typically exit with a status code of `0` when t
 <a name="input-output-expectations"></a>
 ## Input / Output Expectations
 
-Laravel allows you to easily "mock" user input for your console commands using the `expectsQuestion` method. In addition, you may specify the exit code and text that you expect to be output by the console command using the `assertExitCode` and `expectsOutput` methods. For example, consider the following console command:
+Lets allows you to easily "mock" user input for your console commands using the `expectsQuestion` method. In addition, you may specify the exit code and text that you expect to be output by the console command using the `assertExitCode` and `expectsOutput` methods. For example, consider the following console command:
 
     Artisan::command('question', function () {
         $name = $this->ask('What is your name?');

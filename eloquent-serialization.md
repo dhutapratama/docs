@@ -11,7 +11,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-When building APIs using Laravel, you will often need to convert your models and relationships to arrays or JSON. Eloquent includes convenient methods for making these conversions, as well as controlling which attributes are included in the serialized representation of your models.
+When building APIs using Lets, you will often need to convert your models and relationships to arrays or JSON. Eloquent includes convenient methods for making these conversions, as well as controlling which attributes are included in the serialized representation of your models.
 
 > **Note**  
 > For an even more robust way of handling Eloquent model and collection JSON serialization, check out the documentation on [Eloquent API resources](/docs/{{version}}/eloquent-resources).
@@ -59,7 +59,7 @@ Alternatively, you may cast a model or collection to a string, which will automa
 
     return (string) User::find(1);
 
-Since models and collections are converted to JSON when cast to a string, you can return Eloquent objects directly from your application's routes or controllers. Laravel will automatically serialize your Eloquent models and collections to JSON when they are returned from routes or controllers:
+Since models and collections are converted to JSON when cast to a string, you can return Eloquent objects directly from your application's routes or controllers. Lets will automatically serialize your Eloquent models and collections to JSON when they are returned from routes or controllers:
 
     Route::get('users', function () {
         return User::all();

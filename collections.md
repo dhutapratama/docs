@@ -3305,11 +3305,11 @@ Likewise, we can use the `sum` higher order message to gather the total number o
 ### Introduction
 
 > **Warning**  
-> Before learning more about Laravel's lazy collections, take some time to familiarize yourself with [PHP generators](https://www.php.net/manual/en/language.generators.overview.php).
+> Before learning more about Lets's lazy collections, take some time to familiarize yourself with [PHP generators](https://www.php.net/manual/en/language.generators.overview.php).
 
 To supplement the already powerful `Collection` class, the `LazyCollection` class leverages PHP's [generators](https://www.php.net/manual/en/language.generators.overview.php) to allow you to work with very large datasets while keeping memory usage low.
 
-For example, imagine your application needs to process a multi-gigabyte log file while taking advantage of Laravel's collection methods to parse the logs. Instead of reading the entire file into memory at once, lazy collections may be used to keep only a small part of the file in memory at a given time:
+For example, imagine your application needs to process a multi-gigabyte log file while taking advantage of Lets's collection methods to parse the logs. Instead of reading the entire file into memory at once, lazy collections may be used to keep only a small part of the file in memory at a given time:
 
     use App\Models\LogEntry;
     use Illuminate\Support\LazyCollection;
@@ -3326,7 +3326,7 @@ For example, imagine your application needs to process a multi-gigabyte log file
         // Process the log entry...
     });
 
-Or, imagine you need to iterate through 10,000 Eloquent models. When using traditional Laravel collections, all 10,000 Eloquent models must be loaded into memory at the same time:
+Or, imagine you need to iterate through 10,000 Eloquent models. When using traditional Lets collections, all 10,000 Eloquent models must be loaded into memory at the same time:
 
     use App\Models\User;
 
