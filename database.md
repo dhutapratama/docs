@@ -2,6 +2,8 @@
 
 - [Introduction](#introduction)
     - [Configuration](#configuration)
+    - [MySQL](#mysql-configuration)
+    - [Integration](#integration)
 - [Model](#model)
 - [Repository](#repository)
 - [Running SQL Queries](#running-queries)
@@ -17,7 +19,7 @@ Almost every modern web application interacts with a database. Lets makes intera
 - MariaDB 10.3+ ([Version Policy](https://mariadb.org/about/#maintenance-policy))
 </div>
 
-![Database Diagram](./diagram-database.png)
+![Database Diagram](https://github.com/1ets/docs/raw/main/diagram-database.png)
 
 <a name="configuration"></a>
 ### Configuration
@@ -26,7 +28,7 @@ The configuration for Lets's database services is located in your application's 
 
 By default, Lets's sample [environment configuration](/docs/{{version}}/configuration#environment-configuration) is ready to use  for developing Lets applications on your local machine. However, you are free to modify your database configuration as needed for your local database.
 
-<a name="MySQL-configuration"></a>
+<a name="mysql-configuration"></a>
 #### MySQL Configuration
 
 After the database has been created, you may easily configure your environment variables to point to this database by placing the absolute path to the database in the `DB_DATABASE` environment variable:
