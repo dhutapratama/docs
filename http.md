@@ -19,8 +19,8 @@ Let's take a look at an example of a basic http configurations. Note that the co
 func AppConfigs() {
     frameworks.HttpConfig = &types.HttpServer{
         Port:       os.Getenv("SERVE_HTTP_PORT"),
-        Middleware: services.MiddlewareHttpService,
-        Router:     services.RouteHttpService,
+        Middleware: services.HttpMiddleware,
+        Router:     services.HttpRouter,
     }
 }
 ```
@@ -42,8 +42,8 @@ Anda dapat mengoverride konfigurasi default dengan mengganti value port secara l
 func AppConfigs() {
     frameworks.HttpConfig = &types.HttpServer{
         Port:       "80", // [string] port number
-        Middleware: services.MiddlewareHttpService,
-        Router:     services.RouteHttpService,
+        Middleware: services.HttpMiddleware,
+        Router:     services.HttpRouter,
     }
 }
 ```
